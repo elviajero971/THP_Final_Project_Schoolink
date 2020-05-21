@@ -3,7 +3,9 @@ The Hacking Project Final Project
 
 ## Lexique: 
 Catégories/Mots-clés = Tags
+
 Cours/Compétences = Skills
+
 Liens à l’intérieur des cours = Links
 
 # 1. Présentation
