@@ -7,6 +7,7 @@ class User < ApplicationRecord
   after_create :welcome_send
 
   has_many :subjects
+  has_many :user_ratings
 
   has_one_attached :profile_pic
 

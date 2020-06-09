@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class UserRatingController < ApplicationController
 
   def create
   end
@@ -8,5 +8,5 @@ class CategoriesController < ApplicationController
 
   def destroy
   end
-  
+
 end

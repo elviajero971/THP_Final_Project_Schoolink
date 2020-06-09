@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :profile_pics, only: [:create]
   end  
 
+  root 'static#home'
+  
   devise_for :users
   resources :subjects
 
