@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Subject.destroy_all
+SubCategory.destroy_all
+Category.destroy_all
 
 
 # Admin
@@ -19,47 +22,24 @@ User.create(
   is_admin: true
 )
 
-# User 1
-User.create(
-  nickname: "Hervé Magnan",
-  description: "J'aimerais apprendre à parler espagnol pour pouvoir voyager en Amérique du Sud",
-  email: "herve.magnan@yopmail.com",
-  age: 29,
-  password: "herve29",
-)
+Category.create(name: "Musique")
+Category.create(name: "Développement Web")
+Category.create(name: "Science")
+Category.create(name: "Sport")
 
-# User 2
-User.create(
-  nickname: "Jean-Claude Doux",
-  description: "J'aimerais apprendre la guitare  électrique  pour conquérir le coeur de ma douce",
-  email: "jean-claude.doux@yopmail.com",
-  age: 54,
-  password: "jeanclaude54",
-)
+SubCategory.create(name: "Piano", category_id: Category.find_by(name:"Musique").id)
+SubCategory.create(name: "Violon", category_id: Category.find_by(name:"Musique").id)
+SubCategory.create(name: "Trompette", category_id: Category.find_by(name:"Musique").id)
+SubCategory.create(name: "Mathématiques", category_id: Category.find_by(name:"Science").id)
+SubCategory.create(name: "Physique", category_id: Category.find_by(name:"Science").id)
+SubCategory.create(name: "Chimie", category_id: Category.find_by(name:"Science").id)
+SubCategory.create(name: "Course à pied", category_id: Category.find_by(name:"Sport").id)
+SubCategory.create(name: "Football", category_id: Category.find_by(name:"Sport").id)
+SubCategory.create(name: "Ping Pong", category_id: Category.find_by(name:"Sport").id)
+SubCategory.create(name: "JS", category_id: Category.find_by(name:"Développement Web").id)
+SubCategory.create(name: "HTML5", category_id: Category.find_by(name:"Développement Web").id)
+SubCategory.create(name: "CSS3", category_id: Category.find_by(name:"Développement Web").id)
 
-# User 3
-User.create(
-  nickname: "Brigitte Gallet",
-  description: "Je désire partager ma passion pour la permaculture",
-  email: "brigitte.gallet@yopmail.com",
-  age: 60,
-  password: "brigittegallet60",
-)
-
-# User 4
-User.create(
-  nickname: "el loco",
-  description: "Je suis fan de yoga et j'aimerais en apprendre plus mais également partager mes connaissances dans le domaine.",
-  email: "el-loco.67@yopmail.com",
-  age: 67,
-  password: "eloco67",
-)
-
-# User 5
-User.create(
-  nickname: "Marie Durand",
-  description: "Je suis toujours à la recherche de nouvelles connaissances!",
-  email: "marie.durand@yopmail.com",
-  age: 22,
-  password: "mariedurand22",
-)
+Subject.create(title: "Apprendre le Piano", content: "Pour apprendre le piano il faut aller sur ce lien", user_id: User.last.id, difficulty: "Intermédiaire",sub_category_id: SubCategory.find_by(name:"Piano").id)
+Subject.create(title: "HTML5 & Cie", content: "Pour apprendre le HTML5 il faut aller sur ce lien", user_id: User.first.id, difficulty: "Facile",sub_category_id: SubCategory.find_by(name:"HTML5").id)
+Subject.create(title: "La chimie ça déboite", content: "Pour apprendre la chimie il faut être crazy", user_id: User.last.id, difficulty: "Difficile",sub_category_id: SubCategory.find_by(name:"Chimie").id)
