@@ -1,63 +1,54 @@
-<div class="container pt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-7 text-center">
-      <h1 class="title font-bold">Editer <%= resource_name.to_s.humanize %></h1>
-        <h6 class="subtitle">Renseignez vos nouvelles informations.</h6>
-      </div>
-    </div>        
-  </div>    
-
-<div class="container pt-5">
-  <div class="row">
-    <div class="col-md-12">
-      <form class="row">
+<div class="spacer">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7 text-center mb-3">
+        <h1 class="title font-bold">Modifier mon profil</h1>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-          <div class="form-group col-md-6">
-    <%= f.label :pseudonyme %><br />
-    <%= f.text_field :nickname, autofocus: true %>
-  </div>
-  
-          <div class="form-group col-md-6">
+          <div class="field mb-3">
+            <%= f.label :pseudonyme %><br />
+            <%= f.text_field :nickname, autofocus: true, class: "form-control" %>
+          </div>
 
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "form-control" %>
-  </div>
+          <div class="field mb-3">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "form-control" %>
+          </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+          <div class="field mb-3">
+            <%= f.label :saisir_un_nouveau_mot_de_passe %> 
+            <i><em>(<%= @minimum_password_length %> caractères minimum)</em>
+            </i><br />
+            <%= f.password_field :password, autocomplete: "new-password",  class: "form-control" %>
+            <% if @minimum_password_length %>
+            <br />
+            
+            <% end %>
+          </div>
 
-          <div class="form-group col-md-6">
+          <div class="field mb-3">
+            <%= f.label :confirmation_de_mot_de_passe %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password",  class: "form-control" %>
+          </div>
 
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password",  class: "form-control" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+          <div class="field mb-3">
+            <%= f.label :mot_de_passe_actuel %> <i>(saisie obligatoire en cas de modification)</i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password",  class: "form-control" %>
+          </div>
 
-          <div class="form-group col-md-6">
-
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password",  class: "form-control" %>
-  </div>
-
-          <div class="form-group col-md-6">
-
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password",  class: "form-control" %>
-  </div>
-
-          <div class="form-group col-md-6">
-    <%= f.submit "Update", class: "btn btn-success waves-effect waves-light m-r-10"%>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+          <div class="form-group col-md-12">
+            <%= f.submit "Modifier mon compte", class: "btn btn-success waves-effect waves-light m-r-10 actions"%>
+          </div>
+        <% end %>
+      </div>
+      <div class="row col-md-7 mt-2 text-center">
+        <h4 class="mr-4 text-center">Vous n'êtes pas satisfait ?</h4>
+        <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "En êtes vous sûr ?" }, method: :delete, class: "btn btn-danger waves-effect justify-center waves-light m-r-10 actions" %>
+      </div>
+    </div>
+  </div>        
+</div>    
