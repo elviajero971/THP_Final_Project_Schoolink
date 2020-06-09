@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>THPFinalProjectSchoolink</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>WhiteBoard</title>
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
+    <%= render "layouts/navbar" %>
+    <%= render 'layouts/flash' %>
     <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>
