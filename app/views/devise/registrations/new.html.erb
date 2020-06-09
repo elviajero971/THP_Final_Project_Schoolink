@@ -1,59 +1,43 @@
-<!-- ============================================================== -->
-                <!-- text  -->
-                <!-- ============================================================== -->
-
-<div class="container pt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-7 text-center">
-            <h1 class="title font-bold">S'inscrire</h1>
-            <h6 class="subtitle">Renseignez vos informations.</h6>
-        </div>
-    </div>        
-</div>    
-
-                <!-- ============================================================== -->
-                <!-- End text  -->
-                <!-- ============================================================== -->
-<div class="container pt-5">
-  <div class="row">
-    <div class="col-md-12">
-      <form class="row">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-          <div class="form-group col-md-6">
-            <%= f.label :pseudonyme %>
-            <%= f.text_field :nickname, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group col-md-6">
-            <%= f.label :email %>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
+<%= render "devise/shared/links" %>
+<div class="spacer">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 text-center">
+                <h1 class="title font-bold">S'inscrire</h1>
             </div>
-                <div class="form-group col-md-6">
-                  <%= f.label :mot_de_passe %>
-                    <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> characters minimum)</em>
-                    <% end %>
-                    <%= f.password_field :password, autocomplete: "new-password",  class: "form-control" %>
-                  </div>
-                <div class="form-group col-md-6">
-                  <%= f.label :confirmation_de_mot_de_passe %>
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password",  class: "form-control" %>
-                </div>
-                <div class="form-group col-md-12">
-                  <div class="checkbox checkbox-success">
-                    <input id="checkbox1" type="checkbox">
-                     <label for="checkbox1">Se souvenir de moi </label>
-                      <input id="checkbox1" type="checkbox">
-                      <label for="checkbox1">Accepter la charte WhiteBoard </label>
-                  </div>
-              </div>
-              <div class="col-md-12 pb-5">
-                  <%= f.submit "S'inscrire", class: "btn btn-success waves-effect waves-light m-r-10" %>
-                  <%= render "devise/shared/links" %>
-                </div>
-              <% end %>
-            </form>
-        </div>
-    </div>
+        </div>        
+    </div>    
 </div>
+<div class=" text-center w-50">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.label :pseudonyme%><br />
+      <%= f.text_field :nickname, autofocus: true, class:  "field form-group col-md-6" %>
+    </div>
+    <div class="field">
+      <%= f.label :email%><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:  "field form-group col-md-6" %>
+    </div>                
+    <div class="field">
+      <%= f.label :password%>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class:  "field form-group col-md-6" %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation%><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:  "field form-group col-md-6" %>
+    </div>
+    <div class="form-group col-md-12">
+      <div class="checkbox checkbox-success">
+          <input id="checkbox1" type="checkbox">
+          <label for="checkbox1"> Remember me </label>
+      </div>
+    </div>
+    <div class="form-group col-md-12">
+      <%= f.submit "Sign up", class: "btn btn-success waves-effect waves-light m-r-10 actions" %>
+    </div>
+  <% end %>
 </div>
