@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 User.destroy_all
 Subject.destroy_all
 SubCategory.destroy_all
 Category.destroy_all
+UserRating.destroy_all
 
 
 # Admin
@@ -43,3 +43,7 @@ SubCategory.create(name: "CSS3", category_id: Category.find_by(name:"Développem
 Subject.create(title: "Apprendre le Piano", content: "Pour apprendre le piano il faut aller sur ce lien", user_id: User.last.id, difficulty: "Intermédiaire",sub_category_id: SubCategory.find_by(name:"Piano").id)
 Subject.create(title: "HTML5 & Cie", content: "Pour apprendre le HTML5 il faut aller sur ce lien", user_id: User.first.id, difficulty: "Facile",sub_category_id: SubCategory.find_by(name:"HTML5").id)
 Subject.create(title: "La chimie ça déboite", content: "Pour apprendre la chimie il faut être crazy", user_id: User.last.id, difficulty: "Difficile",sub_category_id: SubCategory.find_by(name:"Chimie").id)
+
+UserRating.create(user_rating: 2, user_id: User.first.id, subject_id: Subject.first.id)
+UserRating.create(user_rating: 3, user_id: User.first.id, subject_id: Subject.last.id)
+
