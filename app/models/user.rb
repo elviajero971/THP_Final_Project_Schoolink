@@ -7,6 +7,7 @@ class User < ApplicationRecord
   after_create :welcome_send
 
   has_many :subjects
+  has_many :user_ratings
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
