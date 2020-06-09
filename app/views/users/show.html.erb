@@ -3,7 +3,7 @@
 <p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@user.id%></p>
 <h3>Avatar actuel</h3>
 <%if @user.profile_pic.attached?%>
-  <%= image_tag @user.profile_pic.variant(resize: '200x200'), alt: 'profile_pic' %>
+  <span class="resize_profile"><%= image_tag @user.profile_pic, alt: 'profile_pic' %></span>
 <%else%>
   <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
 <%end%>
@@ -13,3 +13,5 @@
   <%= file_field_tag :profile_pic %>
   <%= submit_tag "mettre à jour" %>
 <% end %>
+
+<%= cl_image_tag("jumbotron-index.jpg", alt: 'picture', :id => "imgshow", sign_url: true) %>
