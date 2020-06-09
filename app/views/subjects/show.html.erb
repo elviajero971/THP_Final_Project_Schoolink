@@ -1,13 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @subject.title %>
-</p>
+</h1>
 
 <p>
-  <strong>Content:</strong>
-  <%= @subject.content %>
+  <%= markdown(@subject.content) %>
 </p>
 
 <p>
