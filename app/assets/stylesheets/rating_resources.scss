@@ -1,0 +1,19 @@
+.rating {
+  direction: rtl;
+  text-align: left;
+  display: inline-block;
+}
+
+.rating a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 2em;
+  transition: color .4s;
+}
+.rating a:hover,
+.rating a:focus,
+.rating a:hover ~ a,
+.rating a:focus ~ a {
+  color: #2cdd9b;
+  cursor: pointer;
+}

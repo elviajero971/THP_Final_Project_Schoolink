@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @subject.title %>
+</h1>
+
+<p>
+  <%= markdown(@subject.content) %>
+</p>
+
+<p>
+  <strong>Difficulty:</strong>
+  <%= @subject.difficulty %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @subject.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_subject_path(@subject) %> |
+<%= link_to 'Back', subjects_path %>

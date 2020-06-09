@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'static#home'
+  
+  devise_for :users
+  
+  resources :subjects
+  resources :users, only: [:show] do 
+    resources :profile_pics, only: [:create]
+  end
+
 end
