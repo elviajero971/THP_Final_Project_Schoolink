@@ -63,6 +63,3 @@ User.create(
   age: 22,
   password: "mariedurand22",
 )
-
-
-
