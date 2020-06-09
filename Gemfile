@@ -66,3 +66,4 @@ gem 'faker', :git => 'https://github.com/ZeddBox/faker_fr.git', :branch => 'mast
 gem 'table_print'
 gem 'devise'
 gem 'dotenv-rails'
+gem "mini_magick"

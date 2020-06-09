@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :subjects
 
+  has_one_attached :profile_pic
+
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
