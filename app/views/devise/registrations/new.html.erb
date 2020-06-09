@@ -1,9 +1,47 @@
 <div class="spacer">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-7 text-center">
-                <h1 class="title font-bold">S'inscrire</h1>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7 text-center">
+        <h1 class="title font-bold">S'inscrire</h1>
 
+<<<<<<< HEAD
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="field mb-3">
+            <%= f.label :pseudonyme%><br />
+            <%= f.text_field :nickname, autofocus: true, class:  "form-control" %>
+        </div>
+        <div class="field mb-3">
+          <%= f.label :email%><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:  "form-control" %>
+        </div>                
+        <div class="field mb-3">
+          <%= f.label :mot_de_passe%>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> caractères minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class:  "form-control" %>
+        </div>
+        <div class="field mb-3">
+          <%= f.label :confirmation_du_mot_de_passe%><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:  "form-control" %>
+        </div>
+        <div class="form-group col-md-12">
+          <div class="checkbox checkbox-success">
+              <input id="checkbox1" type="checkbox">
+              <label for="checkbox1">Se souvenir de moi</label>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <%= f.submit "S'inscrire", class: "btn btn-success waves-effect waves-light m-r-10 actions" %>
+          <%= render "devise/shared/links" %>
+        </div>
+        <% end %>
+        </div>
+      </div>
+      </div>        
+  </div>    
+=======
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <%= render "devise/shared/error_messages", resource: resource %>
                  <div class="field mb-3">
@@ -40,4 +78,5 @@
             </div>
           </div>        
     </div>    
+>>>>>>> 7d7a00bbfcd120b98e8cea32504601b889199eb2
 </div>
