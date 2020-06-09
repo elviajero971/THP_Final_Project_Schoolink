@@ -1,33 +1,115 @@
-<p id="notice"><%= notice %></p>
+<div class="mini-spacer feature4 mb-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7 text-center">
+        <h2 class="title">Recherche</h2>
+        <h6 class="subtitle">Affinez votre recherche à l’aide de ces deux elements de recherche</h6>
+      </div>
+    </div>
+    
+    <div class="block-search mt-5">
+      <div class="text-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle pl-5 pr-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Catégories
+          </button>
+          <div class="dropdown-menu">
+            <% @categories.each do |category| %>
+              <a class="dropdown-item" href="#"><%= category.name %></a>
+            <% end %>
+          </div>
+        </div>
 
-<h1>Subjects</h1>
+        <div class="btn-group">
+          <button type="button" class="btn btn-info dropdown-toggle pl-5 pr-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sous-catégories
+          </button>
+          <div class="dropdown-menu">
+            <% @subcategories.each do |subcategory| %>
+              <a class="dropdown-item" href="#"><%= subcategory.name %></a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Difficulty</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @subjects.each do |subject| %>
-      <tr>
-        <td><%= subject.title %></td>
-        <td><%= subject.content %></td>
-        <td><%= subject.difficulty %></td>
-        <td><%= subject.user_id %></td>
-        <td><%= link_to 'Show', subject %></td>
-        <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-        <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="mini-spacer feature20 up mb-5">
 
-<br>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-7">
+            <h2 class="title">Les ressources</h2>
+          </div>
+      </div>
 
-<%= link_to 'New Subject', new_subject_path %>
+      
+      <div class="row wrap-feature-20">
+      <% @subjects.each do |subject| %>
+        <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
+          <div class="card shadow bg-light">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card-body d-flex no-block">
+                  <div class="w-100">
+                    <h5 class="font-medium mb-0"><%= subject.title %></h5>
+                    <small><p>hawai36825</p></small>
+                    <div class="row">
+                      <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
+                      <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
+                      <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 text-center">
+                <a href=<%= subject_path(subject.id) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="bg-light spacer feature20 up mt-5">
+
+  <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h2 class="title">Les ressources les mieux notées</h2>
+        </div>
+      </div>
+      
+      <div class="row wrap-feature-20">
+      <% @subjects.each do |subject| %>
+        <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
+          <div class="card">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card-body d-flex no-block">
+                  <div class="w-100">
+                    <h5 class="font-medium mb-0"><%= subject.title %></h5>
+                    <small><p>hawai36825</p></small>
+                    <div class="row">
+                      <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
+                      <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
+                      <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 text-center">
+                  <a href="javascript:void(0)" class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
