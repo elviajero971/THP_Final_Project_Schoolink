@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_124120) do
+ActiveRecord::Schema.define(version: 2020_06_09_133607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,10 +38,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_124120) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.bigint "sub_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sub_category_id"], name: "index_categories_on_sub_category_id"
   end
 
   create_table "join_fav_subjects", force: :cascade do |t|
@@ -71,17 +69,12 @@ ActiveRecord::Schema.define(version: 2020_06_09_124120) do
     t.index ["user_id"], name: "index_join_validate_subjects_on_user_id"
   end
 
-  create_table "resources", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sub_categories", force: :cascade do |t|
     t.string "name"
-    t.bigint "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subject_id"], name: "index_sub_categories_on_subject_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -91,6 +84,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_124120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "difficulty"
+    t.bigint "sub_category_id"
+    t.index ["sub_category_id"], name: "index_subjects_on_sub_category_id"
     t.index ["user_id"], name: "index_subjects_on_user_id"
   end
 

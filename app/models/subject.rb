@@ -21,4 +21,8 @@ class Subject < ApplicationRecord
     return rating
   end
 
+  def category
+    cat = self.sub_category.category
+    return cat
+  end
 end
