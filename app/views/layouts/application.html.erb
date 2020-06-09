@@ -21,15 +21,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
+  
   <body>
     <%= render "layouts/navbar" %>
     <%= render 'layouts/flash' %>
     <%= yield %>
     <%= render "layouts/footer" %>
+
 
     <script src="vendor/assets/javascripts/jquery.js"></script>
 
@@ -37,6 +39,5 @@
     <script src="vendor/assets/javascripts/bootstrap.js"></script>
 
     <script src="vendor/assets/javascripts/custom.js"></script>
-
   </body>
 </html>
