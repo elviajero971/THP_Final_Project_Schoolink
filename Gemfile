@@ -64,4 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker', :git => 'https://github.com/ZeddBox/faker_fr.git', :branch => 'master'
 gem 'table_print'
 gem 'devise'
-gem 'dotenv'
+gem 'dotenv-rails'
