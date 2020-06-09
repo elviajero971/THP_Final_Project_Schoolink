@@ -241,7 +241,8 @@ Feature 20
   .wrap-feature-20 .linking {
     width: 100%;
     display: block;
-    padding: 35px 0; }
+    padding-top: 50px;
+    height: 100%; }
 
 /*******************
 Feature 30
@@ -362,4 +363,9 @@ Responsive
     font-size: 60px;
     line-height: 60px; }
   .topbar {
-    background: #263238; } }
+    background: #263238; }
+  
+    .wrap-feature-20 .linking {
+      padding: 10px 0;  
+    }
+  }
