@@ -1,4 +1,4 @@
-# THP_Final_Project_Schoolink
+# THP Final Project Schoolink
 The Hacking Project Final Project
 
 ## Lexique: 
@@ -51,7 +51,7 @@ Step 4: Tout au long de son expérience sur notre site, l’utilisateur connect�
 ## 3.1. Base de données
 Notre base de données va évoluer au fil du projet et de nos réflexions mais voici une ébauche:   
 
-![BDD Schoolink](https://imagizer.imageshack.com/v2/723x505q90/923/PFaJjA.png "bdd_thp_schoolink")
+![BDD Schoolink](https://app.genmymodel.com/api/projects/_R3eXsJkeEeqEM7mFKilpXw/diagrams/_R3eXspkeEeqEM7mFKilpXw/svg "bdd_thp_schoolink")
 
 ## 3.2. Front
     • La landing page contient un court texte qui explique le concept du site, une liste de quelques skills déjà mise en ligne sur la plateforme, une barre de recherche.
@@ -99,7 +99,7 @@ Un utilisateur peut:
 
 # 6. Le mentor
 Toujours à la recherche de notre mentor ! 
-On est dispos sur Slack ! 
+On est dispos sur Slack !
 @Jessica
 @Julien Anceau
 @Alex Frezoul
