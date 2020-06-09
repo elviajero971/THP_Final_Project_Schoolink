@@ -86,13 +86,12 @@ Static slide 10
   background-size: cover;
   background-position: center center; }
   .static-slider10 .title {
-    color: #ffffff;
+   
     text-transform: uppercase;
     font-weight: 700;
     font-size: 48px;
     line-height: 50px; }
-  .static-slider10 .subtitle {
-    color: #ffffff; }
+ 
 
 @media (max-width: 900px) {
   .static-slider10 .title {

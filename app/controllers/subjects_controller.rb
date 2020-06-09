@@ -5,6 +5,8 @@ class SubjectsController < ApplicationController
   # GET /subjects.json
   def index
     @subjects = Subject.all
+    @categories = Category.all
+    @subcategories = SubCategory.all
   end
 
   # GET /subjects/1
