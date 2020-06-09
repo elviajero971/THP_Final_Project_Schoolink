@@ -67,3 +67,5 @@ gem 'table_print'
 gem 'devise'
 gem 'dotenv-rails'
 gem "cloudinary"
+gem 'redcarpet'
+gem  'pygments.rb'
