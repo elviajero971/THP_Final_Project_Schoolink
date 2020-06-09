@@ -24,11 +24,18 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
+  
   <body>
     <%= render "layouts/navbar" %>
     <%= render 'layouts/flash' %>
     <%= yield %>
     <%= render "layouts/footer" %>
+
+    <script src="../assets/node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="../assets/node_modules/popper/dist/popper.min.js"></script>
+    <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="js/custom.min.js"></script>
   </body>
 </html>
