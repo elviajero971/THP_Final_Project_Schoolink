@@ -68,6 +68,7 @@
     </div>
 
     <div class="text-center">
+      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete %> |
       <%= link_to 'Modifier', edit_subject_path(@subject) %> |
       <%= link_to 'Retour', subjects_path %>
     </div>

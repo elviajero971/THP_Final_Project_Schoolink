@@ -1,5 +1,5 @@
 class SubCategory < ApplicationRecord
-  belongs_to :category
-  has_many :subjects
+  belongs_to :category, dependent: :destroy
+  has_many :subjects, dependent: :destroy
   
 end
