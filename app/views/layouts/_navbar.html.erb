@@ -12,10 +12,10 @@
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="h1-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Mon Pseudo <i class="fa fa-angle-down m-l-5"></i>
+                 <%= current_user.nickname %> <i class="fa fa-angle-down m-l-5"></i>
               </a>
               <ul class="b-none dropdown-menu animated fadeInUp">
-                <li><%= link_to "Mon Board", root_path, :class => "dropdown-item" %></li>
+                <li><%= link_to "Mon Board", user_path(current_user.id), class: "dropdown-item" %></li>
                 <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class => "dropdown-item"  %></li>            
               </ul>
             </li>
