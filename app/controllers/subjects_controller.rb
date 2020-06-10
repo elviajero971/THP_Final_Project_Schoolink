@@ -22,6 +22,7 @@ class SubjectsController < ApplicationController
 
   def show
     @user = User.find(@subject.user_id)
+    @subject = Subject.find_by(id: params[:id])
   end
 
   def new
@@ -31,6 +32,7 @@ class SubjectsController < ApplicationController
   end
 
   def edit
+    @subcategories = SubCategory.all
   end
 
   def create
@@ -43,23 +45,15 @@ class SubjectsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @subject.update(subject_params)
-        format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }
-        format.json { render :show, status: :ok, location: @subject }
-      else
-        format.html { render :edit }
-        format.json { render json: @subject.errors, status: :unprocessable_entity }
-      end
-    end
+    @subject = Subject.find_by(id:params[:id])
+    @subject.update(subject_params)
+    redirect_to subject_path(@subject.id)
   end
 
   def destroy
+    @subject = Subject.find_by(id:params[:id])
     @subject.destroy
-    respond_to do |format|
-      format.html { redirect_to subjects_url, notice: 'Subject was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_path
   end
 
   private
@@ -69,6 +63,6 @@ class SubjectsController < ApplicationController
     end
 
     def subject_params
-      params.require(:subject).permit(:title, :content, :sub_category_id)
+      params.require(:subject).permit(:title, :content, :sub_category_id, :difficulty)
     end
 end

@@ -1,4 +1,4 @@
-<div class="mini-spacer feature4 mb-5">
+<div class="feature4 mb-5">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-7 text-center">
@@ -7,47 +7,25 @@
       </div>
     </div>
 
-
-
-
-<div class="block-search mt-5">
-  <div class="text-center">
-    <div class="btn-group">
-      <%= form_tag subjects_path, method: 'GET', :class => "pl-5 pr-5" do %>
-        <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-primary mr-5")%>
-        <%= button_tag 'Rechercher', :class => 'btn btn-secondary'%>
-      <% end %>
-    </div>
-    <div class="btn-group">
-      <%= form_tag subjects_path, method: 'GET' do %>
-        <%= button_tag 'Reset', :class => 'btn btn-secondary'%>
-      <% end %>
-    </div>
-  </div>
-</div>
-
     <div class="block-search mt-5">
       <div class="text-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle pl-5 pr-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Catégories
-          </button>
-          <div class="dropdown-menu">
-            <% @categories.each do |category| %>
-            <a class="dropdown-item" href="#"><%= category.name %></a>
-            <% end %>
-          </div>
+          <%= form_tag subjects_path, method: 'GET', :class => "pl-5 pr-5" do %>
+          <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-primary mr-5")%>
+          <%= button_tag 'Rechercher', :class => 'btn btn-secondary'%>
+          <% end %>
+        </div>
+        <div class="btn-group">
+          <%= form_tag subjects_path, method: 'GET' do %>
+          <%= button_tag 'Reset', :class => 'btn btn-secondary'%>
+          <% end %>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
-
-
-
-<div class="mini-spacer feature20 up mb-5">
+<div class="feature20 up mb-5">
 
   <div class="container">
     <div class="row">
@@ -66,7 +44,9 @@
               <div class="card-body d-flex no-block">
                 <div class="w-100">
                   <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                  <small><p><%= @users.find_by(id:subject.user_id).nickname %></p></small>
+                  <small>
+                    <p><%= @users.find_by(id:subject.user_id).nickname %></p>
+                  </small>
                   <div class="row">
                     <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
                     <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
@@ -104,7 +84,9 @@
               <div class="card-body d-flex no-block">
                 <div class="w-100">
                   <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                   <small><p><%= @users.find_by(id:subject.user_id).nickname %></p></small>
+                  <small>
+                    <p><%= @users.find_by(id:subject.user_id).nickname %></p>
+                  </small>
                   <div class="row">
                     <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
                     <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>

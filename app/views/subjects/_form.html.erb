@@ -27,7 +27,7 @@
 
       <div class="col-md-25 ml-1">
         <div class="field ml-0">
-          <%= form.select(:sub_category, ['Cuisine', 'Sport', 'Bien-être'], {include_blank: "Sous-catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+          <%= form.select(:sub_category_id, options_for_select(@subcategories.map {|u|[u.name,u.id]}), {include_blank: "Sous-catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
         </div>
       </div>
 
