@@ -4,9 +4,19 @@ class SubjectsController < ApplicationController
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects = Subject.all
+    @subcategories = SubCategory.all
+    @categories = Category.all
 
-    if params[:sort]
+    if params[:category] && params[:category][:name]
+      @subjects = []
+      Subject.all.each do |subject|
+        if subject.category == params[:category][:name]
+          @subjects << subject
+        end
+      end
+    else 
+      @subjects = Subject.all  
+    end
   end
 
   def show

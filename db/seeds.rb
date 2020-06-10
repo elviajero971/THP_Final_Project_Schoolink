@@ -46,7 +46,7 @@ Subject.create(title: "La chimie ça déboite", content: "Pour apprendre la chim
 Subject.create(title: "Tout sur la coupe du monde 98", content: "Culture gééééénéraleee sur la coupe du monde 98", user_id: User.last.id, difficulty: "Facile",sub_category_id: SubCategory.find_by(name:"Football").id)
 Subject.create(title: "Apprendre à jouer au Ping Pong comme un chinois", content: "Tu veux être un dingue de Ping Pong ? Clique ici !", user_id: User.first.id, difficulty: "Difficile",sub_category_id: SubCategory.find_by(name:"Ping Pong").id)
 
-UserRating.create(user_rating: 2, user_id: User.first.id, subject_id: Subject.first.id)
+UserRating.create(user_rating: 4, user_id: User.first.id, subject_id: Subject.first.id)
 UserRating.create(user_rating: 3, user_id: User.first.id, subject_id: Subject.last.id)
 UserRating.create(user_rating: 5, user_id: User.first.id, subject_id: Subject.find_by(title:"Tout sur la coupe du monde 98").id)
 UserRating.create(user_rating: 1, user_id: User.first.id, subject_id: Subject.find_by(title:"HTML5 & Cie").id)
