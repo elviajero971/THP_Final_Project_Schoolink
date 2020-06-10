@@ -22,28 +22,24 @@
 
 
 <div class="row justify-center">
-  <div class="col-md-25">
+  <div class="col-md-25 ml-1">
       <div class="field ml-2 pl-5">
-        <%= form.select(:difficulty, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Difficulté"}, :class => 'btn btn-secondary dropdown-toggle') %>
+        <%= form.select(:difficulty, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
       </div>
     </div>
-    
-  <div class="col-md-25 ml-1">
-    <div class="field ml-0">
-      <%= form.select(:category, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Catégorie"}, :class => 'btn btn-secondary dropdown-toggle') %>
-    </div>
-  </div>
 
-<div class="col-md-5 ml-0 pr-5 mr-5">
-    <div class="field ml-0 pr-5 mr-5">
-      <%= form.select(:sub_category, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Sous-catégorie"}, :class => 'btn btn-secondary dropdown-toggle') %>
+<div class="col-md-25 ml-1">
+    <div class="field ml-0">
+      <%= form.select(:sub_category, ['Cuisine', 'Sport', 'Bien-être'], {include_blank: "Sous-catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
     </div>
 </div>
- 
 
+<div class="col-md-5 ml-0">
+</div>
+ 
   <div class="actions">
     <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow', id: 'validForm') do %>
-    <span class="white-text mr-1 pl-4 pr-4"> CRÉER</span>
+    <span class="white-text mr-1 pl-5 pr-5"> CRÉER</span>
     <% end %>
   </div>
   </div>

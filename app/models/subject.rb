@@ -6,7 +6,6 @@ class Subject < ApplicationRecord
   validates :title, presence: true, 
                     length: {maximum: 100}
 
-  
 
   def howManyFav
     fav = 0
@@ -15,13 +14,21 @@ class Subject < ApplicationRecord
   end
 
   def usersRating
-    rating = 0
+    count = self.user_ratings.length
+    ratings = 0
+    self.user_ratings.each do |r|
+      ratings += r.user_rating
+    end
+    return ((ratings.fdiv(count)).to_f).round(2)
+  end
 
-    return rating
+  def category
+    subcat = SubCategory.find_by(id: self.sub_category_id)
+    return subcat.category.name
   end
 
   def subcategory
-    cat = self.sub_category.category
-    return cat
+    subcat = SubCategory.find_by(id: self.sub_category_id)
+    return subcat.name
   end
 end
