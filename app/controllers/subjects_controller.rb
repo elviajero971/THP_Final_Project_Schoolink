@@ -26,22 +26,20 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new
+    @subjects = Subject.all
+    @subcategories = SubCategory.all
   end
 
   def edit
   end
 
   def create
-    @subject = Subject.new(subject_params)
-    respond_to do |format|
+    @subject = Subject.new(title: params[:title], content: params[:content], user_id: current_user.id, sub_category_id: params[:sub_category_id],difficulty: params[:difficulty] )
       if @subject.save
-        format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
-        format.json { render :show, status: :created, location: @subject }
+        redirect_to @subject, notice: 'Subject was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @subject.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   def update
@@ -71,6 +69,6 @@ class SubjectsController < ApplicationController
     end
 
     def subject_params
-      params.require(:subject).permit(:title, :content, :difficulty)
+      params.require(:subject).permit(:title, :content, :sub_category_id)
     end
 end
