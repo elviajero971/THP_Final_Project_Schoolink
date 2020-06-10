@@ -1,34 +1,68 @@
+<%= render 'dashboard_top' %>
 
-<div class="bg-light spacer feature20 up">
+<div class="mini-spacer feature20 up mb-5">
+
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-7">
-
-            <div class="col-md-3 col-6 wrap-feature4-box float-left mb-4">
-                <%if @user.profile_pic.attached?%>
-                  <span class="resize_profile"><%= image_tag @user.profile_pic, alt: 'profile_pic', class:"icon-round bg-light-info" %></span>
-                <%else%>
-                  <div class="icon-round bg-light-info"><i class="fa fa-user fa-lg"></i></div>
-                <%end%>
-            </div>
-
-            <h2 class="title"><%=@user.nickname.upcase%></h2>
-            <h6 class="subtitle">Pour le moment vous n'avez pas de description liée à votre profil. Vous pouvez en ajouter une en modifiant votre profil.</h6>
-
-            <div class="block-search mt-5">
-            <div class="text-center">
-                <div class="btn-group">
-                <%= link_to "Editez votre profil", edit_user_path(current_user.id), class:"btn btn-primary" %>
+      <div class="row wrap-feature-20">
+            <% if Subject.find_by(user_id: @user.id) == nil %>
+               <span class="card-text mb-4"> Vous n'avez pas encore créée de ressource </span>
+            <% else %>
+              <% Subject.all.each do |subject| %>
+                <% if subject.user_id == current_user.id %>
+                  <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
+                    <div class="card shadow bg-light">
+                      <div class="row">
+                        <div class="col-md-8">
+                         <div class="card-body d-flex no-block">
+                            <div class="w-100">
+                              <h5 class="font-medium mb-0"><%= subject.title %></h5>
+                              <small><p>subject.user_id</p></small>
+                            <div class="row">
+                              <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
+                              <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
+                              <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      <div class="col-md-4 text-center">
+                        <a href=<%= subject_path(subject.id) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
+                      </div>
+                 </div>
                 </div>
-            <div class="btn-group">
-              <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-info" %>
-            </div>    
-
-          </div>
-        </div>
-      </div>
+              </div>
+          <% end %>
+          <% end %>
+    <% end %>
     </div>
   </div>
 </div>
 
-
+<div class="row wrap-feature-20">
+      <% Subject.all.each do |subject| %>
+        <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
+          <div class="card shadow bg-light">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card-body d-flex no-block">
+                  <div class="w-100">
+                    <h5 class="font-medium mb-0"><%= subject.title %></h5>
+                    <small><p>hawai36825</p></small>
+                    <div class="row">
+                      <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
+                      <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
+                      <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 text-center">
+                <a href=<%= subject_path(subject.id) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
