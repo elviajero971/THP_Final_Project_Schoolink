@@ -34,10 +34,16 @@
       <div class="col-md-5 ml-0">
       </div>
 
-      <div class="actions">
-        <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow', id: 'validForm') do %>
-        <span class="white-text mr-1 pl-5 pr-5"> CRÉER</span>
+      <div class="actions mt-4mb-4">
+        <%= button_tag(type: 'submit', :class => 'btn btn-primary', id: 'validForm') do %>
+          <span class="white-text mr-1 pl-5 pr-5"> CRÉER</span>
         <% end %>
+        <div type="button" class="btn btn-outline-primary">
+          <%= link_to 'Show', @subject %>
+        </div>
+        <div class="btn btn-outline-primary">
+          <%= link_to 'Back', subjects_path %>
+        </div>
       </div>
     </div>
   </div>
