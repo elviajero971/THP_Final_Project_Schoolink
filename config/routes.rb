@@ -10,4 +10,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :edit] do 
     resources :profile_pics, only: [:create]
   end
+
+  namespace :admin do
+    root to: 'admin/items#index'
+    resources :dashboard, only: [:index], path: 'dashboard'
+    resources :subjects
+  end
+
 end
