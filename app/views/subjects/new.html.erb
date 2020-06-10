@@ -1,40 +1,40 @@
 <div class="spacer">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-              <h1 class="title font-bold">Créer une Ressource</h1>
-              <h6 class="subtitle">Partagez votre expérience d'apprentissage avec les membres de la communauté.</h6>
-            </div>
-          </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <h1 class="title font-bold">Créer une Ressource</h1>
+        <h6 class="subtitle">Partagez votre expérience d'apprentissage avec les membres de la communauté.</h6>
       </div>
     </div>
-              <div class="row">
-               <a href="#" class="subtitle ml-5">Comment bien expliquer mes liens?</a>
-          </div>
+  </div>
+</div>
+<div class="row">
+  <a href="#test" class="subtitle ml-5">Comment bien expliquer mes liens?</a>
+</div>
 
 
-<%= render 'form', subject: @subject %>
+<%= render 'form_new', subject: @subject %>
 
 <div class="spacer">
-                    <div class="container">
-                    <blockquote>
+  <div class="container">
+    <blockquote>
 
-                        <div class="row">
-                            <div class="col-md-11 ml-5">
-                                <h1 class="title text-center">GUIDE : Optimisez la création de votre ressource.</h1>
-                                <p class="subtitle text-center pb-3">Suivez notre guide pour rédiger votre ressource et ainsi faciliter la lecture de votre ressource par les autres membres<p>
-                                <h3> ETAPE 1</h3>
-                                <p>Trouvez un titre accrocheur et explicite à votre ressource. Quel savoir voulez-vous transmettre ? Écrivez le titre en gras en utilisant un `# `</p>
-                                <h3> ETAPE 2</h3>
-                                <p>Rédigez une introduction de quelques lignes pour décrire ce que vous souhaitez transmettre par cette ressource. Écrivez l’introduction en gras en utilisant `## `</p>
-                                <h3> ETAPE 3</h3>
-                                <p>Racontez votre expérience d’apprentissage. Qu’est-ce qui vous a incité à apprendre cette ressource ? Combien de temps vous a-t-il fallu pour sentir plus à l’aise avec ce savoir ? Quelles sont les difficultés que vous avez rencontrés ? etc.</p>
-                                <h3> ETAPE 4</h3>
-                                <p>Intégrez les liens externes que vous voulez partager en expliquant pourquoi un tel vous a été utile.</p>                                                                
-                            </div>
-                        </div>        
-                    </div>    
-                </div>
+      <div class="row">
+        <div class="col-md-11 ml-5">
+          <h1 class="title text-center" id="test">GUIDE : Optimisez la création de votre ressource.</h1>
+          <p class="subtitle text-center pb-3">Suivez notre guide pour rédiger votre ressource et ainsi faciliter la lecture de votre ressource par les autres membres<p>
+              <h3> ETAPE 1</h3>
+              <p>Trouvez un titre accrocheur et explicite à votre ressource. Quel savoir voulez-vous transmettre ? Écrivez le titre en gras en utilisant un `# `</p>
+              <h3> ETAPE 2</h3>
+              <p>Rédigez une introduction de quelques lignes pour décrire ce que vous souhaitez transmettre par cette ressource. Écrivez l’introduction en gras en utilisant `## `</p>
+              <h3> ETAPE 3</h3>
+              <p>Racontez votre expérience d’apprentissage. Qu’est-ce qui vous a incité à apprendre cette ressource ? Combien de temps vous a-t-il fallu pour sentir plus à l’aise avec ce savoir ? Quelles sont les difficultés que vous avez rencontrés ? etc.</p>
+              <h3> ETAPE 4</h3>
+              <p>Intégrez les liens externes que vous voulez partager en expliquant pourquoi un tel vous a été utile.</p>
+        </div>
+      </div>
+  </div>
+</div>
 </blockquote>
 
 <%= link_to 'Back', subjects_path %>

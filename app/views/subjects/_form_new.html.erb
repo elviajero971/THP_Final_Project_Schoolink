@@ -1,0 +1,28 @@
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= label_tag 'Titre' %>
+    <%= text_field_tag 'title', @subject.title, class:"form-control" %>
+  </div>
+
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= label_tag 'Contenu' %>
+    <%= text_area_tag 'content', @subject.content, class:"form-control" %>
+  </div>
+  
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= label_tag "Sous-catégorie" %>
+    <%= select_tag(:sub_category_id, options_for_select(@subcategories.map {|u|[u.name,u.id]})) %>
+  </div>
+
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= label_tag "Difficulté" %>
+    <%= select_tag(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'])) %>
+  </div>
+
+  <div class="actions text-center">
+    <%= submit_tag "Créer", class:"btn btn-success mt-3"%>
+  </div>
+<% end %>
