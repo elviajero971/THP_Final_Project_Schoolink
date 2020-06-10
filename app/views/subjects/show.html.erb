@@ -4,68 +4,95 @@
       <div class="ml-3 mr-3 w-100">
         <div class="card card-shadow">
           <div class="card-body">
-            <div class="float-right">
-              <%= link_to root_path do %>
-              <i class="fa fa-bookmark fa-2x mr-4 mt-1 icon-bookmark" aria-hidden="true"></i>
-              <% end %>
-              <h5 class="float-right border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
-              <h5 class="float-right border border-dark p-2"><strong><%= @subject.subcategory %></strong></h5>
-              <h5 class="float-right border border-dark p-2"><strong><%= @subject.category %></strong></h5>
-            </div>
-            <h2><%= @subject.title %></h2>
-            <%= markdown(@subject.content) %>
-          </div>
-          <div class="card-footer">
-            <div class="row pl-3 pr-3">
-              <div class="rating">
-                <a href="#5" title="Donner 5 étoiles">☆</a>
-                <a href="#4" title="Donner 4 étoiles">☆</a>
-                <a href="#3" title="Donner 3 étoiles">☆</a>
-                <a href="#2" title="Donner 2 étoiles">☆</a>
-                <a href="#1" title="Donner 1 étoile">☆</a>
+            <div class="card-body">
+              <div class="float-right">
+                <%= link_to join_fav_subject_path(params[:id]), remote: true, method: 'put' do %>
+                <i class="fa fa-bookmark fa-2x mr-4 mt-1 icon-bookmark" aria-hidden="true">ADD</i>
+                <% end %>
+                <%= link_to join_fav_subject_path(params[:id]), remote: true, method: 'delete' do %>
+                <i class="fa fa-bookmark fa-2x mr-4 mt-1 icon-bookmark" aria-hidden="true">DELETE</i>
+                <% end %>
+                <h5 class="float-right border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
               </div>
-              <h6 class="mt-3 ml-3 text-success">2/5</h6>
-              <div class="ml-auto mt-2">
-                <button type="button" class="btn btn-secondary btn-outline" data-toggle="tooltip" data-placement="top" title="Ressource en cours de consultation">En cours</button>
-                <button type="button" class="btn btn-secondary btn-outline ml-3" data-toggle="tooltip" data-placement="top" title="Ressource terminée">Terminée</button>
+              <h2><%= @subject.title %></h2>
+              <%= markdown(@subject.content) %>
+            </div>
+            <div class="card-footer">
+              <div class="row pl-3 pr-3">
+                <div class="rating">
+                  <%= form_with method: "PUT", url: user_rating_path  do |form| %>
+                  <%= form.hidden_field :user_rating, :value => 5 %>
+                  <%= form.submit "☆"%>
+                  <% end %>
+                  <%= form_with method: "PUT", url: user_rating_path  do |form| %>
+                  <%= form.hidden_field :user_rating, :value => 4 %>
+                  <%= form.submit "☆"%>
+                  <% end %>
+                  <%= form_with method: "PUT", url: user_rating_path  do |form| %>
+                  <%= form.hidden_field :user_rating, :value => 3 %>
+                  <%= form.submit "☆"%>
+                  <% end %>
+                  <%= form_with method: "PUT", url: user_rating_path  do |form| %>
+                  <%= form.hidden_field :user_rating, :value => 2 %>
+                  <%= form.submit "☆"%>
+                  <% end %>
+                  <%= form_with method: "PUT", url: user_rating_path  do |form| %>
+                  <%= form.hidden_field :user_rating, :value => 1 %>
+                  <%= form.submit "☆"%>
+                  <% end %>
+
+                </div>
+                <h6 class="mt-3 ml-3 text-success"><%= @subject.usersRating %></h6>
+                <div class="ml-auto mt-2">
+                  <%= form_with method: "PUT", url: join_read_subject_path  do |form| %>
+                  <%= form.submit "Suivre".html_safe, class:"btn btn-secondary btn-outline"%>
+                  <% end %>
+                  <%= form_with method: "DELETE", url: join_read_subject_path  do |form| %>
+                  <%= form.submit "Ne plus suivre".html_safe, class:"btn btn-secondary btn-outline"%>
+                  <% end %>
+                  <%= form_with method: "PUT", url: join_validate_subject_path  do |form| %>
+                  <%= form.submit "Noté comme terminée".html_safe, class:"btn btn-secondary btn-outline ml-3"%>
+                  <% end %>
+                  <%= form_with method: "DELETE", url: join_validate_subject_path  do |form| %>
+                  <%= form.submit "Noté comme non-terminée".html_safe, class:"btn btn-secondary btn-outline ml-3"%>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
+    </div>
+
+    <div class="text-center">
+      <%= link_to 'Modifier', edit_subject_path(@subject) %> |
+      <%= link_to 'Retour', subjects_path %>
     </div>
   </div>
 
-  <div class="text-center">
-    <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete %> |
-    <%= link_to 'Modifier', edit_subject_path(@subject) %> |
-    <%= link_to 'Retour', subjects_path %>
-  </div>
-</div>
 
-
-<div class="bg-light spacer up">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div>
-        <div class="wrap-feature4-box float-left mb-4">
-          <% if @user.profile_pic.attached? %>
-          <span><%= image_tag @user.profile_pic, alt: 'profile_pic', class:"img_sizing mr-5" %></span>
-          <%else%>
-          <div class="no_img_sizing bg-light-info mr-5 text-center "><i class="fa fa-user fa-5x"></i></div>
-          <% end %>
-        </div>
-        <p class="title">Auteur</p>
-        <h2 class="title"><%= @user.nickname.upcase %></h2>
-        <h6 class="subtitle">Pour le moment vous n'avez pas de description liée à votre profil. Vous pouvez en ajouter une en modifiant votre profil.</h6>
-        <div class="block-search mt-5">
-          <div class="btn-group">
-            <%= link_to "Voir profil", user_path(@user.id), class:"btn btn-primary" %>
+  <div class="bg-light spacer up">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div>
+          <div class="wrap-feature4-box float-left mb-4">
+            <% if @user.profile_pic.attached? %>
+            <span><%= image_tag @user.profile_pic, alt: 'profile_pic', class:"img_sizing mr-5" %></span>
+            <%else%>
+            <div class="no_img_sizing bg-light-info mr-5 text-center "><i class="fa fa-user fa-5x"></i></div>
+            <% end %>
+          </div>
+          <p class="title">Auteur</p>
+          <h2 class="title"><%= @user.nickname.upcase %></h2>
+          <h6 class="subtitle"><%= @user.description %></h6>
+          <div class="block-search mt-5">
+            <div class="btn-group">
+              <%= link_to "Voir profil", user_path(@user.id), class:"btn btn-primary" %>
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
-</div>
