@@ -11,33 +11,37 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :titre %>
-    <%= form.text_field :title, class: "form-control" %>
+
+  <div class="field form-group shadow-textarea no-font pl-5 pr-5">
+    <%= form.text_field :title, class: "form-control z-depth-1", placeholder: "# Titre du sujet" %>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :difficulty %>
-    <%= form.text_field :difficulty, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, class: "form-control" %>
+  <div class="field form-group shadow-textarea pl-5 pr-5">
+    <%= form.text_area :content, class: "form-control z-depth-1", placeholder: "Écris ton contenu...", rows: "20" %>
   </div>
 
 
-  <div class="field">
-    <%= form.label :sub_category %>
-    <%= form.number_field :sub_category_id, class: "form-control" %>
-  </div>
+<div class="row justify-center">
+  <div class="col-md-25 ml-1">
+      <div class="field ml-2 pl-5">
+        <%= form.select(:difficulty, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+      </div>
+    </div>
 
+<div class="col-md-25 ml-1">
+    <div class="field ml-0">
+      <%= form.select(:sub_category, ['Cuisine', 'Sport', 'Bien-être'], {include_blank: "Sous-catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+    </div>
+</div>
+
+<div class="col-md-5 ml-0">
+</div>
+ 
   <div class="actions">
-    <%= form.submit %>
+    <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow', id: 'validForm') do %>
+    <span class="white-text mr-1 pl-5 pr-5"> CRÉER</span>
+    <% end %>
   </div>
+  </div>
+</div>
 <% end %>
