@@ -1,0 +1,7 @@
+<h1>THIS IS THE EDIT PAGE Y'ALL</h1>
+
+            <h3>Changer de photo de profil ?</h3>
+            <%= form_tag user_profile_pics_path(@user), multipart: true do %>
+              <%= file_field_tag :profile_pic %>
+              <%= submit_tag "mettre à jour" %>
+            <% end %>
