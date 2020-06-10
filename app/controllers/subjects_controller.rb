@@ -7,11 +7,13 @@ class SubjectsController < ApplicationController
     @subjects = Subject.all
     @categories = Category.all
     @subcategories = SubCategory.all
+    @users = User.all
   end
 
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    @user = User.find(@subject.user_id)
   end
 
   # GET /subjects/new

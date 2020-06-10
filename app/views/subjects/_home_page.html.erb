@@ -56,7 +56,7 @@
                 <div class="card-body d-flex no-block">
                   <div class="w-100">
                     <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                    <small><p>hawai36825</p></small>
+                    <small><p><%= @users.find_by(id:subject.user_id).nickname %></p></small>
                     <div class="row">
                       <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
                       <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
@@ -94,7 +94,7 @@
                 <div class="card-body d-flex no-block">
                   <div class="w-100">
                     <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                    <small><p>hawai36825</p></small>
+                    <small><p><%= @users.find_by(id:subject.user_id).nickname %></p></small>
                     <div class="row">
                       <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
                       <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
