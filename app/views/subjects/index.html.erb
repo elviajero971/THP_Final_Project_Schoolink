@@ -7,6 +7,25 @@
       </div>
     </div>
     
+
+    <%= form_tag(subjects_path, method: "get") do %>
+      <select name=category[:name], class="form-control">
+        <option value="None">Sélectionne une catégorie</option>
+        <option value="Musique">Musique</option>
+        <option value="Musique">Développement Web</option>
+        <option value="Musique">Science</option>
+        <option value="Musique">Sport</option>
+      </select>
+      </br>
+
+      <%= submit_tag "Rechercher", name: :sort %>
+    <% end %>
+
+
+      <%= select_tag(:category_id, options_for_select(Category.pluck(:name, :id)),  class: "form-control custom-select" )%>
+      <%= select_tag(:sub_category_id, options_for_select(Category.pluck(:name, :id)),  class: "form-control custom-select" )%>
+
+
     <div class="block-search mt-5">
       <div class="text-center">
         <div class="btn-group">

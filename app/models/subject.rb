@@ -7,6 +7,15 @@ class Subject < ApplicationRecord
                     length: {maximum: 100}
 
   
+  def self.search(search)
+    if search
+      categories = Category.all
+      categories = categories.where(name: search[:name])
+      return categories
+    else
+      Category.all
+    end
+  end
 
   def howManyFav
     fav = 0
