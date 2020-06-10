@@ -3,9 +3,6 @@ class Subject < ApplicationRecord
   
   has_many :user_ratings
 
-  validates :title, presence: true, 
-                    length: {maximum: 100}
-
 
   def howManyFav
     fav = 0

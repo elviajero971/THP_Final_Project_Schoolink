@@ -33,7 +33,6 @@ class SubjectsController < ApplicationController
 
   def create
     @subject = Subject.new(subject_params)
-
     respond_to do |format|
       if @subject.save
         format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
@@ -72,6 +71,6 @@ class SubjectsController < ApplicationController
     end
 
     def subject_params
-      params.require(:subject).permit(:title, :content, :difficulty, :user_id)
+      params.require(:subject).permit(:title, :content, :difficulty)
     end
 end
