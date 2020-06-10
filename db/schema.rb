@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_133607) do
+ActiveRecord::Schema.define(version: 2020_06_10_164401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_133607) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subject_id", "user_id"], name: "index_join_fav_subjects_on_subject_id_and_user_id", unique: true
     t.index ["subject_id"], name: "index_join_fav_subjects_on_subject_id"
     t.index ["user_id"], name: "index_join_fav_subjects_on_user_id"
   end
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_133607) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subject_id", "user_id"], name: "index_join_read_subjects_on_subject_id_and_user_id", unique: true
     t.index ["subject_id"], name: "index_join_read_subjects_on_subject_id"
     t.index ["user_id"], name: "index_join_read_subjects_on_user_id"
   end
@@ -65,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_133607) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subject_id", "user_id"], name: "index_join_validate_subjects_on_subject_id_and_user_id", unique: true
     t.index ["subject_id"], name: "index_join_validate_subjects_on_subject_id"
     t.index ["user_id"], name: "index_join_validate_subjects_on_user_id"
   end
