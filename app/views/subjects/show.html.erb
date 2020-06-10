@@ -13,6 +13,8 @@
                 <i class="fa fa-bookmark fa-2x mr-4 mt-1 icon-bookmark" aria-hidden="true">DELETE</i>
                 <% end %>
                 <h5 class="float-right border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
+                <h5 class="float-right border border-dark p-2"><strong><%= @subject.subcategory %></strong></h5>
+                <h5 class="float-right border border-dark p-2"><strong><%= @subject.category %></strong></h5>
               </div>
               <h2><%= @subject.title %></h2>
               <%= markdown(@subject.content) %>
