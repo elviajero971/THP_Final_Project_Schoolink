@@ -66,6 +66,9 @@ gem 'faker', :git => 'https://github.com/ZeddBox/faker_fr.git', :branch => 'mast
 gem 'table_print'
 gem 'devise'
 gem 'dotenv-rails'
-gem "cloudinary"
+gem 'cloudinary'
 gem 'redcarpet'
-gem  'pygments.rb'
+gem 'pygments.rb'
+gem 'font-awesome-rails'
+gem 'font_awesome5_rails'
+
