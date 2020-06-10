@@ -36,7 +36,7 @@
           </button>                      
           <div class="collapse navbar-collapse" id="header1">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-              <li class="nav-item active"><a class="nav-link" href="#">Créées</a></li>
+              <li class="nav-item active coucou"><a class="nav-link" href="#">Créées</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Favorites</a></li>
               <li class="nav-item"><a class="nav-link" href="#">En Cours</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Terminées</a></li>
@@ -64,7 +64,7 @@
                         <div class="card-body d-flex no-block">
                           <div class="w-100">
                               <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                                <small><p>subject.user_id</p></small>
+                                <small><p><%= @user.nickname %></p></small>
                             <div class="row">
                               <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
                               <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
@@ -159,7 +159,7 @@
     </div>
   </div>
 </div>
-<!-- ressources en terminées -->
+<!-- ressources terminées -->
 <div class="mini-spacer feature20 up mb-5">
   <div class="container">
       <div class="row wrap-feature-20">
@@ -196,3 +196,5 @@
     </div>
   </div>
 </div>
+
+<script src="display_resources.js.erb"></script>
