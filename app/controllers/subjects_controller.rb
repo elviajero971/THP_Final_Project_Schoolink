@@ -5,6 +5,7 @@ class SubjectsController < ApplicationController
   # GET /subjects.json
   def index
     @subcategories = SubCategory.all
+    @users = User.all
     @categories = Category.all
 
     if params[:category] && params[:category][:name]
@@ -20,6 +21,7 @@ class SubjectsController < ApplicationController
   end
 
   def show
+    @user = User.find(@subject.user_id)
   end
 
   def new

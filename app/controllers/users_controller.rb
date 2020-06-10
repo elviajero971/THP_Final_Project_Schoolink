@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    user_params =  params.require(:user).permit(:nickname, :email, :password)
+    user_params =  params.require(:user).permit(:nickname, :email, :password, :description)
     if @user.update(user_params)
       flash[:success] = "Votre profil a bien été modifié"
         redirect_to user_path(@user.id)
