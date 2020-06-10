@@ -2,7 +2,9 @@
   <div class="container">
     
     <nav class="navbar navbar-expand-lg h2-nav">
-      <h1><%= link_to "WhiteBoard", root_path, :class => "navbar-brand" %></h1> 
+      <%= link_to root_path, method: "GET", class: "logo-nav" do %>
+      <% end %>
+      <%= link_to "WhiteBoard", root_path, :class => "logo-text-nav" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header1" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="ti-menu"></span>
       </button>
@@ -10,12 +12,16 @@
       <div class="collapse navbar-collapse" id="header1">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to "Créer une ressource", new_subject_path, :class => "nav-link" %></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="h1-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Mon Pseudo <i class="fa fa-angle-down m-l-5"></i>
+              <a class="dropdown-toggle btn btn-outline-info" href="#" id="h1-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <%= current_user.nickname %> <i class="fa fa-angle-down m-l-5"></i>
               </a>
               <ul class="b-none dropdown-menu animated fadeInUp">
-                <li><%= link_to "Mon Board", root_path, :class => "dropdown-item" %></li>
+              <% if current_user.is_admin %>
+                <li><%= link_to "Dashboard Admin", admin_dashboard_index_path, class: "dropdown-item" %></li>
+              <% end %>
+                <li><%= link_to "Mon Board", user_path(current_user.id), class: "dropdown-item" %></li>
                 <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class => "dropdown-item"  %></li>            
               </ul>
             </li>
@@ -30,7 +36,6 @@
               </ul>
             </li>
           <% end %>
-          <li class="nav-item"><a class="btn btn-outline-info" href="#">À propos</a></li>
         </ul>
       </div>
     </nav>

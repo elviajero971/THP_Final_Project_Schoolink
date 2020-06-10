@@ -1,0 +1,27 @@
+.logo-nav {
+  height: 60px;
+  width: 60px;
+  transition: .3s;
+  background: center / contain no-repeat url(https://res.cloudinary.com/dkeq1ghol/image/upload/v1591779410/logo-wb-white.png);
+}
+
+.logo-nav:hover {
+  background: center / contain no-repeat url(https://res.cloudinary.com/dkeq1ghol/image/upload/v1591779410/logo-wb-color.png);
+}
+
+.logo-text-nav {
+  color: #FFF;
+  margin-bottom: 0;
+  margin-left: 20px;
+  transition: .3s;
+}
+
+.logo-text-nav:hover {
+  color: #2cdd9b;
+}
+
+@media screen and (max-width: 1000px) {
+  .logo-text-nav {
+    display: none;
+  }
+}
