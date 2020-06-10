@@ -2,7 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.resize_profile {
-  width: 200 px;
-  height: 200px;
+.img_sizing {
+  height: 300px;
+  border-radius: 100%;
+}
+
+.no_img_sizing {
+  height: 300px;
+  width: 300px;
+  border-radius: 100%;
 }
