@@ -11,8 +11,8 @@
         
       <div class="collapse navbar-collapse" id="header1">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li class="nav-item"><%= link_to "Créer une ressource", new_subject_path, :class => "nav-link" %></li>
           <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to "Créer une ressource", new_subject_path, :class => "nav-link" %></li>
             <li class="nav-item dropdown">
               <a class="dropdown-toggle btn btn-outline-info" href="#" id="h1-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  <%= current_user.nickname %> <i class="fa fa-angle-down m-l-5"></i>
