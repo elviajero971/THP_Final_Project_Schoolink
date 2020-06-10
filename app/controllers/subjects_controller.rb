@@ -21,6 +21,7 @@ class SubjectsController < ApplicationController
   end
 
   def show
+    @subject = Subject.find_by(id: params[:id])
     @user = User.find(@subject.user_id)
   end
 

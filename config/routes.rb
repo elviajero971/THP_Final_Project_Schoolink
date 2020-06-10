@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'join_validate_subject/update'
+  get 'join_validate_subject/destroy'
+  get 'join_read_subject/update'
+  get 'join_read_subject/destroy'
   root 'subjects#index'
   
   get '/contact', to: 'static#contact'
@@ -10,6 +14,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :edit] do 
     resources :profile_pics, only: [:create]
   end
+  resources :join_fav_subject, only: [:update, :destroy]
+  resources :join_read_subject, only: [:update, :destroy]
+  resources :join_validate_subject, only: [:update, :destroy]
+  resources :user_rating, only: [:update, :destroy]
 
   namespace :admin do
     root to: 'admin/items#index'

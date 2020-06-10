@@ -1,9 +1,11 @@
 class UserRatingController < ApplicationController
 
-  def create
-  end
-
   def update
+    @subject = Subject.find_by(id: params[:id])
+    is_there_a_rating_for_this_user = UserRating.find_by(user_id: current_user.id, subject_id: @subject.id)
+    is_there_a_rating_for_this_user.destroy
+
+    new_rating = UserRating.create(user_rating: params[:user_rating], user_id: current_user.id, subject_id: params[:id])
   end
 
   def destroy
