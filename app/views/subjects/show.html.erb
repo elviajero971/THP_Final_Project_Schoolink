@@ -5,41 +5,57 @@
         <div class="card card-shadow">
           <div class="card-body">
             <div class="card-body">
-              <div class="float-right">
-                <div class="d-inline" id="fav-container">
-                  <% JoinFavSubject.all.each do |fav| %>
-                    <% if fav.user_id == fav.subject_id %>
-                      <%= render 'join_fav_subject/fav_true' %>
-                    <% else %>
-                      <%= render 'join_fav_subject/fav_false' %>
+              <h2 class="font-weight-bold title-subject"><%= @subject.title %></h2>
+              <div class="row intro-subject">
+                <div class="fav-contain" id="fav-container">
+                  <% if JoinFavSubject.all.length > 0 %>
+                    <% JoinFavSubject.all.each do |fav| %>
+                      <% if fav.user_id == fav.subject_id %>
+                        <%= render 'join_fav_subject/fav_true' %>
+                      <% else %>
+                        <%= render 'join_fav_subject/fav_false' %>
+                      <% end %>
                     <% end %>
-                  <% end%>
+                  <% else %>
+                     <%= render 'join_fav_subject/fav_true' %>
+                  <% end %>
                 </div>
-
-                <h5 class="float-right border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
-                <h5 class="float-right p-2 mr-2"><strong><%= @subject.category %></strong></h5>
+                <h5 class="p-2 mr-2"><strong><%= @subject.category %></strong></h5>
+                <h5 class="border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
               </div>
-              <h2 class="font-weight-bold"><%= @subject.title %></h2>
+            
               <hr>
               <%= markdown(@subject.content) %>
             </div>
             <div class="card-footer">
-              <div class="row pl-3 pr-3">
+              <div class="row pr-3">
                 <div class="rating">
                 </div>
-                <h6 class="mt-3 ml-3 text-success"></h6>
-                <div class="ml-auto mt-2">
-                  <%= form_with method: "PUT", url: join_read_subject_path  do |form| %>
-                    <%= form.submit "Suivre".html_safe, class:"btn btn-secondary btn-outline"%>
+                <h6 class="mt-3 text-success"></h6>
+                <div class="mt-2" id="container-read">
+                  <% if JoinReadSubject.all.length > 0 %>
+                    <% JoinReadSubject.all.each do |read| %>
+                      <% if read.user_id == read.subject_id %>
+                        <%= render 'join_read_subject/read_true' %>
+                      <% else %>
+                        <%= render 'join_read_subject/read_false' %>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                     <%= render 'join_read_subject/read_true' %>
                   <% end %>
-                  <%= form_with method: "DELETE", url: join_read_subject_path  do |form| %>
-                    <%= form.submit "Ne plus suivre".html_safe, class:"btn btn-secondary btn-outline"%>
-                  <% end %>
-                  <%= form_with method: "PUT", url: join_validate_subject_path  do |form| %>
-                    <%= form.submit "Noté comme terminée".html_safe, class:"btn btn-secondary btn-outline ml-3"%>
-                  <% end %>
-                  <%= form_with method: "DELETE", url: join_validate_subject_path  do |form| %>
-                    <%= form.submit "Noté comme non-terminée".html_safe, class:"btn btn-secondary btn-outline ml-3"%>
+                </div>
+                <div class="mt-2" id="container-validate">
+                  <% if JoinValidateSubject.all.length > 0 %>
+                    <% JoinValidateSubject.all.each do |validate| %>
+                      <% if validate.user_id == validate.subject_id %>
+                        <%= render 'join_validate_subject/validate_true' %>
+                      <% else %>
+                        <%= render 'join_validate_subject/validate_false' %>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                     <%= render 'join_validate_subject/validate_true' %>
                   <% end %>
                 </div>
               </div>
@@ -50,9 +66,11 @@
       </div>
     </div>
 
-    <div class="text-center">
-      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete %> |
-      <%= link_to 'Modifier', edit_subject_path(@subject) %> |
+    <div class="text-center mb-5">
+      <% if @subject.user_id == current_user.id %>
+        <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete %> |
+        <%= link_to 'Modifier', edit_subject_path(@subject) %> |
+      <% end %>
       <%= link_to 'Retour', subjects_path %>
     </div>
   </div>

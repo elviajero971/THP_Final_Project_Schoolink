@@ -44,6 +44,18 @@ button.btn-link-modal:focus {
   margin-left: 20px;
 }
 
+.title-subject {
+  display: inline-block;
+}
+
+.intro-subject {
+  float: right;
+}
+
+.btn-state-subject {
+  margin-left: 15px;
+}
+
 
 @media screen and (max-width: 800px) {
   .create-btn-resource {
@@ -61,5 +73,35 @@ button.btn-link-modal:focus {
     text-align: center;
     width: 100%;
     float: none !important;
+  }
+
+  .intro-subject {
+    float: none;
+    margin-top: 25px;
+  }
+
+  .title-subject {
+    text-align: center;
+    width: 100%;
+  }
+
+  .btn-state-subject {
+    display: inline-block;
+    width: 290px;
+    margin-bottom: 15px;
+  }
+ 
+}
+
+.fav-contain {
+  display: inline-block;
+}
+
+@media screen and (max-width: 400px) {
+
+  .fav-contain {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
   }
 }
