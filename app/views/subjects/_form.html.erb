@@ -18,7 +18,7 @@
 
       <div class="ml-5 mb-3">
         <div class="field ml-0">
-          <%= form.select(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}, Subject.find_by(id:params[:id]).category_id), {include_blank: "Catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+          <%= form.select(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}, Subject.friendly.find(params[:id]).category_id), {include_blank: "Catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
         </div>
       </div>
 

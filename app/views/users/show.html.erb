@@ -1,74 +1,73 @@
 <div class="bg-light spacer up">
   <div class="container">
     <div class="row justify-content-center">
-        <div class="wrap-feature4-box float-left mb-4">
-            <%if @user.profile_pic.attached?%>
-              <span><%= image_tag @user.profile_pic, alt: 'profile_pic', class:"img_sizing mr-5" %></span>
-            <%else%>
-              <div class="no_img_sizing bg-light-info mr-5 text-center ">
-                <i class="fa fa-user fa-5x"></i>
-              </div>
-            <%end%>
+      <div class="wrap-feature4-box float-left mb-4">
+        <%if @user.profile_pic.attached?%>
+        <span><%= image_tag @user.profile_pic, alt: 'profile_pic', class:"img_sizing mr-5" %></span>
+        <%else%>
+        <div class="no_img_sizing bg-light-info mr-5 text-center ">
+          <i class="fa fa-user fa-5x"></i>
         </div>
-
-        <div class="wrap-feature4-box float-right">
-            <h2 class="title"><%=@user.nickname.upcase%></h2>
-            <% if @user.description == nil %>
-              <h6 class="subtitle">Pour le moment vous n'avez pas de description liée à votre profil. Vous pouvez en ajouter une en modifiant votre profil.</h6>
-            <% else %>
-              <h6 class="subtitle"><%=@user.description%></h6>
-            <% end %>
-           <div class="block-search text-right mt-auto">
-              <div class="btn-group">
-              <%= link_to "Editez votre profil", edit_user_path(current_user.slug), class:"btn btn-primary" %>
-              </div>
-              <div class="btn-group">
-                <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-info" %>
-              </div>    
-            </div>
-        </div>    
-    </div>   
-  </div>
-</div>
-</div>
-
-  <div class="container mb-5 mt-3">
-        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="pills-ressources-tab" data-toggle="pill" href="#pills-ressouces" role="tab" aria-controls="pills-ressources" aria-selected="true">Ressources</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="true">Créées</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="pills-favorites-tab" data-toggle="pill" href="#pills-favorites" role="tab" aria-controls="pills-favorites" aria-selected="false">Favorites</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="pills-inprogress-tab" data-toggle="pill" href="#pills-inprogress" role="tab" aria-controls="pills-inprogress" aria-selected="false">En Cours</a>
-        </li>  
-        <li class="nav-item">
-          <a class="nav-link" id="pills-finished-tab" data-toggle="pill" href="#pills-finished" role="tab" aria-controls="pills-finished" aria-selected="false">Terminées</a>
-        </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-          <div class="tab-pane fade show active" id="pills-ressources" role="tabpanel" aria-labelledby="pills-ressources-tab">
-          </div>
-          <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
-          <%= render 'user_subject_create' %>
-          </div>
-
-          <div class="tab-pane fade" id="pills-favorites" role="tabpanel" aria-labelledby="pills-favorites-tab">
-                      <%= render 'user_subject_favorite' %>
-          </div>
-          <div class="tab-pane fade" id="pills-inprogress" role="tabpanel" aria-labelledby="pills-inprogress-tab">
-             <%= render 'user_subject_inprogress' %>
-          </div>
-          <div class="tab-pane fade" id="pills-finished" role="tabpanel" aria-labelledby="pills-finished-tab">
-               <%= render 'user_subject_finished' %>
-          </div>
-
+        <%end%>
       </div>
+
+      <div class="wrap-feature4-box float-right">
+        <h2 class="title"><%=@user.nickname.upcase%></h2>
+        <% if @user.description == nil %>
+        <h6 class="subtitle">Pour le moment vous n'avez pas de description liée à votre profil. Vous pouvez en ajouter une en modifiant votre profil.</h6>
+        <% else %>
+        <h6 class="subtitle"><%=@user.description%></h6>
+        <% end %>
+        <% if current_user.id == @user.id %>
+        <div class="block-search text-right mt-auto">
+          <div class="btn-group">
+            <%= link_to "Editez votre profil", edit_user_path(current_user.slug), class:"btn btn-primary" %>
+          </div>
+          <div class="btn-group">
+            <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-info" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
+</div>
 
+<div class="container mb-5 mt-3">
+  <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-ressources-tab" data-toggle="pill" href="#pills-ressouces" role="tab" aria-controls="pills-ressources" aria-selected="true">Ressources</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="true">Créées</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-favorites-tab" data-toggle="pill" href="#pills-favorites" role="tab" aria-controls="pills-favorites" aria-selected="false">Favorites</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-inprogress-tab" data-toggle="pill" href="#pills-inprogress" role="tab" aria-controls="pills-inprogress" aria-selected="false">En Cours</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-finished-tab" data-toggle="pill" href="#pills-finished" role="tab" aria-controls="pills-finished" aria-selected="false">Terminées</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-ressources" role="tabpanel" aria-labelledby="pills-ressources-tab">
+    </div>
+    <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
+      <%= render 'user_subject_create' %>
+    </div>
 
+    <div class="tab-pane fade" id="pills-favorites" role="tabpanel" aria-labelledby="pills-favorites-tab">
+      <%= render 'user_subject_favorite' %>
+    </div>
+    <div class="tab-pane fade" id="pills-inprogress" role="tabpanel" aria-labelledby="pills-inprogress-tab">
+      <%= render 'user_subject_inprogress' %>
+    </div>
+    <div class="tab-pane fade" id="pills-finished" role="tabpanel" aria-labelledby="pills-finished-tab">
+      <%= render 'user_subject_finished' %>
+    </div>
 
+  </div>
+</div>
