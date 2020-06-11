@@ -43,6 +43,7 @@ class SubjectsController < ApplicationController
         flash[:success] = "Votre ressource a bien été créée !"
         redirect_to @subject
       else
+        flash.now[:alert] = "Attention votre ressource n'a pas pû être créée. Veuillez ré-essayer."
         render :new
       end
     end
@@ -50,14 +51,24 @@ class SubjectsController < ApplicationController
 
   def update
     @subject = Subject.find_by(id:params[:id])
-    @subject.update(subject_params)
-    redirect_to subject_path(@subject.id)
+    if @subject.update(subject_params)
+      flash[:success] = "Votre ressource a bien été modifiée !"
+      redirect_to subject_path(@subject.id)
+    else
+        flash.now[:alert] = "Attention votre ressource n'a pas pû être modifiée. Veuillez ré-essayer."
+        render :new
+    end  
   end
 
   def destroy
     @subject = Subject.find_by(id:params[:id])
-    @subject.destroy
-    redirect_to root_path
+    if @subject.destroy
+      redirect_to "/" 
+      flash[:success] = "Votre ressource a bien été supprimé !"
+    else
+      flash.now[:alert] = "Attention votre ressource n'a pas pu être supprimée. Veuillez ré-essayer."
+      render :new
+    end  
   end
 
   private
