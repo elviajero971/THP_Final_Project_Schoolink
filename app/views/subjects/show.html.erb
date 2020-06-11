@@ -72,28 +72,30 @@
         <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger" %>
         <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary" %>
       <% end %>
-        <%= link_to 'Retour', subjects_path, class:"btn btn-outline-secondary" %>
+        <%= link_to 'Retour', subjects_path, class:"btn btn-outline-secondary mb-3" %>
     </div>
   </div>
 
 
   <div class="bg-light spacer up">
     <div class="container">
+    <div class="text-center">
       <div class="row justify-content-center">
         <div>
           <div class="wrap-feature4-box float-left mb-4">
             <% if @user.profile_pic.attached? %>
             <span><%= image_tag @user.profile_pic, alt: 'profile_pic', class:"img_sizing mr-5" %></span>
             <%else%>
-            <div class="no_img_sizing bg-light-info mr-5 text-center"><i class="fa fa-user fa-5x"></i></div>
+            <div class="no_img_sizing bg-light-info text-center"><i class="fa fa-user fa-5x"></i></div>
             <% end %>
           </div>
           <p class="title">Auteur</p>
           <h2 class="title"><%= @user.nickname.upcase %></h2>
-          <h6 class="subtitle"><%= @user.description %></h6>
+          <h6 class="blockquote-footer"><%= @user.description %></h6>
           <div class="block-search mt-5">
             <div class="btn-group">
               <%= link_to "Voir profil", user_path(@user.id), class:"btn btn-primary" %>
+            </div>
             </div>
           </div>
         </div>

@@ -11,13 +11,13 @@
       <div class="text-center">
         <div class="btn-group">
           <%= form_tag subjects_path, method: 'GET', :class => "" do %>
-            <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-primary dropdown-toggle pl-5 pr-5 mr-2") %>
+            <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-danger-gradiant dropdown-toggle pl-5 pr-5 mr-2") %>
             <%= button_tag 'Rechercher', :class => 'btn btn-secondary mr-2'%>
           <% end %>
         </div>
         <div class="btn-group">
           <%= form_tag subjects_path, method: 'GET' do %>
-            <%= button_tag 'Effacer', :class => 'btn btn-secondary'%>
+            <%= button_tag 'Effacer', :class => 'btn btn-outline-danger'%>
           <% end %>
         </div>
       </div>
