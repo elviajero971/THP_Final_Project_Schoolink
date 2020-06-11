@@ -30,6 +30,7 @@ class SubjectsController < ApplicationController
 
   def edit
     @categories = Category.all
+    @subject = Subject.find_by(id: params[:id])
   end
 
   def create
