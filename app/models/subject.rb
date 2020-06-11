@@ -9,6 +9,8 @@ class Subject < ApplicationRecord
   validates :difficulty, presence: true
   validates :category_id, presence: true
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   def howManyFav
     fav = 0

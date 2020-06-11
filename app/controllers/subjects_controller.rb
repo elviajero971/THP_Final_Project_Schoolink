@@ -18,7 +18,7 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    @subject = Subject.find_by(id: params[:id])
+    @subject = Subject.friendly.find(params[:id])
     @user = User.find(@subject.user_id)
   end
 
@@ -30,7 +30,7 @@ class SubjectsController < ApplicationController
 
   def edit
     @categories = Category.all
-    @subject = Subject.find_by(id: params[:id])
+    @subject = Subject.friendly.find(params[:id])
   end
 
   def create
@@ -51,10 +51,10 @@ class SubjectsController < ApplicationController
 
   def update
     @categories = Category.all
-    @subject = Subject.find_by(id:params[:id])
+    @subject = Subject.friendly.find(params[:id])
     if @subject.update(subject_params)
       flash[:success] = "Votre ressource a bien été modifiée !"
-      redirect_to subject_path(@subject.id)
+      redirect_to subject_path(@subject.slug)
     else
       flash.now[:alert] = "Attention votre ressource n'a pas pû être modifiée. Il doit manquer le titre, le contenu, la difficulté ou la catégorie !"
       render :edit
@@ -62,7 +62,7 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
-    @subject = Subject.find_by(id:params[:id])
+    @subject = Subject.friendly.find(params[:id])
     if @subject.destroy
       redirect_to "/" 
       flash[:success] = "Votre ressource a bien été supprimé !"
@@ -75,7 +75,7 @@ class SubjectsController < ApplicationController
   private
 
     def set_subject
-      @subject = Subject.find(params[:id])
+      @subject = Subject.friendly.find(params[:id])
     end
 
     def subject_params

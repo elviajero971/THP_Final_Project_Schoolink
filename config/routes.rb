@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static#contact'
   get '/about', to: 'static#about'
   
-  devise_for :users
+  devise_for :users, path: 'gestion'
   
   resources :subjects, path: 'ressource'
   resources :users, only: [:show, :update, :edit], path: 'profil' do
