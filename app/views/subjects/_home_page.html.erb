@@ -13,9 +13,9 @@
 <div class="block-search mt-5">
   <div class="text-center">
     <div class="btn-group">
-      <%= form_tag subjects_path, method: 'GET', :class => "pl-5 pr-5" do %>
-        <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-primary mr-5")%>
-        <%= button_tag 'Rechercher', :class => 'btn btn-secondary'%>
+      <%= form_tag subjects_path, method: 'GET', :class => "" do %>
+        <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-primary dropdown-toggle pl-5 pr-5 mr-2") %>
+        <%= button_tag 'Rechercher', :class => 'btn btn-secondary mr-2'%>
       <% end %>
     </div>
     <div class="btn-group">
@@ -25,22 +25,6 @@
     </div>
   </div>
 </div>
-
-    <div class="block-search mt-5">
-      <div class="text-center">
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle pl-5 pr-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Catégories
-          </button>
-          <div class="dropdown-menu">
-            <% @categories.each do |category| %>
-            <a class="dropdown-item" href="#"><%= category.name %></a>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 
