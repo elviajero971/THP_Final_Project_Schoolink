@@ -39,8 +39,10 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.new(title: params[:title], content: params[:content], user_id: current_user.id, sub_category_id: params[:sub_category_id],difficulty: params[:difficulty] )
       if @subject.save
-        redirect_to @subject, notice: 'Subject was successfully created.'
+        flash[:success] = "Votre ressource a bien été créée !"
+        redirect_to @subject
       else
+        flash.now[:alert] = "Attention votre ressource n'a pas pû être créée. Veuillez ré-essayer."
         render :new
       end
   end
