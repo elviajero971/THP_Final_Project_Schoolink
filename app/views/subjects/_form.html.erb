@@ -10,38 +10,41 @@
       </ul>
     </div>
   <% end %>
-
-
   <div class="field form-group shadow-textarea no-font pl-5 pr-5">
-    <%= form.text_field :title, class: "form-control z-depth-1", placeholder: "# Titre du sujet" %>
+    <%= form.text_field :title, type: "string", class: "form-control z-depth-1", placeholder: "# Titre du sujet" %>
   </div>
 
   <div class="field form-group shadow-textarea pl-5 pr-5">
-    <%= form.text_area :content, class: "form-control z-depth-1", placeholder: "Écris ton contenu...", rows: "20" %>
+    <%= form.text_area :content, type: "txt", class: "form-control z-depth-1", placeholder: "Écris ton contenu...", rows: "20" %>
   </div>
 
+  <div class="row justify-center">
+    <div class="col-md-25 ml-1">
+        <div class="field ml-2 pl-5">
+          <%= form.select(:difficulty, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+        </div>
+      </div>
 
-<div class="row justify-center">
-  <div class="col-md-25 ml-1">
-      <div class="field ml-2 pl-5">
-        <%= form.select(:difficulty, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+      <div class="col-md-25 ml-1">
+        <div class="field ml-0">
+          <%= form.select(:sub_category_id, options_for_select(@subcategories.map {|u|[u.name,u.id]}), {include_blank: "Sous-catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+        </div>
+      </div>
+
+      <div class="col-md-5 ml-0">
+      </div>
+
+      <div class="actions mt-4mb-4">
+        <%= button_tag(type: 'submit', :class => 'btn btn-primary', id: 'validForm') do %>
+          <span class="white-text mr-1 pl-5 pr-5"> CRÉER</span>
+        <% end %>
+        <div type="button" class="btn btn-outline-primary">
+          <%= link_to 'Show', @subject %>
+        </div>
+        <div class="btn btn-outline-primary">
+          <%= link_to 'Back', subjects_path %>
+        </div>
       </div>
     </div>
-
-<div class="col-md-25 ml-1">
-    <div class="field ml-0">
-      <%= form.select(:sub_category, ['Cuisine', 'Sport', 'Bien-être'], {include_blank: "Sous-catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
-    </div>
-</div>
-
-<div class="col-md-5 ml-0">
-</div>
- 
-  <div class="actions">
-    <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow', id: 'validForm') do %>
-    <span class="white-text mr-1 pl-5 pr-5"> CRÉER</span>
-    <% end %>
   </div>
-  </div>
-</div>
 <% end %>

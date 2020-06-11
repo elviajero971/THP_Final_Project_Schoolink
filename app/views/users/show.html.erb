@@ -25,174 +25,50 @@
               <div class="btn-group">
                 <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-info" %>
               </div>    
-        </div>
+            </div>
         </div>    
-    </div>
-        <div class="wrap-feature4-box float-right">
-      <nav class="navbar navbar-expand-lg h1-nav">
-        <a class="navbar-brand" href="#"><h2 class="title">Ressources</h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header1" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="ti-menu"></span>
-          </button>                      
-          <div class="collapse navbar-collapse" id="header1">
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-              <li class="nav-item active"><a class="nav-link" href="#">Créées</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Favorites</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">En Cours</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Terminées</a></li>
-            </ul>
-          </div>
-      </nav>
+    </div>   
+  </div>
+</div>
+</div>
 
-</div>
-    </div>
+  <div class="container mb-5 mt-3">
+        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-ressources-tab" data-toggle="pill" href="#pills-ressouces" role="tab" aria-controls="pills-ressources" aria-selected="true">Ressources</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="true">Créées</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-favorites-tab" data-toggle="pill" href="#pills-favorites" role="tab" aria-controls="pills-favorites" aria-selected="false">Favorites</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-inprogress-tab" data-toggle="pill" href="#pills-inprogress" role="tab" aria-controls="pills-inprogress" aria-selected="false">En Cours</a>
+        </li>  
+        <li class="nav-item">
+          <a class="nav-link" id="pills-finished-tab" data-toggle="pill" href="#pills-finished" role="tab" aria-controls="pills-finished" aria-selected="false">Terminées</a>
+        </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-ressources" role="tabpanel" aria-labelledby="pills-ressources-tab">
+          </div>
+          <div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
+          <%= render 'user_subject_create' %>
+          </div>
+
+          <div class="tab-pane fade" id="pills-favorites" role="tabpanel" aria-labelledby="pills-favorites-tab">
+                      <%= render 'user_subject_favorite' %>
+          </div>
+          <div class="tab-pane fade" id="pills-inprogress" role="tabpanel" aria-labelledby="pills-inprogress-tab">
+             <%= render 'user_subject_inprogress' %>
+          </div>
+          <div class="tab-pane fade" id="pills-finished" role="tabpanel" aria-labelledby="pills-finished-tab">
+               <%= render 'user_subject_finished' %>
+          </div>
+
+      </div>
   </div>
-</div>
-<!-- ressources créées -->
-<div class="mini-spacer feature20 up mb-5">
-  <div class="container">
-      <div class="row wrap-feature-20">
-        <% if Subject.find_by(user_id: @user.id) == nil %>
-          <span class="card-text mb-4"> Vous n'avez pas encore créée de ressource </span>
-        <% else %>
-          <% Subject.all.each do |subject| %>
-              <% if subject.user_id == current_user.id %>
-                <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
-                  <div class="card shadow bg-light">
-                    <div class="row">
-                      <div class="col-md-8">
-                        <div class="card-body d-flex no-block">
-                          <div class="w-100">
-                              <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                                <small><p>subject.user_id</p></small>
-                            <div class="row">
-                              <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
-                              <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
-                              <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                          <a href=<%= subject_path(subject.id) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              <% end %>
-            <% end %>
-        <% end %>
-    </div>
-  </div>
-</div>
-<!-- ressources favorites -->
-<div class="mini-spacer feature20 up mb-5">
-  <div class="container">
-      <div class="row wrap-feature-20">
-        <% if JoinFavSubject.find_by(user_id: @user.id) == nil %>
-          <span class="card-text mb-4"> Vous n'avez pas encore de ressources favorites </span>
-        <% else %>
-          <% JoinFavSubject.all.each do |favsubject| %>
-              <% if joinfavsubject.user_id == current_user.id %>
-                <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
-                  <div class="card shadow bg-light">
-                    <div class="row">
-                      <div class="col-md-8">
-                        <div class="card-body d-flex no-block">
-                          <div class="w-100">
-                              <h5 class="font-medium mb-0"><%= joinfavsubject.title %></h5>
-                                <small><p>joinfavsubject.user_id</p></small>
-                            <div class="row">
-                              <h6 class="text-success mb-0 ml-3"><%= joinfavsubject.difficulty %></h6>
-                              <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
-                              <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                          <a href=<%= subject_path(subject.id) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              <% end %>
-            <% end %>
-        <% end %>
-    </div>
-  </div>
-</div>
-<!-- ressources en cours -->
-<div class="mini-spacer feature20 up mb-5">
-  <div class="container">
-      <div class="row wrap-feature-20">
-        <% if JoinReadSubject.find_by(user_id: @user.id) == nil %>
-          <span class="card-text mb-4"> Vous n'avez pas encore de ressources en cours </span>
-        <% else %>
-          <% JoinReadSubject.all.each do |readsubject| %>
-              <% if joinreadsubject.user_id == current_user.id %>
-                <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
-                  <div class="card shadow bg-light">
-                    <div class="row">
-                      <div class="col-md-8">
-                        <div class="card-body d-flex no-block">
-                          <div class="w-100">
-                              <h5 class="font-medium mb-0"><%= joinreadsubject.title %></h5>
-                                <small><p>joinreadsubject.user_id</p></small>
-                            <div class="row">
-                              <h6 class="text-success mb-0 ml-3"><%= joinreadsubject.difficulty %></h6>
-                              <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
-                              <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                          <a href=<%= subject_path(subject.id) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              <% end %>
-            <% end %>
-        <% end %>
-    </div>
-  </div>
-</div>
-<!-- ressources en terminées -->
-<div class="mini-spacer feature20 up mb-5">
-  <div class="container">
-      <div class="row wrap-feature-20">
-        <% if JoinValidateSubject.find_by(user_id: @user.id) == nil %>
-          <span class="card-text mb-4"> Vous n'avez pas encore terminé de ressources </span>
-        <% else %>
-          <% JoinValidateSubject.all.each do |validatesubject| %>
-              <% if joinvalidatesubject.user_id == current_user.id %>
-                <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
-                  <div class="card shadow bg-light">
-                    <div class="row">
-                      <div class="col-md-8">
-                        <div class="card-body d-flex no-block">
-                          <div class="w-100">
-                              <h5 class="font-medium mb-0"><%= joinvalidatesubject.title %></h5>
-                                <small><p>joinvalidatesubject.user_id</p></small>
-                            <div class="row">
-                              <h6 class="text-success mb-0 ml-3"><%= joinvalidatesubject.difficulty %></h6>
-                              <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
-                              <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                          <a href=<%= subject_path(subject.id) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              <% end %>
-            <% end %>
-        <% end %>
-    </div>
-  </div>
-</div>
+
+
+
