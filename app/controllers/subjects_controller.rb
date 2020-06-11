@@ -1,8 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
 
-  # GET /subjects
-  # GET /subjects.json
   def index
     @users = User.all
     @categories = Category.all
@@ -35,12 +33,19 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    @subject = Subject.new(title: params[:title], content: params[:content], user_id: current_user.id, category_id: params[:category_id],difficulty: params[:difficulty] )
+    @categories = Category.all
+    @subject = Subject.new(title: params[:title], content: params[:content], user_id: current_user.id, category_id: params[:category_id],difficulty: params[:difficulty])
+    if @subject.valid? == false 
+      flash.now[:alert] = "Attention votre ressource n'a pas pû être créée. Veuillez ré-essayer."
+      render :new
+    else
       if @subject.save
-        redirect_to @subject, notice: 'Subject was successfully created.'
+        flash[:success] = "Votre ressource a bien été créée !"
+        redirect_to @subject
       else
         render :new
       end
+    end
   end
 
   def update

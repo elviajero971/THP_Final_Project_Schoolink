@@ -1,52 +1,38 @@
 <div class="spacer">
   <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12 text-center">
-          <h1 class="title font-bold">Créer une Ressource</h1>
-          <h6 class="subtitle">Partagez votre expérience d'apprentissage avec les membres de la communauté.</h6>
-        </div>
+      <div class="col-md-12 text-center">
+        <h1 class="title font-bold">Créer une Ressource</h1>
+        <h6 class="subtitle">Partagez votre expérience d'apprentissage avec les membres de la communauté.</h6>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="feature4 mb-5">
-    <div class="container">
-      <button type="button" class="float-right btn btn-link btn-link-modal" data-toggle="modal" data-target=".bd-example-modal-lg">Comment bien rédiger ma ressource ?</button>
-      <%= render 'form_new', subject: @subject %>
-    </div>
+<div class="feature4 justify-content-center text-center">
+  <button type="button" class="btn btn-outline-success button-up mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Comment bien rédiger ma ressource ?</button>
+  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target=".bd-example-modal2-md">Comment mettre en forme mon contenu ?</button>
+</div>
+<div class="feature4 mb-5">
+  <div class="container">
+    <%= render 'form_new', subject: @subject %>
   </div>
+</div>
 
-  <!-- Large modal -->
-
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="spacer">
-            <div class="container">
-              <blockquote>
-                <div class="row">
-                  <div class="col-md-11 ml-5">
-                    <h1 class="title text-center" id="test">GUIDE : Optimisez la création de votre ressource.</h1>
-                    <p class="subtitle text-center pb-3">Suivez notre guide pour rédiger votre ressource et ainsi faciliter la lecture de votre ressource par les autres membres<p>
-                    <h3> ETAPE 1</h3>
-                    <p>Trouvez un titre accrocheur et explicite à votre ressource. Quel savoir voulez-vous transmettre ? Écrivez le titre en gras en utilisant un `# `</p>
-                    <h3> ETAPE 2</h3>
-                    <p>Rédigez une introduction de quelques lignes pour décrire ce que vous souhaitez transmettre par cette ressource. Écrivez l’introduction en gras en utilisant `## `</p>
-                    <h3> ETAPE 3</h3>
-                    <p>Racontez votre expérience d’apprentissage. Qu’est-ce qui vous a incité à apprendre cette ressource ? Combien de temps vous a-t-il fallu pour sentir plus à l’aise avec ce savoir ? Quelles sont les difficultés que vous avez rencontrés ? etc.</p>
-                    <h3> ETAPE 4</h3>
-                    <p>Intégrez les liens externes que vous voulez partager en expliquant pourquoi un tel vous a été utile.</p>
-                  </div>
-                </div>
-              </blockquote>
-            </div>
-          </div>
-
-      </div>
-    </div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <%= render 'modal_guide'%>
   </div>
-  <div class="text-center mb-5 mt-5">
-    <%= link_to 'Back', subjects_path %>
+</div>
+<div class="modal fade bd-example-modal2-md" tabindex="-1" role="dialog" aria-labelledby="myMediumModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <%= render 'modal_markdown'%>
   </div>
+</div>
+
+</div>
+<div class="text-center mb-5 mt-5">
+  <%= link_to 'Back', subjects_path, class:"btn btn-secondary" %>
+</div>
 </div>
 </div>

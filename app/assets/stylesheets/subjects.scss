@@ -33,6 +33,15 @@ button.btn-link-modal:focus {
   margin-left: 20px;
 }
 
+.spacer{
+  padding-top: 90px !important;
+  padding-bottom: 30px !important;
+}
+
+.modal-content p {
+  margin-bottom: 0px !important;
+}
+
 
 @media screen and (max-width: 800px) {
   .create-btn-resource {
@@ -43,6 +52,10 @@ button.btn-link-modal:focus {
 
   .create-btn {
     width: 90%;
+  }
+
+  .button-up{
+    margin-bottom: 10px;
   }
 
   button.btn-link-modal {
