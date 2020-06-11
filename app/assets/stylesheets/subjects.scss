@@ -11,3 +11,44 @@
   color: #2cdd9b;
   cursor: pointer;
 }
+
+button.btn-link-modal {
+  color: #2cdd9b;
+  text-decoration: none;
+  transition: .3s;
+}
+
+button.btn-link-modal:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+button.btn-link-modal:focus {
+  color: #000000;
+  text-decoration: none;
+}
+
+.create-btn-resource {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+
+@media screen and (max-width: 800px) {
+  .create-btn-resource {
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .create-btn {
+    width: 90%;
+  }
+
+  button.btn-link-modal {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    float: none !important;
+  }
+}
