@@ -166,3 +166,28 @@ Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écof
   
    > Théoriciennes éco-féministes : **Françoise d’Eaubonne**, **Vandana Shiva**, **Starhawk**, **Donna Haraway**, **Maria Mies**, et bien d'autres...
   ", user_id: rand(User.first.id..User.last.id), difficulty: "Difficile",category_id: Category.find_by(name:"Philosophie").id)
+  Subject.create(title: "La musculation - de débutant à plus trop trop débutant ! (la première année en programme)", content: "Ah!  Le  jour de l'an, les bonnes résolutions... 
+
+  Chaque année, je vois à la salle des dizaines et des dizaines de personnes qui viennent pour la toute première fois, bien décidé à acquérir un `corps d'Appolon`, à la sueur de leur front ! 
+  
+  Un mois plus tard, la plupart ont disparus ! *Mais que s'est-il passé?*
+  
+  Ils ne savaient pas ou aller. Ils se sont rendus compte qu'ils perdaient pas 10 centimètre de tour de taille, ni pris 5kg de muscle en une semaine... Ou pire, ils se sont **blessés**? Déçus, ils ne remettront plus un pied à la salle une seule fois, avant le 1er Janvier prochain.
+  
+  Cela fait 10 ans que je vais entre trois et sept fois par semaine à la salle, depuis que j'ai 12 ans (oui, j'étais tout petit, aha), et mon papa avant moi y allait depuis trente ans. Il m'a donné quelques 'tips d'anciens', et je me suis très vite fasciné par ce sport, cette science du physique humain, et l'art de vivre qu'il implique, avec sa nutrition, et ses entraînements sanglants (on n'est pas là pour rigoler). C'est ces quelques années d'expérience et de passion que je vais essayer de vous partager ici, dans cette ressource.
+  
+  1. Les **premiers mois sont les plus importants de tous**. C'est là où une `transformation rapide` arrive, si tu fais les **choses bien**. 
+  C'est pourquoi je te conseilles d'apprendre les mouvements BASIQUES (polyarticulaires), comme le `Squat`, le `Développé Couché`, le `Soulevé de Terre`, `le Rowing Barre` et `le Développé Militaire`. Avec ces 5 exercices, et **une bonne alimentation**, j'ai pris 20 kilogrammes, la première année de musculation. Par chance, il existe une méthode, qui utilises ces exercices qui sont les plus puissants, qu'importe ton objectif: *prise de force*, *prise de masse* ou *perte de poids*. C'est la `MÉTHODE STRONGLIFT 5X5` qui est juste incroyable. Et en plus d'être incroyable, il existe une [application drôlement bien faite](https://apps.apple.com/us/app/stronglifts-5x5-weight-lifting/id488580022) qui te suivra tout au long du chemin. Temps recommandé: **TROIS MOIS**, le temps d'acquérir une *base solide*.
+  
+  2. Pendant ce temps, au niveau de l'alimentation: il y a deux écoles qui se valent, en fonction de ta `morphologie`. On a défini trois grands types de morphologies:  les **ectomorphes** (ceux qui ne prennent pas de poids facilement, autant gras que muscle), les **mésomorphes** (ceux qui prennent du muscle facilement, mais pas trop de gras en général) et les **endomorphes** (ceux qui prennent du poids facilement). Selon ta morphologie, tu choisiras l'un de ces trois régimes alimentaires:
+  - Si tu es `ectomorphe`: tu mangeras 6 repas par jour, séquencés tout au long de la journée, toutes les 2/3 heures. Dans ces repas, tu y inclura des glucides (féculents et sucres lents), ainsi qu'une bonne dose de protéines (viande, oeufs, whey, légumineuses, fromage blanc...) et des bonnes graisses. 
+  - Si tu es `mésomorphe`: tu mangeras **3 repas par jour**, un le matin, un le midi, un le soir. Tu essaieras **d'entourer tes séances de glucides**, et **chaque repas sera composé d'un élément protéiné**. *Sucres rapides à bannir.*
+  - Si tu es `endomorphe , c'est là que ça devient intéressant: les scientifiques ont récemment prouvés les bénéfices du `Jeune Intermittant`, en particulier la `[METHODE LEANGAINS](https://leangains.com/the-leangains-guide/)` qui consiste à jeuner 16 heures par jour, tout en ayant des fenêtres de 8 heure de période de **feeding**. Cette méthode à fait des miracles. J'ai perdu grâce à elle une quinzaine de kilos en trois mois. On essaiera également de diminuer les glucides petit à petit, en en gardant un petit peu avant l'entraînement.
+  
+  3. Les trois premiers mois vont être `intenses`. Tu vas avoir envie d'abandonner, c'est sûr. Mais si tu suis cela, tu mets toutes tes chances de ton côté. À la suite de ces trois mois de `STRONGLIFT`, tes performances, et ton physique seront déjà métamorphosés. Mais tu ne vas pas t'arrêter là:
+  - Le mois qui va suive, tu vas faire du `Half-Body`, fameux programme de 4 jours par semaines, ou tu vas travailler un jour le haut du corps, un jour le bas du corps! Ce [programme de Fitness Park](https://www.fitnesspark.fr/actualites/entrainement/conseils-dentrainement/programme-musculation-half-body/) est pas trop mal! 
+  - Les deux mois qui vont suivre, tu vas faire du `PPL: Push-Pull-Legs`, tu peux consulter [cet article](https://builtwithscience.com/push-pull-legs-routine/) qui explique en profondeur ton prochain programme adoré ! 
+  - Puis ensuite, tu partiras pendant deux petits mois de plus sur **[un bon split des familles](https://www.muscleandstrength.com/articles/the-ultimate-muscle-building-split-reference-guide.html)**.
+  - Et pour finir ta première année en beauté, un bon petit programme **1/muscle/jour**. À ce stade là, tu seras assez grand pour te faire **ton propre programme** !
+    ", user_id: rand(User.first.id..User.last.id), difficulty: "Débutant",category_id: Category.find_by(name:"Sport").id)
+  

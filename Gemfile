@@ -70,4 +70,6 @@ gem 'cloudinary'
 gem 'redcarpet'
 gem 'font-awesome-rails'
 gem 'font_awesome5_rails'
+gem 'data-confirm-modal'
+gem 'friendly_id', '~> 5.2.4'
 

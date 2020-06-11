@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   get '/contact', to: 'static#contact'
   get '/about', to: 'static#about'
   
-  devise_for :users
+  devise_for :users, path: 'gestion'
   
-  resources :subjects
-  resources :users, only: [:show, :update, :edit] do 
+  resources :subjects, path: 'ressource'
+  resources :users, only: [:show, :update, :edit], path: 'profil' do
     resources :profile_pics, only: [:create]
   end
   resources :join_fav_subject, only: [:update, :destroy]
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'admin/items#index'
     resources :dashboard, only: [:index], path: 'dashboard'
-    resources :subjects
+    resources :subjects, path: 'ressource'
   end
 
 end
