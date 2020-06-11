@@ -19,32 +19,38 @@
   </div>
 
   <div class="row justify-center">
-    <div class="col-md-25 ml-1">
+    <div class="col-md-25 ml-1 mb-3">
         <div class="field ml-2 pl-5">
           <%= form.select(:difficulty, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
         </div>
       </div>
 
-      <div class="col-md-25 ml-1">
+      <div class="col-md-25 ml-1 mb-3">
         <div class="field ml-0">
           <%= form.select(:sub_category_id, options_for_select(@subcategories.map {|u|[u.name,u.id]}), {include_blank: "Sous-catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
         </div>
       </div>
 
-      <div class="col-md-5 ml-0">
-      </div>
+    <div class="col-md-3 mr-5 mb-3 pr-5">
+    </div>
 
-      <div class="actions mt-4mb-4">
-        <%= button_tag(type: 'submit', :class => 'btn btn-primary', id: 'validForm') do %>
-          <span class="white-text mr-1 pl-5 pr-5"> CRÉER</span>
-        <% end %>
-        <div type="button" class="btn btn-outline-primary">
-          <%= link_to 'Show', @subject %>
+        <div class="actions col-md-3 mb-3">
+          <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5', id: 'validForm') do %>
+            <span class="white-text pl-5 pr-5">MODIFIER</span>
+          <% end %>
+          </div>
         </div>
-        <div class="btn btn-outline-primary">
-          <%= link_to 'Back', subjects_path %>
+
+    <div class="text-center mb-3">
+    <%= link_to 'Voir', @subject %> |
+    <%= link_to 'Retour', subjects_path %>
+  </div>
+  </div>
+          <% end %>
+          </div>
+        </div>
         </div>
       </div>
     </div>
   </div>
-<% end %>
+
