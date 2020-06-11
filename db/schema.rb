@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_164401) do
+ActiveRecord::Schema.define(version: 2020_06_09_095057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 2020_06_10_164401) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.bigint "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_categories_on_subject_id"
   end
 
   create_table "join_fav_subjects", force: :cascade do |t|
@@ -72,34 +74,16 @@ ActiveRecord::Schema.define(version: 2020_06_10_164401) do
     t.index ["user_id"], name: "index_join_validate_subjects_on_user_id"
   end
 
-  create_table "sub_categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_sub_categories_on_category_id"
-  end
-
   create_table "subjects", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "difficulty"
-    t.bigint "sub_category_id"
-    t.index ["sub_category_id"], name: "index_subjects_on_sub_category_id"
-    t.index ["user_id"], name: "index_subjects_on_user_id"
-  end
-
-  create_table "user_ratings", force: :cascade do |t|
-    t.integer "user_rating"
     t.bigint "user_id"
-    t.bigint "subject_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subject_id"], name: "index_user_ratings_on_subject_id"
-    t.index ["user_id"], name: "index_user_ratings_on_user_id"
+    t.index ["category_id"], name: "index_subjects_on_category_id"
+    t.index ["user_id"], name: "index_subjects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -111,9 +95,9 @@ ActiveRecord::Schema.define(version: 2020_06_10_164401) do
     t.string "nickname"
     t.text "description"
     t.integer "age"
+    t.boolean "is_admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -125,6 +109,4 @@ ActiveRecord::Schema.define(version: 2020_06_10_164401) do
   add_foreign_key "join_read_subjects", "users"
   add_foreign_key "join_validate_subjects", "subjects"
   add_foreign_key "join_validate_subjects", "users"
-  add_foreign_key "user_ratings", "subjects"
-  add_foreign_key "user_ratings", "users"
 end
