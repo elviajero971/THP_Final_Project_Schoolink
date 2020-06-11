@@ -71,4 +71,5 @@ gem 'redcarpet'
 gem 'pygments.rb'
 gem 'font-awesome-rails'
 gem 'font_awesome5_rails'
+gem 'data-confirm-modal'
 
