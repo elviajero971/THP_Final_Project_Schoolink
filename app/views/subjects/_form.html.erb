@@ -1,33 +1,24 @@
 <%= form_with(model: subject, local: true) do |form| %>
-  <% if subject.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
-
-      <ul>
-      <% subject.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field form-group shadow-textarea no-font pl-5 pr-5">
+  <div class="field form-group shadow-textarea no-font pl-5 pr-5 mb-3 mt-3">
+    <%= form.label :Titre %>
     <%= form.text_field :title, type: "string", class: "form-control z-depth-1", placeholder: "# Titre du sujet" %>
   </div>
 
   <div class="field form-group shadow-textarea pl-5 pr-5">
+    <%= form.label :Contenu %>
     <%= form.text_area :content, type: "txt", class: "form-control z-depth-1", placeholder: "Écris ton contenu...", rows: "20" %>
   </div>
 
   <div class="row justify-center">
-    <div class="col-md-25 ml-1 mb-3">
+    <div class="ml-1 mb-3">
         <div class="field ml-2 pl-5">
           <%= form.select(:difficulty, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
         </div>
       </div>
 
-      <div class="col-md-25 ml-1 mb-3">
+      <div class="ml-5 mb-3">
         <div class="field ml-0">
-          <%= form.select(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), {include_blank: "Catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+          <%= form.select(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}, Subject.find_by(id:params[:id]).category_id), {include_blank: "Catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
         </div>
       </div>
 
@@ -41,10 +32,9 @@
           </div>
         </div>
 
-    <div class="text-center mb-3">
-    <%= link_to 'Voir', @subject %> |
-    <%= link_to 'Retour', subjects_path %>
-  </div>
+<div class="text-center mb-5 mt-5">
+  <%= link_to 'Back', subject_path(@subject.id), class:"btn btn-secondary" %>
+</div>
   </div>
           <% end %>
           </div>

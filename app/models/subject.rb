@@ -4,6 +4,12 @@ class Subject < ApplicationRecord
   has_many :join_read_subjects, dependent: :destroy
   has_many :join_validate_subjects, dependent: :destroy
 
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :difficulty, presence: true
+  validates :category_id, presence: true
+
+
   def howManyFav
     fav = 0
     

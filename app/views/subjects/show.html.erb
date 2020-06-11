@@ -46,9 +46,9 @@
     </div>
 
     <div class="text-center">
-      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete %> |
-      <%= link_to 'Modifier', edit_subject_path(@subject) %> |
-      <%= link_to 'Retour', subjects_path %>
+      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger" %>
+      <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary" %>
+      <%= link_to 'Retour', subjects_path, class:"btn btn-outline-secondary" %>
     </div>
   </div>
 
