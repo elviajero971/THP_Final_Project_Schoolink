@@ -6,18 +6,19 @@
           <span class="card-text mb-4"> Vous n'avez pas encore de ressources favorites </span>
         <% else %>
           <% JoinFavSubject.all.each do |favsubject| %>
-              <% if joinfavsubject.user_id == current_user.id %>
+              <% if favsubject.user_id == current_user.id %>
+              <% subject = Subject.find_by(id: favsubject.subject_id) %>
                 <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
                   <div class="card shadow bg-light">
                     <div class="row">
                       <div class="col-md-8">
                         <div class="card-body d-flex no-block">
                           <div class="w-100">
-                              <h5 class="font-medium mb-0"><%= joinfavsubject.title %></h5>
-                                <small><p>joinfavsubject.user_id</p></small>
+                              <h5 class="font-medium mb-0"><%= subject.title %></h5>
+                                <small><p><%= subject.user.nickname %></p></small>
                             <div class="row">
-                              <h6 class="text-success mb-0 ml-3"><%= joinfavsubject.difficulty %></h6>
-                              <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
+                              <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
+                              <h6 class="text-success mb-0 ml-4"><%= subject.category %></h6>
                               <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
                             </div>
                             </div>

@@ -15,8 +15,8 @@ class User < ApplicationRecord
   before_validation :downcase_email
   after_create :welcome_send
 
-  has_many :subjects
-  has_many :user_ratings
+  has_many :subjects, dependent: :destroy
+  has_many :user_ratings, dependent: :destroy
 
   has_one_attached :profile_pic
 

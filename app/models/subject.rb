@@ -1,7 +1,9 @@
 class Subject < ApplicationRecord
   belongs_to :user
-  
-  has_many :user_ratings
+  has_many :join_fav_subjects, dependent: :destroy
+  has_many :join_read_subjects, dependent: :destroy
+  has_many :join_validate_subjects, dependent: :destroy
+  has_many :user_ratings, dependent: :destroy
 
 
   def howManyFav
