@@ -1,6 +1,6 @@
+
 <%= form_tag url_for(action: 'create'), method: "post" do %>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
 
   <div class="form-group mb-3 mt-3">
     <%= label_tag 'Titre' %>
@@ -11,27 +11,20 @@
     <%= label_tag 'Contenu' %>
     <%= text_area_tag 'content', @subject.content, class:"form-control", rows:"30" %>
   </div>
+  
+  <div class="row">
+    <div class="field create-btn-resource">
+      <%= select_tag(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé']), :class => "btn btn-primary create-btn", include_blank: "Difficulté") %>
+    </div>
 
- <div class="row justify-center">
-    <div class="col-md-25  ml-1 mb-3">
-       <div class="field ml-2 pl-5">
-             <%= select_tag(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé']), :class => "btn btn-primary mr-2", include_blank: "Difficulté") %>
+    <div class="field create-btn-resource">
+      <%= select_tag(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), :class => "btn btn-primary create-btn", include_blank: "Catégorie") %>
+    </div>
+
+    <div class="actions ml-auto create-btn-resource">
+      <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5 create-btn', id: 'validForm') do %>
+        <span class="white-text pl-5 pr-5">Créer </span>
+      <% end %>
     </div>
   </div>
-
-    <div class="col-md-25 mb-3">
-       <div class="field">
-      <%= select_tag(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), :class => "btn btn-primary mr-5", include_blank: "Catégorie") %>
-    </div>
-  </div>
-
-     <div class="col-md-4 mr-5 mb-3 pr-5">
-    </div>
-
-         <div class="actions col-md-3 mb-3">
-          <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5', id: 'validForm') do %>
-            <span class="white-text pl-5 pr-5">CRÉER </span>
-          <% end %>
-          </div>
-        </div>
 <% end %>

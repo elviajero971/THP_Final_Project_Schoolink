@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = current_user
     user_params =  params.require(:user).permit(:nickname, :email, :password, :description)
     if @user.update(user_params)
-      flash[:success] = "Votre profil a bien été modifié"
+      flash[:success] = "Votre profil a bien été modifié !"
         redirect_to user_path(@user.id)
     else
       flash.now[:error] = "Erreur de saisie, veuillez renouveler votre demande"
