@@ -2,28 +2,36 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
 
-  <div class="form-group mb-3 mt-3 col-sm">
+  <div class="form-group mb-3 mt-3">
     <%= label_tag 'Titre' %>
     <%= text_field_tag 'title', @subject.title, class:"form-control" %>
   </div>
 
-  <div class="form-group mb-3 mt-3 col-sm">
+  <div class="form-group mb-3 mt-3">
     <%= label_tag 'Contenu' %>
     <%= text_area_tag 'content', @subject.content, class:"form-control", rows:"30" %>
   </div>
-  <div class= "row justify-content-center col-7">
-    <div class="form-group mb-3 mt-3 col-sm">
-      <%= label_tag "Sous-catégorie" %>
-      <%= select_tag(:sub_category_id, options_for_select(@subcategories.map {|u|[u.name,u.id]}), :class => "btn btn-primary mr-5") %>
-    </div>
 
-    <div class="form-group mb-3 mt-3 col-sm">
-      <%= label_tag "Difficulté" %>
-      <%= select_tag(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé']), :class => "btn btn-primary mr-5") %>
-    </div>
-
-    <div class="actions text-center">
-      <%= submit_tag "Créer", class:"btn btn-success mt-3"%>
+ <div class="row justify-center">
+    <div class="col-md-25  ml-1 mb-3">
+       <div class="field ml-2 pl-5">
+             <%= select_tag(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé']), :class => "btn btn-primary mr-2", include_blank: "Difficulté") %>
     </div>
   </div>
+
+    <div class="col-md-25 mb-3">
+       <div class="field">
+      <%= select_tag(:sub_category_id, options_for_select(@subcategories.map {|u|[u.name,u.id]}), :class => "btn btn-primary mr-5", include_blank: "Sous-catégorie") %>
+    </div>
+  </div>
+
+     <div class="col-md-4 mr-5 mb-3 pr-5">
+    </div>
+
+         <div class="actions col-md-3 mb-3">
+          <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5', id: 'validForm') do %>
+            <span class="white-text pl-5 pr-5">CRÉER </span>
+          <% end %>
+          </div>
+        </div>
 <% end %>
