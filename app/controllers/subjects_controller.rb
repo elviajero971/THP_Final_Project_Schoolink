@@ -58,8 +58,13 @@ class SubjectsController < ApplicationController
 
   def destroy
     @subject = Subject.find_by(id:params[:id])
-    @subject.destroy
-    redirect_to root_path
+    if @subject.destroy
+      redirect_to "/" 
+      flash[:success] = "Votre ressource a bien été supprimé !"
+    else
+      flash.now[:alert] = "Attention votre ressource n'a pas pu être supprimée. Veuillez ré-essayer."
+      render :new
+    end  
   end
 
   private
