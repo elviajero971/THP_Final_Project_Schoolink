@@ -2,15 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.icon-bookmark {
+.icon-bookmark-true {
   color: rgba(0, 0, 0, 0.822);
   transition: .3s;
 }
 
-.icon-bookmark:hover {
-  color: #2cdd9b;
+.icon-bookmark-false {
+  color: rgba(0, 0, 0, 0.822);
+}
+
+.icon-bookmark-true{
+  color: rgba(0, 0, 0, 0.822);
   cursor: pointer;
 }
+
+.icon-bookmark-false {
+  color: #f00;
+  cursor: pointer;
+}
+
+
 
 button.btn-link-modal {
   color: #2cdd9b;

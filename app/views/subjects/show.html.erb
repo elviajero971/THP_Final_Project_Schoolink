@@ -6,16 +6,24 @@
           <div class="card-body">
             <div class="card-body">
               <div class="float-right">
-                <%= link_to join_fav_subject_path(params[:id]), remote: true, method: 'put' do %>
-                <i class="fa fa-bookmark fa-2x mr-4 mt-1 icon-bookmark" aria-hidden="true">ADD</i>
-                <% end %>
-                <%= link_to join_fav_subject_path(params[:id]), remote: true, method: 'delete' do %>
-                <i class="fa fa-bookmark fa-2x mr-4 mt-1 icon-bookmark" aria-hidden="true">DELETE</i>
-                <% end %>
+                <div class="d-inline" id="fav-container">
+                <%# If il est dejà en fav, on met le render false sinon render true
+
+                  si le user a comme favoris l'id du subject sinon ..
+
+                  1 / true : permettre de mettre en favoris
+                  2 / false : permettre d'enlever des favoris
+                 %>
+                  <% if @subject.user_id %>
+                    <%= render 'join_fav_subject/fav_true' %>
+                  <% end%>
+                </div>
+
                 <h5 class="float-right border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
-                <h5 class="float-right border border-dark p-2"><strong><%= @subject.category %></strong></h5>
+                <h5 class="float-right p-2 mr-2"><strong><%= @subject.category %></strong></h5>
               </div>
-              <h2><%= @subject.title %></h2>
+              <h2 class="font-weight-bold"><%= @subject.title %></h2>
+              <hr>
               <%= markdown(@subject.content) %>
             </div>
             <div class="card-footer">
