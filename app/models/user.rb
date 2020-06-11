@@ -19,6 +19,9 @@ class User < ApplicationRecord
 
   has_one_attached :profile_pic
 
+  extend FriendlyId
+  friendly_id :nickname, use: :slugged
+
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end

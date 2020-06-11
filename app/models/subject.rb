@@ -9,6 +9,8 @@ class Subject < ApplicationRecord
   validates :difficulty, presence: true
   validates :category_id, presence: true
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   def howManyFav
     fav = 0
@@ -28,5 +30,12 @@ class Subject < ApplicationRecord
   def category
     cat = Category.find_by(id: self.category_id)
     return cat.name
+  end
+
+  def user_nickname
+    user_nickname = User.find_by(id: self.user_id).nickname
+  end
+  def user_slug
+    user_nickname = User.find_by(id: self.user_id).slug
   end
 end
