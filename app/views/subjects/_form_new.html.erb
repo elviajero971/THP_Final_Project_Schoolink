@@ -21,7 +21,7 @@
 
     <div class="col-md-25 mb-3">
        <div class="field">
-      <%= select_tag(:sub_category_id, options_for_select(@subcategories.map {|u|[u.name,u.id]}), :class => "btn btn-primary mr-5", include_blank: "Sous-catégorie") %>
+      <%= select_tag(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), :class => "btn btn-primary mr-5", include_blank: "Catégorie") %>
     </div>
   </div>
 
