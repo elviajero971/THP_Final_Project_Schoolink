@@ -36,27 +36,27 @@ class SubjectsController < ApplicationController
     @categories = Category.all
     @subject = Subject.new(title: params[:title], content: params[:content], user_id: current_user.id, category_id: params[:category_id],difficulty: params[:difficulty])
     if @subject.valid? == false 
-      flash.now[:alert] = "Attention votre ressource n'a pas pû être créée. Veuillez ré-essayer."
+      flash.now[:alert] = "Attention votre ressource n'a pas pû être créée. Il doit manquer le titre, le contenu, la difficulté ou la catégorie !"
       render :new
     else
       if @subject.save
         flash[:success] = "Votre ressource a bien été créée !"
         redirect_to @subject
       else
-        flash.now[:alert] = "Attention votre ressource n'a pas pû être créée. Veuillez ré-essayer."
         render :new
       end
     end
   end
 
   def update
+    @categories = Category.all
     @subject = Subject.find_by(id:params[:id])
     if @subject.update(subject_params)
       flash[:success] = "Votre ressource a bien été modifiée !"
       redirect_to subject_path(@subject.id)
     else
-        flash.now[:alert] = "Attention votre ressource n'a pas pû être modifiée. Veuillez ré-essayer."
-        render :new
+      flash.now[:alert] = "Attention votre ressource n'a pas pû être modifiée. Il doit manquer le titre, le contenu, la difficulté ou la catégorie !"
+      render :edit
     end  
   end
 
@@ -66,7 +66,7 @@ class SubjectsController < ApplicationController
       redirect_to "/" 
       flash[:success] = "Votre ressource a bien été supprimé !"
     else
-      flash.now[:alert] = "Attention votre ressource n'a pas pu être supprimée. Veuillez ré-essayer."
+      flash.now[:alert] = "Attention votre ressource n'a pas pu être supprimée. Veuillez réessayer."
       render :new
     end  
   end

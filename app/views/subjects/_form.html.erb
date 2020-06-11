@@ -1,15 +1,4 @@
 <%= form_with(model: subject, local: true) do |form| %>
-  <% if subject.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
-
-      <ul>
-      <% subject.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="field form-group shadow-textarea no-font pl-5 pr-5">
     <%= form.text_field :title, type: "string", class: "form-control z-depth-1", placeholder: "# Titre du sujet" %>
   </div>

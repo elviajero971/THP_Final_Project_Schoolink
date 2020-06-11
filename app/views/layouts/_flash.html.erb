@@ -1,19 +1,17 @@
 <% if flash[:success] %>
-  <div class="alert alert-success">
-    <%= flash[:success]%>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">×</span>
+<div class="container alert alert-success d-flex justify-content-center mt-2">
+  <%= flash[:success]%>
+  <button type="button ml-5" class="close" data-dismiss="alert" aria-label="Close">
+    <span class="ml-5"  aria-hidden="true">×</span>
   </button>
-  </div>
+</div>
 <% end %>
 
-<% if flash[:error] %>
-  <div class="alert alert-danger">
-    <%= flash[:error] %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">×</span>
+<% if flash[:alert] %>
+<div class="container alert alert-danger d-flex justify-content-center mt-2">
+  <%= flash[:alert] %>
+  <button type="button ml-5" class="close" data-dismiss="alert" aria-label="Close">
+    <span class="ml-5" aria-hidden="true">×</span>
   </button>
-  </div>
+</div>
 <% end %>
-
-
