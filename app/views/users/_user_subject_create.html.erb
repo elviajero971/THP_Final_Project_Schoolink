@@ -13,11 +13,11 @@
           <tr>
             <td><span class="label label-rounded label-info"><%= subject.category %></span> </td>
             <td>
-              <%= if subject.title.length > 50 
-                          subject.title[0..50] + '[..]'
-                        else 
-                        subject.title
-                        end %>
+            <%= if subject.title.length > 50 
+                  subject.title[0..50] + '[..]'
+                else 
+                  subject.title
+                end %>
             </td>
             <td><%= link_to "Lien", subject_path(subject.slug) %></td>         
           </tr>
