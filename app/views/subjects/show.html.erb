@@ -7,15 +7,12 @@
             <div class="card-body">
               <div class="float-right">
                 <div class="d-inline" id="fav-container">
-                <%# If il est dejà en fav, on met le render false sinon render true
-
-                  si le user a comme favoris l'id du subject sinon ..
-
-                  1 / true : permettre de mettre en favoris
-                  2 / false : permettre d'enlever des favoris
-                 %>
-                  <% if @subject.user_id %>
-                    <%= render 'join_fav_subject/fav_true' %>
+                  <% JoinFavSubject.all.each do |fav| %>
+                    <% if fav.user_id == fav.subject_id %>
+                      <%= render 'join_fav_subject/fav_true' %>
+                    <% else %>
+                      <%= render 'join_fav_subject/fav_false' %>
+                    <% end %>
                   <% end%>
                 </div>
 
@@ -33,16 +30,16 @@
                 <h6 class="mt-3 ml-3 text-success"></h6>
                 <div class="ml-auto mt-2">
                   <%= form_with method: "PUT", url: join_read_subject_path  do |form| %>
-                  <%= form.submit "Suivre".html_safe, class:"btn btn-secondary btn-outline"%>
+                    <%= form.submit "Suivre".html_safe, class:"btn btn-secondary btn-outline"%>
                   <% end %>
                   <%= form_with method: "DELETE", url: join_read_subject_path  do |form| %>
-                  <%= form.submit "Ne plus suivre".html_safe, class:"btn btn-secondary btn-outline"%>
+                    <%= form.submit "Ne plus suivre".html_safe, class:"btn btn-secondary btn-outline"%>
                   <% end %>
                   <%= form_with method: "PUT", url: join_validate_subject_path  do |form| %>
-                  <%= form.submit "Noté comme terminée".html_safe, class:"btn btn-secondary btn-outline ml-3"%>
+                    <%= form.submit "Noté comme terminée".html_safe, class:"btn btn-secondary btn-outline ml-3"%>
                   <% end %>
                   <%= form_with method: "DELETE", url: join_validate_subject_path  do |form| %>
-                  <%= form.submit "Noté comme non-terminée".html_safe, class:"btn btn-secondary btn-outline ml-3"%>
+                    <%= form.submit "Noté comme non-terminée".html_safe, class:"btn btn-secondary btn-outline ml-3"%>
                   <% end %>
                 </div>
               </div>
