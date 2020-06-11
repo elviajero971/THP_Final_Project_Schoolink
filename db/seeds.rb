@@ -104,16 +104,26 @@ Subject.create(title: "Ukulélé en 5 étapes", content: "N’ayant aucune base 
 
 3. **[Ukulele Travel](https://www.ukuleletravel.com/category/debuter-le-ukulele)**: j’ai beaucoup apprécié les conseils gratuit sur le site [yukuleletravel.com](yukuleletravel.com). Des bonnes astuces et des entraînements tous niveaux bien adaptés.
   https://www.ukuleletravel.com/category/debuter-le-ukulele<br>".html_safe, user_id: rand(User.first.id..User.last.id), difficulty: "Facile",category_id: Category.find_by(name:"Modes de vies alternatifs").id)
-Subject.create(title: "Une heure pour comprendre : le Yoga", content: "Passionné par les philosophies orientales et la spiritualité en général, je suis parti pendant six mois en Inde faire un tour des ashrams et monastères pour apprendre le yoga et la méditation. Moi qui associait ça à des gens en legging qui font des acrobaties dans la salle de cours collectifs de la salle de sport, j’étais loin de me douter de l’art de vivre à part entière et de la puissance du yoga, quand on commence à l’implémenter dans sa vie.<br>
-  Je suis donc allé à la rencontre de ces “maîtres spirituels” indiens, discutés avec ces Saddhus qui vivent dans des grottes dans l’Himalaya, médité pendant des centaines d’heures, lu des dizaines de livres sur le sujet et côtoyé des yogis plus ou moins expérimentés des quatres coins du monde. Voici un ensemble de ressources que j’ai à partager avec vous.<br>
-  Il existe de nombreux types de yogas. Swami Vivekananda, un grand maître Indien du XIXè siècle en désignait quatre: le Jnana Yoga (voie de la connaissance), le Raja Yoga (voie de l’expérience physique (postures et pranayama) et des ascèses, dont fait parti l’Hatha), le Bhakti Yoga (voie de l’amour et de la dévotion), et le Karma Yoga (voie de l’action et du service).<bre>
-  Voici donc plusieurs ressources (livres, textes sacrés et vidéos YouTube, pour comprendre ce qu’est le Yoga):<br>
-  Le classique du Yoga, l’un des pères fondateurs de l’Ashtanga, Patanjali, qui explique dans son livre “ Les Yoga Sutras”, ce que sont les huit branches du yoga. https://www.amazon.fr/Yoga-Sutras-Patanjali-ebook/dp/B00GWMD0VG/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&dchild=1&keywords=patanjali+yoga+sutra&qid=1591709819&sr=8-1 
-  Il existe aussi des versions gratuites en anglais. https://archive.org/details/yogasutrasofpata00pata/page/n9/mode/2up <br>
-  Vous pouvez aussi lire le “Hatha Yoga Pradipika” qui est une Bible du Hatha Yoga (pour aller plus loin). https://archive.org/details/hathayogapradipikaswamimuktibodhananda_202003_329_Y <br>
-  Si il y a bien une série d’assanas à apprendre, c’est la fameuse “salutation au soleil” (Surya Namaskar) qui est à mes yeux le meilleur ensemble de postures pour balancer sa chimie intérieure. Tu pourras l’apprendre sur cette vidéo. https://www.youtube.com/watch?v=BYzwYAl3yEQ <br>
-  Les Pranayamas sont un autre moyen de nous libérer de l’emprise du mental à travers des exercices de respiration. Il existe énormément de méthodes que vous pourrez apprendre directement avec des Yogis. Mais certaines de ces méthodes mal faites, peuvent être dangereuses. C’est pourquoi je te recommande les exercices de la “Wim Hof Method”, qui est à mes yeux extra-ordinaire. De rien! :) https://www.youtube.com/watch?v=tybOi4hjZFQ <br>
-  Si vous comprenez l’anglais, et que vous voulez vous atteindre des niveaux plus avancés de conscience, cette chaîne Youtube, est vraiment la meilleure chaîne de spiritualité existante sur YouTube. Tu pourras y trouver les enseignements des plus grands gurus et maîtres qui ont existés. Tu ne comprendra peut-être pas tout pour l’instant, mais plus ta conscience s’élèvera, plus tu comprendras.... https://www.youtube.com/channel/UCz6X8QK9_JG49hJxnzAu-1w <br>
+Subject.create(title: "Une heure pour comprendre : le Yoga", content: "Passionné par les **philosophies orientales** et **la spiritualité** en général, je suis parti pendant six mois en Inde faire un tour des ashrams et monastères pour apprendre `le yoga` et `la méditation`. 
+
+  Moi qui associait ça à des gens en legging qui font des acrobaties dans la salle de cours collectifs de la salle de sport, j’étais loin de me douter de **l’art de vivre** à part entière et de la puissance du yoga, quand on commence à l’implémenter dans sa vie.
+  
+    Je suis donc allé à la rencontre de ces “maîtres spirituels” indiens, discutés avec ces Saddhus qui vivent dans des grottes dans l’Himalaya, médité pendant des centaines d’heures, lu des dizaines de livres sur le sujet et côtoyé des yogis plus ou moins expérimentés des quatre coins du monde. Voici un ensemble de ressources que j’ai à partager avec vous.
+  
+    Il existe de nombreux types de yogas. **Swami Vivekananda**, un grand maître Indien du XIXè siècle en désignait quatre: le `Jnana Yoga`(voie de la connaissance), le `Raja Yoga` (voie de l’expérience physique (postures et pranayama) et des ascèses, dont fait parti l’Hatha), le `Bhakti Yoga` (voie de l’amour et de la dévotion), et le `Karma Yoga` (voie de l’action et du service).
+  
+    Voici donc plusieurs ressources (livres, textes sacrés et vidéos YouTube, pour comprendre ce qu’est le Yoga):
+    
+  1. Le classique du Yoga, l’un des pères fondateurs de `l’Ashtanga`, **Patanjali**, qui explique dans son livre “ [Les Yoga Sutras](https://www.amazon.fr/Yoga-Sutras-Patanjali-ebook/dp/B00GWMD0VG/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&dchild=1&keywords=patanjali+yoga+sutra&qid=1591709819&sr=8-1)”, ce que sont les **huit branches du yoga**. Il existe aussi des [versions gratuites](https://archive.org/details/yogasutrasofpata00pata/page/n9/mode/2up) en anglais.
+  
+  2. Vous pouvez aussi lire le “[Hatha Yoga Pradipika](https://archive.org/details/hathayogapradipikaswamimuktibodhananda_202003_329_Y)” qui est une **Bible du Hatha Yoga** (pour aller plus loin). 
+   
+  3. Si il y a bien une **série d’assanas** à apprendre, c’est la fameuse `“salutation au soleil” (Surya Namaskar)` qui est à mes yeux le meilleur ensemble de postures pour *balancer sa chimie intérieure et rééquilibrer ses chakras*. Tu pourras l’apprendre sur [cette vidéo](https://www.youtube.com/watch?v=BYzwYAl3yEQ).
+  
+  4. Les `Pranayamas` sont un autre moyen de nous libérer de l’emprise du mental à travers des exercices de respiration. Il existe énormément de méthodes que vous pourrez apprendre directement avec des Yogis. Mais certaines de ces méthodes mal faites, peuvent être dangereuses. C’est pourquoi je te recommande les exercices de la **“[Wim Hof Method](https://www.youtube.com/watch?v=tybOi4hjZFQ)”**, qui est à mes yeux *extra-ordinaire*. De rien! :)
+  
+  5. Si vous comprenez l’anglais, et que vous voulez vous atteindre des niveaux plus avancés de conscience, [cette chaîne Youtube](https://www.youtube.com/channel/UCz6X8QK9_JG49hJxnzAu-1w), est vraiment la **meilleure chaîne de spiritualité existante sur YouTube**. Tu pourras y trouver les enseignements des plus grands gurus et maîtres qui ont existés. Tu ne comprendra peut-être pas tout pour l’instant, mais plus ta conscience s’élèvera, plus tu comprendras.... 
+    
   ", user_id: rand(User.first.id..User.last.id), difficulty: "Facile",category_id: Category.find_by(name:"Spiritualité").id)
 Subject.create(title: "Comprendre le slow cinema", content: "Cette ressource s’adresse à tous les cinéphiles amateurs comme moi ! Je suis étonnée par le manque de ressources disponibles sur le net sur tout ce qui touche au mouvement `slow cinema` ou `cinéma contemplatif`.
 
@@ -128,22 +138,31 @@ Subject.create(title: "Comprendre le slow cinema", content: "Cette ressource s�
   3. Cet [article de The Guardian](https://www.theguardian.com/film/2012/mar/09/slow-cinema-fights-bournes-supremacy) permet également de en quoi le slow cinema est un contrecoup au cinema mainstream qui enchaîne des plans séquences rapides.
   
   4. Mes slow films préférés : *Le Désert Rouge* (1964) de **Michelangelo Antonioni**, *Tropical Malady* (2004) de **Apichatpong Weerasethakul**, *La Captive *(2000) de **Chantal Ackerman** et *India Song* (1975) de **Marguerite Duras**. ".html_safe, user_id: rand(User.first.id..User.last.id), difficulty: "Intermédiaire",category_id: Category.find_by(name:"Art").id)
-Subject.create(title: "Introduction à la Psychologie sociale du langage et de la communication", content: "Je souhaite partager avec vous mon processus d’apprentissage aux théories de la psychologie Psychologie du langage et de la communication, et plus précisément aux théories de Discrimination et Préjugés. <br>
-  Étudiante en Communication, la psychologie sociale m’était alors une discipline inconnue et une professeure engageante m’a amenée à rédiger mon mémoire d’étude sur L’impact des politiques d’intégration et de communautarisme sur la discrimination envers les populations immigrés (n’hésitez pas commenter cette ressource si vous aimeriez le consulter).<br>
-  Malheureusement, pour ce qui touche à la recherche scientifique, la grande majorité des articles sont en anglais donc vous devez avoir des bases en cette langue pour comprendre. Je précise lorsqu’un article est en français. <br>
-  Lorsqu’on débute dans la discipline, je recommande fortement de lire cet article qui introduit les les concepts de bases : https://www.tandfonline.com/doi/abs/10.1080/00224545.2012.711380<br>
-  Cet article de Beukeboom, théoricien fortement cité en la matière, permet de comprendre en quoi les biais linguistiques, inconscients, permettent de maintenir des stéréotypes : https://www.researchgate.net/publication/258290822_Mechanisms_of_linguistic_bias_How_words_reflect_and_maintain_stereotypic_expectancies <br>
-  Cet article (en français) sur le racisme et la discrimination permet d’établir le lien entre la psychologie de la communication et les discriminations, notamment au travers de la catégorisation :
-  https://www.researchgate.net/publication/265966313_Bourhis_RY_Montreuil_A_2004_Les_assises_socio-psychologiques_du_racisme_et_de_la_discrimination_Dans_J_Renaud_A_Germain_X_Leloup_Eds_Racisme_et_discrimination_Permanence_et_resurgence_d%27un_phenomene_i <br>
-  Enfin, cet article de Licata aborde la question de l’autocatégorisation et de l’identité sociale : https://psychologiescientifique.org/wp-content/uploads/2018/02/Licata-2007-La-théorie-de-l’identité-sociale-et-la-théorie-de-.pdf <br>
+Subject.create(title: "Introduction à la Psychologie sociale du langage et de la communication", content: "Je souhaite partager avec vous mon processus d’apprentissage aux théories de la psychologie `psychologie du langage et de la communication`, et plus précisément aux `théories de Discrimination et Préjugés`.
+ 
+  Étudiante en Communication, la **psychologie sociale** m’était alors une discipline inconnue et une professeure engageante m’a amenée à rédiger mon mémoire d’étude sur *l’impact des politiques d’intégration et de communautarisme sur la discrimination envers les populations immigrés* (n’hésitez pas commenter cette ressource si vous aimeriez le consulter).
+
+  Malheureusement, pour ce qui touche à la recherche scientifique, la grande majorité des articles sont en anglais donc vous devez avoir des bases en cette langue pour comprendre. Je précise lorsqu’un article est en français.
+
+1. Lorsqu’on débute dans la discipline, je recommande fortement de lire [cet article](https://www.tandfonline.com/doi/abs/10.1080/00224545.2012.711380) qui *introduit les les concepts de bases*.
+
+2. Cet [article de **Beukeboom**](https://www.researchgate.net/publication/258290822_Mechanisms_of_linguistic_bias_How_words_reflect_and_maintain_stereotypic_expectancies), théoricien fortement cité en la matière, permet de comprendre **en quoi les biais linguistiques, inconscients, permettent de maintenir des stéréotypes**.
+ 
+3. Cet [article](https://www.researchgate.net/publication/265966313_Bourhis_RY_Montreuil_A_2004_Les_assises_socio-psychologiques_du_racisme_et_de_la_discrimination_Dans_J_Renaud_A_Germain_X_Leloup_Eds_Racisme_et_discrimination_Permanence_et_resurgence_d%27un_phenomene_i) (en français) sur le *racisme et la discrimination* permet *d’établir le lien entre la psychologie de la communication et les discriminations, notamment au travers de la catégorisation* :
+
+4. Enfin, [cet article de **Licata**](https://psychologiescientifique.org/wp-content/uploads/2018/02/Licata-2007-La-théorie-de-l’identité-sociale-et-la-théorie-de-.pdf) aborde la question de `l’autocatégorisation et de l’identité sociale`.
   ", user_id: rand(User.first.id..User.last.id), difficulty: "Débutant",category_id: Category.find_by(name:"Psychologie").id)
-Subject.create(title: "Introduction à l’écoféminisme", content: "L’écoféminisme est un courant politique et philosophique qui a tardé à arriver en France mais grâce à la résurgence d’une conscience écologique mêlée à aux luttes féministes en 2019-2020, j’en entends de plus en plus parler dans mon entourage français. Tout comme un accroissement des théories de convergences des luttes. Mais qu’est-ce que l’écoféminisme, vous me demanderez ? <br>
-  Je vous conseille de regarder cette courte vidéo (2min), expliquant la naissance du mouvement. Et vous verra qu’une de ses initiatrices est bien française (merci Françoise d’Eaubonne) : 
-  https://www.arte.tv/fr/videos/094215-000-A/l-ecofeminisme-d-ou-ca-vient/ <br>
-  Cet interview d’Emilie Hache permet également de comprendre les fondements du mouvement : 
-  https://reporterre.net/Emilie-Hache-Pour-les-ecofeministes-destruction-de-la-nature-et-oppression-des-femmes <br>
-  Je vous recommande également cet entretien podcast avec Vandana Shiva (en anglais), unes des grandes figures du mouvement : https://soundcloud.com/nouvelles-ecoutes/la-poudre-episode-68-vandana-shiva-double-en-francais <br>
-  Sans parler, ni citer l’écoféminisme, ce podcast avec Pascale D’Erm pour son livre 'Sœurs en écologie' paru le 30 Mars 2017 aux Editions La mer salée, et Anne Ribes, infirmière et paysagiste est également dans le coeur du sujet : 
-  https://www.franceculture.fr/emissions/de-cause-effets-le-magazine-de-lenvironnement/lecologie-au-feminin <br>
-  Théoriciennes éco-féministes : Françoise d’Eaubonne, Vandana Shiva, Starhawk, Donna Haraway, Maria Mies, ...
+Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écoféminisme` est un **courant politique et philosophique** qui a tardé à arriver en France mais grâce à la résurgence d’une `conscience écologique mêlée à aux luttes féministes` en 2019-2020, j’en entends de plus en plus parler dans mon entourage français. Tout comme un `accroissement des théories de convergences des luttes`. 
+
+  ### Mais qu’est-ce que l’écoféminisme, vous me demanderez ?
+  
+  1. Je vous conseille de regarder [cette courte vidéo](https://www.arte.tv/fr/videos/094215-000-A/l-ecofeminisme-d-ou-ca-vient/) (2min), expliquant la **naissance du mouvement**. Et vous verra qu’une de ses initiatrices est bien française (merci **Françoise d’Eaubonne**).
+  
+  2. Cette [interview](https://reporterre.net/Emilie-Hache-Pour-les-ecofeministes-destruction-de-la-nature-et-oppression-des-femmes) d’**Emilie Hache** permet également de comprendre les **fondements du mouvement**.
+  
+  3. Je vous recommande également cet entretien podcast avec **Vandana Shiva** (en anglais), unes des grandes figures du mouvement.
+  
+  4. Sans parler, ni citer l’écoféminisme, ce podcast avec **Pascale D’Erm** pour son livre '**Sœurs en écologie**' paru le 30 Mars 2017 aux Editions La mer salée, et **Anne Ribes**, infirmière et paysagiste [est également dans le coeur du sujet]( https://www.franceculture.fr/emissions/de-cause-effets-le-magazine-de-lenvironnement/lecologie-au-feminin).
+  
+   > Théoriciennes éco-féministes : **Françoise d’Eaubonne**, **Vandana Shiva**, **Starhawk**, **Donna Haraway**, **Maria Mies**, et bien d'autres...
   ", user_id: rand(User.first.id..User.last.id), difficulty: "Difficile",category_id: Category.find_by(name:"Philosophie").id)
