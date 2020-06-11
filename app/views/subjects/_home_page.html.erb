@@ -49,54 +49,13 @@
                   </small>
                   <div class="row">
                     <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
-                    <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
-                    <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
+                    <h6 class="text-success mb-0 ml-4"><%= subject.category %></h6>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4 text-center">
               <a href=<%= subject_path(subject.id) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="bg-light spacer feature20 up mt-5">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-7">
-        <h2 class="title">Les ressources les mieux notées</h2>
-      </div>
-    </div>
-
-    <div class="row wrap-feature-20">
-      <% @subjects.each do |subject| %>
-      <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
-        <div class="card">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="card-body d-flex no-block">
-                <div class="w-100">
-                  <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                  <small>
-                    <p><%= @users.find_by(id:subject.user_id).nickname %></p>
-                  </small>
-                  <div class="row">
-                    <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
-                    <h6 class="text-success mb-0 ml-4"><%= Category.find(SubCategory.find(subject.sub_category_id).category_id).name %></h6>
-                    <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 text-center">
-              <a href="javascript:void(0)" class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
             </div>
           </div>
         </div>
