@@ -3,9 +3,9 @@ class CreateSubjects < ActiveRecord::Migration[5.2]
     create_table :subjects do |t|
       t.string :title
       t.text :content
-      t.integer :difficulty
+      t.string :difficulty
       t.belongs_to :user, index: true
-
+      t.belongs_to :category, index: true
       t.timestamps
     end
   end
