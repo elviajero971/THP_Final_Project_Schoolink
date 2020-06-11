@@ -1,37 +1,28 @@
-          <!-- ressources créées -->
-<div class="mini-spacer feature20 up mb-5">
-  <div class="container">
-      <div class="row wrap-feature-20">
-        <% if Subject.find_by(user_id: @user.id) == nil %>
-          <span class="card-text mb-4"> Vous n'avez pas encore créée de ressource </span>
-        <% else %>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Catégorie</th>
+            <th>Titre</th>
+            <th>Lien</th>
+          </tr>
+        </thead>
+        <tbody>
           <% Subject.all.each do |subject| %>
-              <% if subject.user_id == current_user.id %>
-                <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
-                  <div class="card shadow bg-light">
-                    <div class="row">
-                      <div class="col-md-8">
-                        <div class="card-body d-flex no-block">
-                          <div class="w-100">
-                              <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                                <small><p><%= subject.user.nickname %></p></small>
-                            <div class="row">
-                              <h6 class="text-success mb-0 ml-3"><%= subject.difficulty %></h6>
-                              <h6 class="text-success mb-0 ml-4"><%= subject.category %></h6>
-                              <h6 class="text-success mb-0 ml-auto mr-3">4/5</h6>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                          <a href=<%= subject_path(subject.slug) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              <% end %>
-            <% end %>
-        <% end %>
+          <% if subject.user_slug == params[:id] %>
+          <tr>
+            <td><span class="label label-rounded label-info"><%= subject.category %></span> </td>
+            <td>
+              <%= if subject.title.length > 50 
+                          subject.title[0..50] + '[..]'
+                        else 
+                        subject.title
+                        end %>
+            </td>
+            <td><%= link_to "Lien", subject_path(subject.slug) %></td>         
+          </tr>
+          <% end %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-  </div>
-</div>
