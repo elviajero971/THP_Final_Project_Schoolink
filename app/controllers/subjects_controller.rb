@@ -47,8 +47,13 @@ class SubjectsController < ApplicationController
 
   def update
     @subject = Subject.find_by(id:params[:id])
-    @subject.update(subject_params)
-    redirect_to subject_path(@subject.id)
+    if @subject.update(subject_params)
+      flash[:success] = "Votre ressource a bien été modifiée !"
+      redirect_to subject_path(@subject.id)
+    else
+        flash.now[:alert] = "Attention votre ressource n'a pas pû être modifiée. Veuillez ré-essayer."
+        render :new
+    end  
   end
 
   def destroy
