@@ -1,4 +1,4 @@
-<div class="spacer feature4">
+<div class="spacer-show feature4">
   <div class="container">
     <div class="row mt-5">
       <div class="ml-3 mr-3 w-100">
@@ -26,6 +26,7 @@
             
               <hr>
               <%= markdown(@subject.content) %>
+              <blockquote>Ecrit par <%= link_to @subject.user_nickname, user_path(@subject.user_slug) %></blockquote>
             </div>
             <div class="card-footer">
               <div class="row pr-3">
@@ -66,12 +67,12 @@
       </div>
     </div>
 
-    <div class="text-center mb-5">
-      <% if @subject.user_id == current_user.id %>
-        <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete %> |
-        <%= link_to 'Modifier', edit_subject_path(@subject) %> |
+    <div class="text-center">
+      <% if current_user.id == @subject.user_id %>
+        <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger" %>
+        <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary" %>
       <% end %>
-      <%= link_to 'Retour', subjects_path %>
+        <%= link_to 'Retour', subjects_path, class:"btn btn-outline-secondary" %>
     </div>
   </div>
 

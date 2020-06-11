@@ -11,7 +11,7 @@
   color: rgba(0, 0, 0, 0.822);
 }
 
-.icon-bookmark-true{
+.icon-bookmark-true {
   color: rgba(0, 0, 0, 0.822);
   cursor: pointer;
 }
@@ -20,8 +20,6 @@
   color: #f00;
   cursor: pointer;
 }
-
-
 
 button.btn-link-modal {
   color: #2cdd9b;
@@ -56,6 +54,20 @@ button.btn-link-modal:focus {
   margin-left: 15px;
 }
 
+// .spacer {
+//   padding-top: 90px !important;
+//   padding-bottom: 30px !important;
+// }
+
+// .spacer-show {
+//   padding-top: 30px !important;
+//   padding-bottom: 30px !important;
+// }
+
+// .modal-content p {
+//   margin-bottom: 0px !important;
+// }
+
 
 @media screen and (max-width: 800px) {
   .create-btn-resource {
@@ -66,6 +78,10 @@ button.btn-link-modal:focus {
 
   .create-btn {
     width: 90%;
+  }
+
+  .button-up {
+    margin-bottom: 10px;
   }
 
   button.btn-link-modal {

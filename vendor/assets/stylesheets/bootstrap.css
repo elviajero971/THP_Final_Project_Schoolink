@@ -4,6 +4,9 @@
  * Copyright 2011-2017 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap");
+
 @media print {
   *,
   *::before,
@@ -64,7 +67,7 @@
 
 html {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Montserrat", "Roboto";
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
