@@ -4,6 +4,7 @@
           <tr>
             <th>Catégorie</th>
             <th>Titre</th>
+            <th>En Favoris</th>
             <th>Lien</th>
           </tr>
         </thead>
@@ -19,6 +20,7 @@
                   subject.title
                 end %>
             </td>
+            <td><%= subject.how_many_fav? %></td>         
             <td><%= link_to "Lien", subject_path(subject.slug) %></td>         
           </tr>
           <% end %>
