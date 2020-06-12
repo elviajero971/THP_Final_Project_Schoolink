@@ -5,7 +5,7 @@ The Hacking Project Final Project
 
 Lien du site en développement : https://whiteboard-development.herokuapp.com/
 
-Identifiants pour la connexion : 
+Identifiants du compte **administrateur** pour la connexion : 
 ```diff 
 mail : whiteboard.thp@yopmail.com
 password : 123456
