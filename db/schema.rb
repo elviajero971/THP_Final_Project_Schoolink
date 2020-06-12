@@ -44,6 +44,11 @@ ActiveRecord::Schema.define(version: 2020_06_12_130723) do
     t.index ["subject_id"], name: "index_categories_on_subject_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
