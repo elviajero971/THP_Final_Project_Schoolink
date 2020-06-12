@@ -124,7 +124,7 @@ Subject.create(title: "Une heure pour comprendre : le Yoga", content: "Passionn�
   
   5. Si vous comprenez l’anglais, et que vous voulez vous atteindre des niveaux plus avancés de conscience, [cette chaîne Youtube](https://www.youtube.com/channel/UCz6X8QK9_JG49hJxnzAu-1w), est vraiment la **meilleure chaîne de spiritualité existante sur YouTube**. Tu pourras y trouver les enseignements des plus grands gurus et maîtres qui ont existés. Tu ne comprendra peut-être pas tout pour l’instant, mais plus ta conscience s’élèvera, plus tu comprendras.... 
     
-  ", user_id: User.find_by(nickname:"AlexF").id, difficulty: "Facile",category_id: Category.find_by(name:"Sport").id)
+  ", user_id: User.find_by(nickname:"AlexF").id, difficulty: "Facile",category_id: Category.find_by(name:"Spiritualité").id)
 Subject.create(title: "Comprendre le slow cinema", content: "Cette ressource s’adresse à tous les cinéphiles amateurs comme moi ! Je suis étonnée par le manque de ressources disponibles sur le net sur tout ce qui touche au mouvement `slow cinema` ou `cinéma contemplatif`.
 
   Ce genre est un genre filmique qui met l'accent sur des *longues prises* et qui est souvent *minimaliste*, *observationnel* et avec peu ou pas de récit. Les progéniteurs du genre incluent **Andrei Tarkovsky**, **Ingmar Bergman**, **Michelangelo Antonioni**, **Robert Bresson**, **Aleksandr Sokurov**, **Béla Tarr**, **Chantal Akerman** et **Theo Angelopoulos**.
@@ -154,17 +154,17 @@ Subject.create(title: "Introduction à la Psychologie sociale du langage et de l
   ", user_id: rand(User.first.id..User.last.id), difficulty: "Débutant",category_id: Category.find_by(name:"Psychologie").id)
 Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écoféminisme` est un **courant politique et philosophique** qui a tardé à arriver en France mais grâce à la résurgence d’une `conscience écologique mêlée aux luttes féministes` en 2019-2020, j’en entends de plus en plus parler dans mon entourage français. Tout comme un `accroissement des théories de convergences des luttes`. 
 
-  ## Mais qu’est-ce que l’écoféminisme, vous me demanderez ?
+### Mais qu’est-ce que l’écoféminisme, vous me demanderez ?
   
-  1. Je vous conseille de regarder [cette courte vidéo](https://www.arte.tv/fr/videos/094215-000-A/l-ecofeminisme-d-ou-ca-vient/) (2min), expliquant la **naissance du mouvement**. Et vous verra qu’une de ses initiatrices est bien française (merci **Françoise d’Eaubonne**).
+1. Je vous conseille de regarder [cette courte vidéo](https://www.arte.tv/fr/videos/094215-000-A/l-ecofeminisme-d-ou-ca-vient/) (2min), expliquant la **naissance du mouvement**. Et vous verra qu’une de ses initiatrices est bien française (merci **Françoise d’Eaubonne**).
   
-  2. Cette [interview](https://reporterre.net/Emilie-Hache-Pour-les-ecofeministes-destruction-de-la-nature-et-oppression-des-femmes) d’**Emilie Hache** permet également de comprendre les **fondements du mouvement**.
+2. Cette [interview](https://reporterre.net/Emilie-Hache-Pour-les-ecofeministes-destruction-de-la-nature-et-oppression-des-femmes) d’**Emilie Hache** permet également de comprendre les **fondements du mouvement**.
   
-  3. Je vous recommande également cet entretien podcast avec **Vandana Shiva** (en anglais), unes des grandes figures du mouvement.
+3. Je vous recommande également cet entretien podcast avec **Vandana Shiva** (en anglais), unes des grandes figures du mouvement.
   
-  4. Sans parler, ni citer l’écoféminisme, ce podcast avec **Pascale D’Erm** pour son livre '**Sœurs en écologie**' paru le 30 Mars 2017 aux Editions La mer salée, et **Anne Ribes**, infirmière et paysagiste [est également dans le coeur du sujet]( https://www.franceculture.fr/emissions/de-cause-effets-le-magazine-de-lenvironnement/lecologie-au-feminin).
+4. Sans parler, ni citer l’écoféminisme, ce podcast avec **Pascale D’Erm** pour son livre '**Sœurs en écologie**' paru le 30 Mars 2017 aux Editions La mer salée, et **Anne Ribes**, infirmière et paysagiste [est également dans le coeur du sujet]( https://www.franceculture.fr/emissions/de-cause-effets-le-magazine-de-lenvironnement/lecologie-au-feminin).
   
-   > Théoriciennes éco-féministes : **Françoise d’Eaubonne**, **Vandana Shiva**, **Starhawk**, **Donna Haraway**, **Maria Mies**, et bien d'autres...
+> Théoriciennes éco-féministes : **Françoise d’Eaubonne**, **Vandana Shiva**, **Starhawk**, **Donna Haraway**, **Maria Mies**, et bien d'autres...
   ", user_id: User.find_by(nickname:"JessL").id, difficulty: "Difficile",category_id: Category.find_by(name:"Philosophie").id)
   Subject.create(title: "La musculation - de débutant à plus trop trop débutant ! (la première année en programme)", content: "Ah!  Le  jour de l'an, les bonnes résolutions... 
 
