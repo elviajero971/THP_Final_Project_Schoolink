@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
+  get 'contacts/create'
   root 'subjects#index'
   
-  get '/contact', to: 'static#contact'
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
+
   get '/a-propos', to: 'static#about'
   
   devise_for :users, path: 'gestion', path_names: { sign_in: 'se-connecter', sign_out: 'deconnexion', password: 'secret', confirmation: 'verification', unlock: 'deblocage', registration: 'compte', sign_up: 'inscription' }

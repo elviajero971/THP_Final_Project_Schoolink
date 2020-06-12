@@ -21,5 +21,5 @@ class UsersController < ApplicationController
       flash.now[:error] = "Erreur de saisie, veuillez renouveler votre demande"
       render :new
     end  
-  end
+
 end
