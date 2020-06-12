@@ -54,7 +54,7 @@
       <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger" %>
       <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary" %>
       <% end %>
-      <%= link_to 'Retour', subjects_path, class:"btn btn-outline-secondary" %>
+      <%= link_to "Retour à l'accueil", subjects_path, class:"btn btn-outline-secondary mb-2" %>
     </div>
   </div>
 
