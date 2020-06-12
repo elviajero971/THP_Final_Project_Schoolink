@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-  get 'join_validate_subject/update'
-  get 'join_validate_subject/destroy'
-  get 'join_read_subject/update'
-  get 'join_read_subject/destroy'
   root 'subjects#index'
   
   get '/contact', to: 'static#contact'
-  get '/about', to: 'static#about'
+  get '/a-propos', to: 'static#about'
   
-  devise_for :users, path: 'gestion'
+  devise_for :users, path: 'gestion', path_names: { sign_in: 'se-connecter', sign_out: 'deconnexion', password: 'secret', confirmation: 'verification', unlock: 'deblocage', registration: 'compte', sign_up: 'inscription' }
+  
   
   resources :subjects, path: 'ressource'
   resources :users, only: [:show, :update, :edit], path: 'profil' do
@@ -17,7 +14,6 @@ Rails.application.routes.draw do
   resources :join_fav_subject, only: [:update, :destroy]
   resources :join_read_subject, only: [:update, :destroy]
   resources :join_validate_subject, only: [:update, :destroy]
-  resources :user_rating, only: [:update, :destroy]
 
   namespace :admin do
     root to: 'admin/items#index'
