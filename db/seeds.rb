@@ -15,57 +15,57 @@ Category.destroy_all
 
 # User1
 User.create(
-  nickname: "JeanMichel",
-  description: "J'aime l'art et je voudrais apprendre le Yoga",
+  nickname: "JessL",
+  description: "En manque d'inspiration ? Besoin d'un conseil design ? Je saurais vous répondre!",
   email: "whiteboard1@yopmail.com",
-  age: 32,
   password: "123456",
   is_admin: false
 )
 # Admin
 User.create(
-  nickname: "WhiteAdmin",
+  nickname: "WhiteBoardAdmin",
   description: "Je suis le king",
   email: "whiteboard.thp@yopmail.com",
-  age: 40,
   password: "123456",
   is_admin: true
 )
 # User2
 User.create(
-  nickname: "ArianaGrande",
-  description: "J'aimerais apprendre à chanter",
+  nickname: "LucasI",
+  description: "Loup de mer qui essaie d'associer le code, l'eau salée et le sable chaud.",
   email: "whiteboard2@yopmail.com",
-  age: 12,
   password: "123456",
   is_admin: false
 )
 # User3
 User.create(
-  nickname: "EnzoLeCorbo",
-  description: "Je suis un pro du frisbee",
+  nickname: "ChrisB",
+  description: "Je push et je pull de tous les côtés... Et en plus ? Je fais du front!",
   email: "whiteboard3@yopmail.com",
-  age: 19,
   password: "123456",
   is_admin: false
 )
 # User4
 User.create(
-  nickname: "JackyLaChenille",
-  description: "Je veux apprendre à lire",
+  nickname: "AlexF",
+  description: "Fifou du Sud-Ouest, des idées pleins la tête. N'y pensez même pas, je l'ai déjà fait...",
   email: "whiteboard4@yopmail.com",
-  age: 90,
   password: "123456",
   is_admin: false
 )
-
+User.create(
+  nickname: "JulienA",
+  description: "C'est moi le boss, une question ? Viendez!",
+  email: "whiteboard5@yopmail.com",
+  password: "123456",
+  is_admin: false
+)
 
 Category.create(name: "Musique")
 Category.create(name: "Développement Web")
 Category.create(name: "Science")
 Category.create(name: "Sport")
 Category.create(name: "Langues")
-Category.create(name: "Bien-Être")
 Category.create(name: "Spiritualité")
 Category.create(name: "Art")
 Category.create(name: "Modes de vies alternatifs")
@@ -87,13 +87,13 @@ Subject.create(title: "Commencer à apprendre l’espagnol", content: "
 
   - Quand on apprend une langue, il y a des incontournables, comme par exemple regarder des *films ou des séries en version originale* ! Voici une liste de mes préférés :
     + **Films** : *Volver*, *Mujeres al borde de un ataque de nervios*, *Amores perros*, *La Mala Educación* 
-    + **Séries** : *Narcos*, *La Casa de Papel*, *Un, dos tres*", user_id: rand(User.first.id..User.last.id), difficulty: "Facile",category_id: Category.find_by(name:"Musique").id)
+    + **Séries** : *Narcos*, *La Casa de Papel*, *Un, dos tres*", user_id: User.find_by(nickname:"LucasI").id, difficulty: "Facile",category_id: Category.find_by(name:"Langues").id)
 Subject.create(title: "Démarrer un potager en permaculture", content: "Ayant hérité d’un terrain familial dans le Vercors, j’ai décidé, il y’a quelques années maintenant, de m’aventurer sur la voie de `l’autosuffisance alimentaire`. Certes, mais par où commencer ? J’avais alors déjà entendu parlé de la permaculture et j’eu envie d’expérimenter cette technique d’agriculture sur ma parcelle d’un hectare environ.
 
   1. Pour la théorie, je recommande tout bonnement la *bible de la permaculture* ”*[Introduction à la Permaculture](shorturl.at/eTU78)*” de **Bill Mollison**.
   2. Bien que controversé, je recommande tout de même [le livre](https://livre.fnac.com/a12599380/Philippe-Duchaufour-Introduction-a-la-science-du-sol?oref=00000000-0000-0000-0000-000000000000&Origin=SEA_GOOGLE_PLA_BOOKS&esl-k=sem-google|ng|c294196405911|m|kpla374773846736|p|t|dc|a58200328279|g1553156614&gclsrc=aw.ds&&gclid=CjwKCAjw5vz2BRAtEiwAbcVIL4TiSmvyNwFu-u0U48sgRPG_OHrJj4CyQKgIdrCfRoBK5pDHsFOGpxoCTTsQAvD_BwE) de **Claude et Lydia Bougignon**.
   3. Pour ce qui est de la pratique, je recommande vivement les vidéos de la chaîne Youtube **[Permaculture Agroécologie](https://www.youtube.com/user/permacultureetc/videos)** qui ont fait guise d’une véritable initiation pour moi. Je recommande notamment [cette vidéo](https://www.youtube.com/watch?v=KI2bwOFnyCU), pour débuter à cultiver sur des buttes. 
-  4. Enfin, en complément je recommande [cette vidéo](https://www.youtube.com/watch?v=lyLQYVJDerE&frags=pl%2Cwn) qui couvre à peu près tous les points et éléments à connaître pour *débuter son jardin de permaculture*.", user_id: rand(User.first.id..User.last.id), difficulty: "Intermédiaire",category_id: Category.find_by(name:"Langues").id)
+  4. Enfin, en complément je recommande [cette vidéo](https://www.youtube.com/watch?v=lyLQYVJDerE&frags=pl%2Cwn) qui couvre à peu près tous les points et éléments à connaître pour *débuter son jardin de permaculture*.", user_id: User.find_by(nickname:"JessL").id, difficulty: "Intermédiaire",category_id: Category.find_by(name:"Modes de vies alternatifs").id)
 Subject.create(title: "Ukulélé en 5 étapes", content: "N’ayant aucune base en instrument à corde, j’ai voulu apprendre le ukulélé tout simplement parce que je me suis rappelé qu’une amie hawaienne m’en avait rapporté un en souvenir. J’ai donc parcouru le net à la recherche de tutoriels et cours gratuits qui existaient. Après environ 5 mois d’apprentissage où je pratiquais plus ou moins 30 minutes par jour, je suis arrivé à un niveau que je jugeais satisfaisant.
 
   Matériel recommandé: `un ukulélé` et `un tuner`. 
@@ -103,7 +103,7 @@ Subject.create(title: "Ukulélé en 5 étapes", content: "N’ayant aucune base 
 2. La chaîne YouTube **[Ben au Ukulélé](https://www.youtube.com/watch?v=98dizc1ZNFw&t=339s)** est aussi pleine de *bons conseils* et *tutos* pour des chansons. Sa vidéo  est très explicite et facile à appréhender.
 
 3. **[Ukulele Travel](https://www.ukuleletravel.com/category/debuter-le-ukulele)**: j’ai beaucoup apprécié les conseils gratuit sur le site [yukuleletravel.com](yukuleletravel.com). Des bonnes astuces et des entraînements tous niveaux bien adaptés.
-  https://www.ukuleletravel.com/category/debuter-le-ukulele<br>".html_safe, user_id: rand(User.first.id..User.last.id), difficulty: "Facile",category_id: Category.find_by(name:"Modes de vies alternatifs").id)
+  https://www.ukuleletravel.com/category/debuter-le-ukulele<br>".html_safe, user_id: User.find_by(nickname:"JessL").id, difficulty: "Facile",category_id: Category.find_by(name:"Musique").id)
 Subject.create(title: "Une heure pour comprendre : le Yoga", content: "Passionné par les **philosophies orientales** et **la spiritualité** en général, je suis parti pendant six mois en Inde faire un tour des ashrams et monastères pour apprendre `le yoga` et `la méditation`. 
 
   Moi qui associait ça à des gens en legging qui font des acrobaties dans la salle de cours collectifs de la salle de sport, j’étais loin de me douter de **l’art de vivre** à part entière et de la puissance du yoga, quand on commence à l’implémenter dans sa vie.
@@ -124,7 +124,7 @@ Subject.create(title: "Une heure pour comprendre : le Yoga", content: "Passionn�
   
   5. Si vous comprenez l’anglais, et que vous voulez vous atteindre des niveaux plus avancés de conscience, [cette chaîne Youtube](https://www.youtube.com/channel/UCz6X8QK9_JG49hJxnzAu-1w), est vraiment la **meilleure chaîne de spiritualité existante sur YouTube**. Tu pourras y trouver les enseignements des plus grands gurus et maîtres qui ont existés. Tu ne comprendra peut-être pas tout pour l’instant, mais plus ta conscience s’élèvera, plus tu comprendras.... 
     
-  ", user_id: rand(User.first.id..User.last.id), difficulty: "Facile",category_id: Category.find_by(name:"Spiritualité").id)
+  ", user_id: User.find_by(nickname:"AlexF").id, difficulty: "Facile",category_id: Category.find_by(name:"Sport").id)
 Subject.create(title: "Comprendre le slow cinema", content: "Cette ressource s’adresse à tous les cinéphiles amateurs comme moi ! Je suis étonnée par le manque de ressources disponibles sur le net sur tout ce qui touche au mouvement `slow cinema` ou `cinéma contemplatif`.
 
   Ce genre est un genre filmique qui met l'accent sur des *longues prises* et qui est souvent *minimaliste*, *observationnel* et avec peu ou pas de récit. Les progéniteurs du genre incluent **Andrei Tarkovsky**, **Ingmar Bergman**, **Michelangelo Antonioni**, **Robert Bresson**, **Aleksandr Sokurov**, **Béla Tarr**, **Chantal Akerman** et **Theo Angelopoulos**.
@@ -137,7 +137,7 @@ Subject.create(title: "Comprendre le slow cinema", content: "Cette ressource s�
   
   3. Cet [article de The Guardian](https://www.theguardian.com/film/2012/mar/09/slow-cinema-fights-bournes-supremacy) permet également de en quoi le slow cinema est un contrecoup au cinema mainstream qui enchaîne des plans séquences rapides.
   
-  4. Mes slow films préférés : *Le Désert Rouge* (1964) de **Michelangelo Antonioni**, *Tropical Malady* (2004) de **Apichatpong Weerasethakul**, *La Captive *(2000) de **Chantal Ackerman** et *India Song* (1975) de **Marguerite Duras**. ".html_safe, user_id: rand(User.first.id..User.last.id), difficulty: "Intermédiaire",category_id: Category.find_by(name:"Art").id)
+  4. Mes slow films préférés : *Le Désert Rouge* (1964) de **Michelangelo Antonioni**, *Tropical Malady* (2004) de **Apichatpong Weerasethakul**, *La Captive *(2000) de **Chantal Ackerman** et *India Song* (1975) de **Marguerite Duras**. ".html_safe, user_id: User.find_by(nickname:"JessL").id, difficulty: "Intermédiaire",category_id: Category.find_by(name:"Art").id)
 Subject.create(title: "Introduction à la Psychologie sociale du langage et de la communication", content: "Je souhaite partager avec vous mon processus d’apprentissage aux théories de la psychologie `psychologie du langage et de la communication`, et plus précisément aux `théories de Discrimination et Préjugés`.
  
   Étudiante en Communication, la **psychologie sociale** m’était alors une discipline inconnue et une professeure engageante m’a amenée à rédiger mon mémoire d’étude sur *l’impact des politiques d’intégration et de communautarisme sur la discrimination envers les populations immigrés* (n’hésitez pas commenter cette ressource si vous aimeriez le consulter).
@@ -152,9 +152,9 @@ Subject.create(title: "Introduction à la Psychologie sociale du langage et de l
 
 4. Enfin, [cet article de **Licata**](https://psychologiescientifique.org/wp-content/uploads/2018/02/Licata-2007-La-théorie-de-l’identité-sociale-et-la-théorie-de-.pdf) aborde la question de `l’autocatégorisation et de l’identité sociale`.
   ", user_id: rand(User.first.id..User.last.id), difficulty: "Débutant",category_id: Category.find_by(name:"Psychologie").id)
-Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écoféminisme` est un **courant politique et philosophique** qui a tardé à arriver en France mais grâce à la résurgence d’une `conscience écologique mêlée à aux luttes féministes` en 2019-2020, j’en entends de plus en plus parler dans mon entourage français. Tout comme un `accroissement des théories de convergences des luttes`. 
+Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écoféminisme` est un **courant politique et philosophique** qui a tardé à arriver en France mais grâce à la résurgence d’une `conscience écologique mêlée aux luttes féministes` en 2019-2020, j’en entends de plus en plus parler dans mon entourage français. Tout comme un `accroissement des théories de convergences des luttes`. 
 
-  ### Mais qu’est-ce que l’écoféminisme, vous me demanderez ?
+  ## Mais qu’est-ce que l’écoféminisme, vous me demanderez ?
   
   1. Je vous conseille de regarder [cette courte vidéo](https://www.arte.tv/fr/videos/094215-000-A/l-ecofeminisme-d-ou-ca-vient/) (2min), expliquant la **naissance du mouvement**. Et vous verra qu’une de ses initiatrices est bien française (merci **Françoise d’Eaubonne**).
   
@@ -165,7 +165,7 @@ Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écof
   4. Sans parler, ni citer l’écoféminisme, ce podcast avec **Pascale D’Erm** pour son livre '**Sœurs en écologie**' paru le 30 Mars 2017 aux Editions La mer salée, et **Anne Ribes**, infirmière et paysagiste [est également dans le coeur du sujet]( https://www.franceculture.fr/emissions/de-cause-effets-le-magazine-de-lenvironnement/lecologie-au-feminin).
   
    > Théoriciennes éco-féministes : **Françoise d’Eaubonne**, **Vandana Shiva**, **Starhawk**, **Donna Haraway**, **Maria Mies**, et bien d'autres...
-  ", user_id: rand(User.first.id..User.last.id), difficulty: "Difficile",category_id: Category.find_by(name:"Philosophie").id)
+  ", user_id: User.find_by(nickname:"JessL").id, difficulty: "Difficile",category_id: Category.find_by(name:"Philosophie").id)
   Subject.create(title: "La musculation - de débutant à plus trop trop débutant ! (la première année en programme)", content: "Ah!  Le  jour de l'an, les bonnes résolutions... 
 
   Chaque année, je vois à la salle des dizaines et des dizaines de personnes qui viennent pour la toute première fois, bien décidé à acquérir un `corps d'Appolon`, à la sueur de leur front ! 
@@ -189,5 +189,5 @@ Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écof
   - Les deux mois qui vont suivre, tu vas faire du `PPL: Push-Pull-Legs`, tu peux consulter [cet article](https://builtwithscience.com/push-pull-legs-routine/) qui explique en profondeur ton prochain programme adoré ! 
   - Puis ensuite, tu partiras pendant deux petits mois de plus sur **[un bon split des familles](https://www.muscleandstrength.com/articles/the-ultimate-muscle-building-split-reference-guide.html)**.
   - Et pour finir ta première année en beauté, un bon petit programme **1/muscle/jour**. À ce stade là, tu seras assez grand pour te faire **ton propre programme** !
-    ", user_id: rand(User.first.id..User.last.id), difficulty: "Débutant",category_id: Category.find_by(name:"Sport").id)
+    ", user_id: User.find_by(nickname:"AlexF").id, difficulty: "Débutant",category_id: Category.find_by(name:"Sport").id)
   
