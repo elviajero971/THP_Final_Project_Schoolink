@@ -1,0 +1,38 @@
+<%= form_with(model: subject, local: true) do |form| %>
+<div class="field form-group shadow-textarea no-font pl-5 pr-5 mb-3 mt-3">
+  <%= form.label :Titre %>
+  <%= form.text_field :title, type: "string", class: "form-control z-depth-1", placeholder: "# Titre du sujet" %>
+</div>
+
+<div class="field form-group shadow-textarea pl-5 pr-5">
+  <%= form.label :Contenu %>
+  <%= form.text_area :content, type: "txt", class: "form-control z-depth-1", placeholder: "Écris ton contenu...", rows: "20" %>
+</div>
+
+<div class="row justify-center">
+  <div class="ml-1 mb-3">
+    <div class="field ml-2 pl-5">
+      <%= form.select(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'], Subject.friendly.find(params[:id]).difficulty), {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+    </div>
+  </div>
+
+  <div class="ml-5 mb-3">
+    <div class="field ml-0">
+      <%= form.select(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}, Subject.friendly.find(params[:id]).category_id), {include_blank: "Catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+    </div>
+  </div>
+
+  <div class="col-md-3 mr-5 mb-3 pr-5">
+  </div>
+
+  <div class="actions col-md-3 mb-3">
+    <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5', id: 'validForm') do %>
+    <span class="white-text pl-5 pr-5">MODIFIER</span>
+    <% end %>
+  </div>
+</div>
+
+<div class="text-center mb-5 mt-5">
+  <%= link_to 'Back', admin_subject_path(@subject.id), class:"btn btn-secondary" %>
+</div>
+<% end %>
