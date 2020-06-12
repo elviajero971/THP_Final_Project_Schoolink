@@ -8,22 +8,16 @@
               <h2 class="font-weight-bold title-subject"><%= @subject.title %></h2>
               <div class="row intro-subject">
                 <div class="fav-contain" id="fav-container">
-                  <% if JoinFavSubject.all.length > 0 %>
-                    <% JoinFavSubject.all.each do |fav| %>
-                      <% if fav.user_id == fav.subject_id %>
-                        <%= render 'join_fav_subject/fav_true' %>
-                      <% else %>
-                        <%= render 'join_fav_subject/fav_false' %>
-                      <% end %>
-                    <% end %>
+                  <% if JoinFavSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
+                  <%= render 'join_fav_subject/fav_false' %>
                   <% else %>
-                     <%= render 'join_fav_subject/fav_true' %>
+                  <%= render 'join_fav_subject/fav_true' %>
                   <% end %>
                 </div>
                 <h5 class="p-2 mr-2"><strong><%= @subject.category %></strong></h5>
                 <h5 class="border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
               </div>
-            
+              
               <hr>
               <%= markdown(@subject.content) %>
               <blockquote>Ecrit par <%= link_to @subject.user_nickname, user_path(@subject.user_slug) %></blockquote>
@@ -34,29 +28,17 @@
                 </div>
                 <h6 class="mt-3 text-success"></h6>
                 <div class="mt-2" id="container-read">
-                  <% if JoinReadSubject.all.length > 0 %>
-                    <% JoinReadSubject.all.each do |read| %>
-                      <% if read.user_id == read.subject_id %>
-                        <%= render 'join_read_subject/read_true' %>
-                      <% else %>
-                        <%= render 'join_read_subject/read_false' %>
-                      <% end %>
-                    <% end %>
+                  <% if JoinReadSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
+                  <%= render 'join_read_subject/read_false' %>
                   <% else %>
-                     <%= render 'join_read_subject/read_true' %>
+                  <%= render 'join_read_subject/read_true' %>
                   <% end %>
                 </div>
                 <div class="mt-2" id="container-validate">
-                  <% if JoinValidateSubject.all.length > 0 %>
-                    <% JoinValidateSubject.all.each do |validate| %>
-                      <% if validate.user_id == validate.subject_id %>
-                        <%= render 'join_validate_subject/validate_true' %>
-                      <% else %>
-                        <%= render 'join_validate_subject/validate_false' %>
-                      <% end %>
-                    <% end %>
+                  <% if JoinValidateSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
+                  <%= render 'join_validate_subject/validate_false' %>
                   <% else %>
-                     <%= render 'join_validate_subject/validate_true' %>
+                  <%= render 'join_validate_subject/validate_true' %>
                   <% end %>
                 </div>
               </div>
@@ -69,10 +51,14 @@
 
     <div class="text-center">
       <% if current_user.id == @subject.user_id %>
-        <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger" %>
-        <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary" %>
+      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger" %>
+      <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary" %>
       <% end %>
+<<<<<<< HEAD
         <%= link_to 'Retour', subjects_path, class:"btn btn-outline-secondary mb-3" %>
+=======
+      <%= link_to 'Retour', subjects_path, class:"btn btn-outline-secondary" %>
+>>>>>>> f1e103cb98562a0034d6d3f01e1f66b592ad8649
     </div>
   </div>
 

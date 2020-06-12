@@ -29,8 +29,11 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all
     @subject = Subject.friendly.find(params[:id])
+    if current_user.id != @subject.user_id
+      redirect_to subject_path
+    end
+    @categories = Category.all
   end
 
   def create

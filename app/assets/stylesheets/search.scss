@@ -1,0 +1,12 @@
+.btn-category {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 800px) { 
+    .btn-category {
+    width: 100%;
+    display: inline-block !important;
+    margin-bottom: 20px;
+  }
+
+}
