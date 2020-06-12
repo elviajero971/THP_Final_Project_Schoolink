@@ -1,17 +1,22 @@
 <div class="spacer feature4 bg-dark footer">
   <div class="container">
     <div class="row w-100">
-      <div class="col-3">
+      <div class="col-2">
         <%= link_to contact_path, method: "GET" do %>
           <h6>Contact</h6>
         <% end %>
       </div>
-      <div class="col-4">
-        <%= link_to about_path, method: "GET" do %>
-          <h6 class="text-left">À propos</h6>
+       <div class="col-2">
+        <%= link_to contact_path, method: "GET" do %>
+          <h6>FAQ</h6>
         <% end %>
       </div>
-      <div class="col-5">
+      <div class="col-2">
+        <%= link_to about_path, method: "GET" do %>
+          <h6>À propos</h6>
+        <% end %>
+      </div>
+      <div class="col-6">
         <div class="text-right">© Whiteboard 2020</div>
       </div>
     </div>
