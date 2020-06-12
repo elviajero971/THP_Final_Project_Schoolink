@@ -25,7 +25,10 @@ class User < ApplicationRecord
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
-
+  
+  def should_generate_new_friendly_id?
+    slug.blank? || nickname_changed?
+  end
 
 private
 
