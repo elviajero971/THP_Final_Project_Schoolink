@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'subjects#index'
   
+  get '/charte-whiteboard', to: 'static#guideline'
   get '/contact', to: 'static#contact'
   get '/a-propos', to: 'static#about'
   
