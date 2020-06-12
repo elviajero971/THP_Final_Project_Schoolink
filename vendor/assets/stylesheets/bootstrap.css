@@ -2532,7 +2532,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-outline-danger:hover {
-  color: #fff;
+  color: white;
   background-color: #dc3545;
   border-color: #dc3545;
 }

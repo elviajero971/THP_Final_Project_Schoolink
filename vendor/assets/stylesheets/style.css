@@ -51,6 +51,7 @@ File: scss
 /******************* 
 This is the font import from the google api 
 *******************/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800");
 @font-face {
   font-family: "Calafia-Regular";
   src: url("../../assets/font/Calafia-Regular.eot?#iefix")
@@ -72,7 +73,7 @@ Global Styles
 
 body {
   background: #ffffff;
-  font-family: "Montserrat", "Roboto";
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   overflow-x: hidden;
   color: #8d97ad;
@@ -131,7 +132,7 @@ h4,
 h5,
 h6 {
   color: #3e4555;
-  font-family: "Montserrat", "Roboto";
+  font-family: "Montserrat", sans-serif;
 }
 
 h1 {
