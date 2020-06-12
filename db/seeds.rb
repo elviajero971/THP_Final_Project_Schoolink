@@ -152,9 +152,9 @@ Subject.create(title: "Introduction à la Psychologie sociale du langage et de l
 
 4. Enfin, [cet article de **Licata**](https://psychologiescientifique.org/wp-content/uploads/2018/02/Licata-2007-La-théorie-de-l’identité-sociale-et-la-théorie-de-.pdf) aborde la question de `l’autocatégorisation et de l’identité sociale`.
   ", user_id: rand(User.first.id..User.last.id), difficulty: "Débutant",category_id: Category.find_by(name:"Psychologie").id)
-Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écoféminisme` est un **courant politique et philosophique** qui a tardé à arriver en France mais grâce à la résurgence d’une `conscience écologique mêlée à aux luttes féministes` en 2019-2020, j’en entends de plus en plus parler dans mon entourage français. Tout comme un `accroissement des théories de convergences des luttes`. 
+Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écoféminisme` est un **courant politique et philosophique** qui a tardé à arriver en France mais grâce à la résurgence d’une `conscience écologique mêlée aux luttes féministes` en 2019-2020, j’en entends de plus en plus parler dans mon entourage français. Tout comme un `accroissement des théories de convergences des luttes`. 
 
-  ### Mais qu’est-ce que l’écoféminisme, vous me demanderez ?
+  ## Mais qu’est-ce que l’écoféminisme, vous me demanderez ?
   
   1. Je vous conseille de regarder [cette courte vidéo](https://www.arte.tv/fr/videos/094215-000-A/l-ecofeminisme-d-ou-ca-vient/) (2min), expliquant la **naissance du mouvement**. Et vous verra qu’une de ses initiatrices est bien française (merci **Françoise d’Eaubonne**).
   
