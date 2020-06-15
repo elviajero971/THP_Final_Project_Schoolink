@@ -17,3 +17,9 @@ margin: 15px;
   color: black;
   font-size: 1,5em;
 }
+
+@media screen and (max-width: 400px) {
+  .pro-pic img {
+    width: 100%;
+  }
+}
