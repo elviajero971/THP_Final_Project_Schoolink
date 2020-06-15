@@ -42,14 +42,6 @@ button.btn-link-modal:focus {
   margin-left: 20px;
 }
 
-.title-subject {
-  display: inline-block;
-}
-
-.intro-subject {
-  float: right;
-}
-
 .btn-state-subject {
   margin-left: 15px;
 }
@@ -76,33 +68,26 @@ button.btn-link-modal:focus {
     float: none !important;
   }
 
-  .intro-subject {
-    float: none;
-    margin-top: 25px;
-  }
-
-  .title-subject {
-    text-align: center;
-    width: 100%;
-  }
-
-  .btn-state-subject {
-    display: inline-block;
-    width: 290px;
-    margin-bottom: 15px;
+  .intro-subject-show {
+    margin-left: 10px !important;
   }
  
-}
 
-.fav-contain {
-  display: inline-block;
-}
-
-@media screen and (max-width: 400px) {
-
-  .fav-contain {
-    text-align: center;
+  .btn-show-subject {
     width: 100%;
-    margin-bottom: 20px;
+  }
+}
+
+
+@media screen and (max-width: 580px) {
+
+  .btn-state-subject {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .btn-state-subject,
+  .btn-state-subject-read {
+    width: 100%;
   }
 }

@@ -1,12 +1,33 @@
 <div class="spacer-show feature4">
   <div class="container">
     <div class="row mt-5">
-      <div class="ml-3 mr-3 w-100">
+      <div class="w-100">
         <div class="card card-shadow">
           <div class="card-body">
-            <div class="card-body">
-              <h2 class="font-weight-bold title-subject"><%= @subject.title %></h2>
-              <div class="row intro-subject">
+
+            <div class="mb-3">
+              <h2 class="font-weight-bold"><%= @subject.title %></h2>
+            </div>
+
+            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+              <div class="author row ml-2">
+                <div class="mr-3">
+                  <% if @user.profile_pic.attached? %>
+                    <%= link_to(user_path(@user.id)) do %>
+                      <%= image_tag @user.profile_pic, class: "img_sizing-show-subject" %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to(user_path(@user.id)) do %>
+                      <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject") %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <h5 class="pt-3 pb-3">
+                  <%= link_to @user.nickname, user_path(@user.id), class:"" %>
+                </h5>
+              </div>
+
+              <div class="intro-subject-show row mr-2">
                 <div class="fav-contain" id="fav-container">
                   <% if JoinFavSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
                   <%= render 'join_fav_subject/fav_false' %>
@@ -14,77 +35,46 @@
                   <%= render 'join_fav_subject/fav_true' %>
                   <% end %>
                 </div>
+                <h5 class="p-2 mr-2"><%= @subject.how_many_fav? %> like(s)</h5>
                 <h5 class="p-2 mr-2"><strong><%= @subject.category %></strong></h5>
                 <h5 class="border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
               </div>
-              
-              <hr>
-              <div class="froala-view">
-                <%= simple_format(@subject.content) %>
-              </div>
-              <blockquote>Ecrit par <%= link_to @subject.user_nickname, user_path(@subject.user_slug) %></blockquote>
             </div>
-            <div class="card-footer">
-              <div class="row justify-content-end">
-                <div class="rating">
-                </div>
-                <h6 class="mt-3 text-success"></h6>
-                <div class="mt-2" id="container-read">
-                  <% if JoinReadSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
-                  <%= render 'join_read_subject/read_false' %>
-                  <% else %>
-                  <%= render 'join_read_subject/read_true' %>
-                  <% end %>
-                </div>
-                <div class="mt-2" id="container-validate">
-                  <% if JoinValidateSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
-                  <%= render 'join_validate_subject/validate_false' %>
-                  <% else %>
-                  <%= render 'join_validate_subject/validate_true' %>
-                  <% end %>
-                </div>
+
+            <div class="froala-view">
+              <%= @subject.content.html_safe %>
+            </div>
+            
+            <hr>
+            <div class="d-sm-flex">
+              <div class="mt-2" id="container-read">
+                <% if JoinReadSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
+                <%= render 'join_read_subject/read_false' %>
+                <% else %>
+                <%= render 'join_read_subject/read_true' %>
+                <% end %>
+              </div>
+              <div class="mt-2" id="container-validate">
+                <% if JoinValidateSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
+                <%= render 'join_validate_subject/validate_false' %>
+                <% else %>
+                <%= render 'join_validate_subject/validate_true' %>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <div class="text-center">
+    <div class="text-center mb-4">
       <% if current_user.id == @subject.user_id %>
-      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger mb-2" %>
-      <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary mb-2" %>
+      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger mr-2 mb-2" %>
+      <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary mr-2 mb-2" %>
       <% end %>
-        <%= link_to "Retour à l'accueil", subjects_path, class:"btn btn-outline-secondary mb-3" %>
+        <%= link_to "Retour à l'accueil", subjects_path, class:"btn btn-outline-secondary mb-2" %>
     </div>
   </div>
 
 
-  <div class="bg-light spacer up">
-    <div class="container">
-    <div class="text-center">
-      <div class="row justify-content-center">
-        <div>
-          <div class="wrap-feature4-box float-left mb-4">
-            <% if @user.profile_pic.attached? %>
-            <span><%= image_tag @user.profile_pic, alt: 'profile_pic', class:"img_sizing mr-5" %></span>
-            <%else%>
-            <div class="no_img_sizing bg-light-info text-center"><i class="fa fa-user fa-5x"></i></div>
-            <% end %>
-          </div>
-          <p class="title">Auteur</p>
-          <h2 class="title"><%= @user.nickname.upcase %></h2>
-          <h6 class="blockquote-footer"><%= @user.description %></h6>
-          <div class="block-search mt-5">
-            <div class="btn-group">
-              <%= link_to "Voir profil", user_path(@user.id), class:"btn btn-primary" %>
-            </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
+  <h1>Les commentaires ici</h1>

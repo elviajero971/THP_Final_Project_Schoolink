@@ -45,5 +45,8 @@
   </div>
 
 <script>
-    var editor = new FroalaEditor('#editor')
+    var editor = new FroalaEditor('#editor', {
+    toolbarButtons: ['paragraphFormat', '|', 'bold', 'italic', 'underline', '|', 'alignLeft', 'alignCenter', 'formatOLSimple', '|', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', '|', 'undo', 'redo', 'codeView'],
+    paragraphFormatSelection: true
+      })
 </script>
