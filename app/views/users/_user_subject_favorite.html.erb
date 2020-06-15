@@ -1,7 +1,7 @@
 <!-- ressources favorites -->
 <div class="mini-spacer feature20 up mb-5">
   <div class="container">
-      <div class="row wrap-feature-20">
+      <div class="row">
         <% if JoinFavSubject.find_by(user_id: @user.id) == nil %>
           <span class="card-text mb-4"> Vous n'avez pas encore de ressources favorites </span>
         <% else %>
