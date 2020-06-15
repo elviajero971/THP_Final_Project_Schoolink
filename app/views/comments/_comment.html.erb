@@ -1,11 +1,10 @@
-<div class="card-shadow">
+<div class="card">
   <div class="card-header">
-    <%= image_tag "https://res.cloudinary.com/dkeq1ghol/image/upload/v1592215464/avatar.png", alt: 'profile_pic', class:"mr-3", style: "width:60px;" %>
-    <h5 class="mt-0"><%= comment.user.nickname %></h5>
-    <blockquote> Il y a <%= time_ago_in_words(comment.created_at)%></blockquote>
-    <div class="card-body">
-      <%= comment.content %>
-      <%= render comment.answers %>
-    </div>
+  <%= image_tag "https://res.cloudinary.com/dkeq1ghol/image/upload/v1592215464/avatar.png", alt: 'profile_pic', class:"mr-3", style: "width:60px;" %>
+  <h5 class="mt-0"><%= comment.user.nickname %></h5>
+  Il y a <%= time_ago_in_words(comment.created_at)%>
+  <div class="media-body">
+  <%= comment.content %>
+    <%= render comment.answers %>
   </div>
 </div>
