@@ -20,12 +20,14 @@
                     <th># ID</th>
                     <th>Créateur</th>
                     <th>Titre</th>
+                    <th>Likes</th>
                     <th>Actions</th>
                     <th>Etat</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% Subject.all.each do |subject| %>
+                <% favorites = Subject.all.sort_by{ |likes| likes.how_many_fav?} %>
+                <% favorites.reverse.each do |subject| %>
                   <tr>
                     <td><span class="label label-rounded label-info"><%= subject.id %></span> </td>
                     <td>@<%= subject.user.nickname %></td>
@@ -36,6 +38,7 @@
                         subject.title
                         end %>
                     </td>
+                    <td><%= subject.how_many_fav? %> </td>
                     <td><%= link_to fa_icon('wrench').html_safe, edit_admin_subject_path(subject.slug), class: 'mr-3' %> <%= link_to fa_icon("trash", style: 'color: Tomato').html_safe, admin_subject_path(subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'} %></td>
                     <td><span class="label label-rounded label-success">En ligne</span> </td>
                   </tr>
