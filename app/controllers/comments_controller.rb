@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_commentable
+  before_action :find_commentable, except: :destroy
 
   def new
     @comment = Comment.new
@@ -19,11 +19,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @subject = Subject.find_by(slug: params[:subject_id])
-    @comment = @subject.comments.find(params[:id])
-    @comment.destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy if @comment
     flash[:success] = "Votre commentaire a bien été supprimé !"
-    redirect_to subject_path(Subject.find_by(slug: params[:subject_id]))
+    redirect_back(fallback_location: root_path)
   end
 
   private

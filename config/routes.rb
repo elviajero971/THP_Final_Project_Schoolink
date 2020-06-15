@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :join_fav_subject, only: [:update, :destroy]
   resources :join_read_subject, only: [:update, :destroy]
   resources :join_validate_subject, only: [:update, :destroy]
+  resources :comment_likes, only: [:create]
+  resources :comment_dislikes, only: [:create]
 
   namespace :admin do
     root to: 'admin/items#index'
