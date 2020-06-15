@@ -11,12 +11,13 @@
               <tr>
                 <th>Catégorie</th>
                 <th>Titre</th>
-                <th>En Favoris</th>
+                <th>Nombre de likes</th>
                 <th>Lien</th>
               </tr>
             </thead>
             <tbody>
-              <% Subject.all.each do |subject| %>
+            <% favorites = Subject.all.sort_by{ |likes| likes.how_many_fav?} %>
+            <% favorites.reverse.each do |subject| %>
               <% if subject.user_slug == params[:id] %>
               <tr>
                 <td><span class="label label-rounded label-danger"><%= subject.category %></span> </td>
