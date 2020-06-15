@@ -28,7 +28,8 @@ class Subject < ApplicationRecord
     Comment.all.each do |c|
       answer = c.answers.length
       if c.subject_id == self.id
-        comments = answer + 1
+        comments += answer
+        comments += 1
       end
     end
     return comments

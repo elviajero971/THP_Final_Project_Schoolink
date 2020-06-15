@@ -1,0 +1,14 @@
+
+
+<% if current_user != nil %>
+    <h4 class="text-center mb-3">Ajoutez un commentaire</h4>
+
+    <%= form_for([@item, @item.comments.build]) do |f| %>
+
+        <div class="form-group">
+            <%= f.text_area :body,  class:"form-control", placeholder: "Votre commentaire..." %>
+        </div>
+
+    <%= f.submit 'Ajoutez votre commentaire', :class => 'btn btn-success btn-block', remote: true %>
+    <% end %>
+<% end %>

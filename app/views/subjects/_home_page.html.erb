@@ -49,8 +49,11 @@
                   </small>
                   <div class="row">
                     <h6 class="text-muted mb-0 ml-3"><%= subject.difficulty %></h6>
-                    <h6 class="text-muted mb-0 ml-4"><%= subject.category %></h6>
-                    <h6 class="text-muted mb-0 ml-auto mr-3"></h6>
+                    <h6 class="text-muted mb-0 ml-auto mr-3"><%= subject.how_many_fav? %></h6><i class="fa fa-heart" aria-hidden="true"></i></h6>
+                  </div>
+                  <div class="row">
+                    <h6 class="text-muted mb-0 ml-3"><%= subject.category %></h6>
+                    <h6 class="text-muted mb-0 ml-auto mr-3"><%= subject.how_many_comments? %></h6><i class="fa fa-comment-o" aria-hidden="true"></i></h6>
                   </div>
                 </div>
               </div>
