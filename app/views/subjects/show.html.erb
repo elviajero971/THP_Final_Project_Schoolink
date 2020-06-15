@@ -1,7 +1,7 @@
 <div class="spacer-show feature4">
   <div class="container">
     <div class="row mt-5">
-      <div class="ml-3 mr-3 w-100">
+      <div class="w-100">
         <div class="card card-shadow">
           <div class="card-body">
 
@@ -13,9 +13,13 @@
               <div class="author row ml-2">
                 <div class="mr-3">
                   <% if @user.profile_pic.attached? %>
-                  <%= image_tag @user.profile_pic, class: "img_sizing-show-subject" %>
-                  <%else%>
-                  <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject") %>
+                    <%= link_to(user_path(@user.id)) do %>
+                      <%= image_tag @user.profile_pic, class: "img_sizing-show-subject" %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to(user_path(@user.id)) do %>
+                      <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject") %>
+                    <% end %>
                   <% end %>
                 </div>
                 <h5 class="pt-3 pb-3">
@@ -31,14 +35,16 @@
                   <%= render 'join_fav_subject/fav_true' %>
                   <% end %>
                 </div>
+                <h5 class="p-2 mr-2"><%= @subject.how_many_fav? %> like(s)</h5>
                 <h5 class="p-2 mr-2"><strong><%= @subject.category %></strong></h5>
                 <h5 class="border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
               </div>
             </div>
 
-
-            <%= markdown(@subject.content) %>
-
+            <div class="froala-view">
+              <%= @subject.content.html_safe %>
+            </div>
+            
             <hr>
             <div class="d-sm-flex">
               <div class="mt-2" id="container-read">
@@ -61,12 +67,12 @@
       </div>
     </div>
 
-    <div class="text-center">
+    <div class="text-center mb-4">
       <% if current_user.id == @subject.user_id %>
-      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger mb-2" %>
-      <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary mb-2" %>
+      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger mr-2 mb-2" %>
+      <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary mr-2 mb-2" %>
       <% end %>
-      <%= link_to "Retour à l'accueil", subjects_path, class:"btn btn-outline-secondary mb-2" %>
+        <%= link_to "Retour à l'accueil", subjects_path, class:"btn btn-outline-secondary mb-2" %>
     </div>
   </div>
 
