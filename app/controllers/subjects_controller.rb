@@ -4,16 +4,33 @@ class SubjectsController < ApplicationController
   def index
     @users = User.all
     @categories = Category.all
+    @q = "%#{params[:query]}%"
 
-    if params[:category] && params[:category][:name]
+    #si il y a une catégorie de sélectionnée et une barre de recherche pleine
+    if params[:category] && params[:category][:name] && params[:query]
       @subjects = []
       Subject.all.each do |subject|
         if subject.category == params[:category][:name]
           @subjects << subject
         end
       end
-    else 
-      @subjects = Subject.all  
+      @subjects = Subject.where("title LIKE ?", @q)
+
+    #si il y a une catégorie de sélectionnée et une barre de recherche vide
+    elsif params[:category] && params[:category][:name] && params[:query] == nil
+      @subjects = []
+      Subject.all.each do |subject|
+        if subject.category == params[:category][:name]
+          @subjects << subject
+        end
+      end
+
+    #si il n'y a pas de catégorie de sélectionnée et une barre de recherche pleine
+    elsif params[:query]
+      @subjects = []
+      @subjects = Subject.where("title LIKE ?", @q)
+    else
+      @subjects = Subject.all
     end
   end
 
