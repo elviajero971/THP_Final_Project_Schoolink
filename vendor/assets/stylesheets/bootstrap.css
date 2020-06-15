@@ -3378,6 +3378,9 @@ tbody.collapse.show {
 
 .nav-link.disabled {
   color: #868e96;
+  pointer-events: none;
+  cursor: default;
+  font-weight: bold;
 }
 
 .nav-tabs {
@@ -3420,12 +3423,13 @@ tbody.collapse.show {
 
 .nav-pills .nav-link {
   border-radius: 0.25rem;
+  color: #ff4d7e;
 }
 
 .nav-pills .nav-link.active,
 .show > .nav-pills .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #ff4d7e;
 }
 
 .nav-fill .nav-item {

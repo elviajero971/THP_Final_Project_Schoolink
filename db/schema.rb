@@ -90,6 +90,14 @@ ActiveRecord::Schema.define(version: 2020_06_12_130723) do
     t.index ["user_id"], name: "index_join_validate_subjects_on_user_id"
   end
 
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_sub_categories_on_subject_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "title"
     t.text "content"
