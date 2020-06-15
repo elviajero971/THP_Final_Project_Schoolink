@@ -3,6 +3,7 @@ class Subject < ApplicationRecord
   has_many :join_fav_subjects, dependent: :destroy
   has_many :join_read_subjects, dependent: :destroy
   has_many :join_validate_subjects, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true
   validates :content, presence: true
@@ -20,6 +21,17 @@ class Subject < ApplicationRecord
       end
     end
     return fav
+  end
+
+  def how_many_comments?
+    comments = 0
+    Comment.all.each do |c|
+      answer = c.answers.length
+      if c.subject_id == self.id
+        comments = answer + 1
+      end
+    end
+    return comments
   end
 
   def favorites
