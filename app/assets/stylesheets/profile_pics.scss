@@ -13,3 +13,25 @@
   width: 300px;
   border-radius: 100%;
 }
+
+
+.img_sizing-show-subject {
+  height: 80px;
+  border-radius: 100%;
+}
+
+.profil-show-subject-elements { 
+  margin-right: 25px !important;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .profil-show-subject {
+    text-align: center;
+  }
+  .profil-show-subject-elements {
+    margin-bottom: 5px;
+  }
+}
+
+
