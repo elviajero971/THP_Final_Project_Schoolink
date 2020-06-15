@@ -7,6 +7,16 @@
   color: #ff4d7e;
 }
 
-.bg-light2 {
-  background-color: #fff;
+
+
+@media screen and (max-width: 1000px) {
+  .footer-elements {
+    margin-bottom: 10px;
+  }
+
+  .row-footer {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
 }
