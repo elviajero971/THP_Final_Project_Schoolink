@@ -7,7 +7,7 @@
           <%= form_tag user_profile_pics_path(@user), multipart: true do %>
             <%= file_field_tag :profile_pic %>
              <div class="text-center mt-4">
-              <%= submit_tag "Mettre à jour votre photo", class: "btn btn-success waves-effect waves-light m-r-10 actions mb-3" %>
+              <%= submit_tag "Mettre à jour votre photo", class: "btn btn-danger-gradiant m-r-10 actions mb-3" %>
              </div> 
           <% end %>  
       </div>
@@ -30,7 +30,7 @@
           </div>
 
           <div class="text-center mt-4">
-          <%= form.submit 'Mettre à jour', :class => 'btn btn-success' %>
+          <%= form.submit 'Mettre à jour', :class => 'btn btn-danger-gradiant' %>
           </div>
         <% end %>
   
@@ -54,7 +54,7 @@
           </div>
 
           <div class="text-center mt-4">
-          <%= form.submit 'Mettre à jour', :class => 'btn btn-success' %>
+          <%= form.submit 'Mettre à jour', :class => 'btn btn-danger-gradiant' %>
           </div>
         <% end %>
   

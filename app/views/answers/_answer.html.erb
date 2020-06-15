@@ -1,7 +1,13 @@
-    <div class="media mt-3">
-      <%= image_tag "https://res.cloudinary.com/dkeq1ghol/image/upload/v1592215464/avatar.png", alt: 'profile_pic', class:"mr-3", style: "width:60px;" %>
-      <div class="media-body">
-        <h5 class="mt-0"><%= answer.user.nickname %></h5>
-        <%= answer.content %>
-      </div>
+<% if answer.user.profile_pic.attached? %>
+<div class="media mt-4"> <%= image_tag answer.user.profile_pic, alt: 'profile_pic', class:"mr-3 rounded-circle" %>
+  <% else %>
+  <div class="media mt-4"> <%= image_tag "https://res.cloudinary.com/dkeq1ghol/image/upload/v1592215464/avatar.png", alt: 'profile_pic', class:"rounded-circle mr-3" %>
+    <% end %>
+    <div class="media-body">
+      <div class="row">
+        <div class="col-12 d-flex">
+          <h5><%= answer.user.nickname%></h5> <span>- <%= time_ago_in_words(answer.created_at) %></span>
+        </div>
+      </div> <%= answer.content %>
     </div>
+  </div>

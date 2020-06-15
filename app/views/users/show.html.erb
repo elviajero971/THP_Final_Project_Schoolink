@@ -21,10 +21,10 @@
         <% if current_user.id == @user.id %>
         <div class="block-search text-right mt-auto">
           <div class="btn-group">
-            <%= link_to "Editez votre profil", edit_user_path(current_user.slug), class:"btn btn-primary" %>
+            <%= link_to "Editez votre profil", edit_user_path(current_user.slug), class:"btn btn-danger" %>
           </div>
           <div class="btn-group">
-            <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-info" %>
+            <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-danger" %>
           </div>
         </div>
         <% end %>

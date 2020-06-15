@@ -1,14 +1,16 @@
-
-
-<% if current_user != nil %>
+<% if current_user %>
+<div class="col-8">
     <h4 class="text-center mb-3">Ajoutez un commentaire</h4>
 
-    <%= form_for([@item, @item.comments.build]) do |f| %>
+    <%= form_for([@subject, @subject.comments.build]) do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :subject_id, value: @subject.id %>
 
         <div class="form-group">
-            <%= f.text_area :body,  class:"form-control", placeholder: "Votre commentaire..." %>
+            <%= f.text_field :content,  class:"form-control", placeholder: "Votre commentaire..." %>
         </div>
 
-    <%= f.submit 'Ajoutez votre commentaire', :class => 'btn btn-success btn-block', remote: true %>
+    <%= f.submit 'Ajoutez votre commentaire', :class => 'btn btn-success btn-block' %>
     <% end %>
+</div>
 <% end %>
