@@ -18,8 +18,21 @@ margin: 15px;
   font-size: 1,5em;
 }
 
+.pro-pic img {
+  width: 100%;
+}
+
+
+
+
 @media screen and (max-width: 400px) {
   .pro-pic img {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .team2 .pro-pic { 
+    min-height: 150px !important;
   }
 }
