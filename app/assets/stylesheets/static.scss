@@ -22,7 +22,10 @@ margin: 15px;
   width: 100%;
 }
 
-
+.container-text-guideline {
+  width: 650px;
+  margin: 0 auto;
+}
 
 
 @media screen and (max-width: 400px) {
@@ -34,5 +37,10 @@ margin: 15px;
 @media screen and (max-width: 1000px) {
   .team2 .pro-pic { 
     min-height: 150px !important;
+  }
+
+  .container-text-guideline {
+    width: 90%;
+    margin: 0 auto;
   }
 }
