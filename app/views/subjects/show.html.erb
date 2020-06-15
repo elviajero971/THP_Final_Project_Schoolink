@@ -41,8 +41,9 @@
               </div>
             </div>
 
-
-            <%= markdown(@subject.content) %>
+            <div class="froala-view">
+              <%= @subject.content.html_safe %>
+            </div>
             
             <hr>
             <div class="d-sm-flex">

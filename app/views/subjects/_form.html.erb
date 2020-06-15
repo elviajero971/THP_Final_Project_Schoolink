@@ -6,7 +6,7 @@
 
   <div class="field form-group shadow-textarea pl-5 pr-5">
     <%= form.label :Contenu %>
-    <%= form.text_area :content, type: "txt", class: "form-control z-depth-1", placeholder: "Écris ton contenu...", rows: "20" %>
+    <%= form.text_area :content, type: "txt", class: "form-control z-depth-1", placeholder: "Écris ton contenu...", rows: "20", id: "editor"%>
   </div>
 
   <div class="row justify-center">
@@ -44,3 +44,9 @@
     </div>
   </div>
 
+<script>
+    var editor = new FroalaEditor('#editor', {
+    toolbarButtons: ['paragraphFormat', '|', 'bold', 'italic', 'underline', '|', 'alignLeft', 'alignCenter', 'formatOLSimple', '|', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', '|', 'undo', 'redo', 'codeView'],
+    paragraphFormatSelection: true
+      })
+</script>
