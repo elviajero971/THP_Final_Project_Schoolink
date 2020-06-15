@@ -784,15 +784,15 @@ html body .bg-purple {
 }
 
 html body .bg-light {
-  background-color: #f4f8fa !important;
+  background-color: #faf4f5 !important;
 }
 
 html body .bg-light-primary {
-  background-color: #f1effd;
+  background-color: #faf4f5;
 }
 
 html body .bg-light-success {
-  background-color: #e8fdeb;
+  background-color: #f9effd;
 }
 
 html body .bg-light-info {
