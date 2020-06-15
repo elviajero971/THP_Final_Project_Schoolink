@@ -1,32 +1,41 @@
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Catégorie</th>
-        <th>Titre</th>
-        <th>En Favoris</th>
-        <th>Lien</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% Subject.all.each do |subject| %>
-      <% if subject.user_slug == params[:id] %>
-      <tr>
-        <td><span class="label label-rounded label-danger"><%= subject.category %></span> </td>
-        <td>
-        <%= if subject.title.length > 50 
-              subject.title[0..50] + '[..]'
-            else 
-              subject.title
-            end %>
-        </td>
-        <td><%= subject.how_many_fav? %></td>         
-        <td><%= link_to "Lien", subject_path(subject.slug) %></td>         
-      </tr>
+<div class="mini-spacer feature20 up mb-5">
+  <div class="container">
+    <div class="row wrap-feature-20 wrap-feature-20-board">
+
+      <% if Subject.find_by(user_id: @user.id) == nil %>
+        <span class="card-text mb-4"> Vous n'avez pas encore de ressources créées </span>
+      <% else %>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Catégorie</th>
+                <th>Titre</th>
+                <th>En Favoris</th>
+                <th>Lien</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% Subject.all.each do |subject| %>
+              <% if subject.user_slug == params[:id] %>
+              <tr>
+                <td><span class="label label-rounded label-danger"><%= subject.category %></span> </td>
+                <td>
+                <%= if subject.title.length > 50 
+                      subject.title[0..50] + '[..]'
+                    else 
+                      subject.title
+                    end %>
+                </td>
+                <td><%= subject.how_many_fav? %></td>         
+                <td><%= link_to "Lien", subject_path(subject.slug) %></td>         
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       <% end %>
-      <% end %>
-    </tbody>
-  </table>
+    </div>
+  </div>
 </div>
-
-

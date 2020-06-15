@@ -1,34 +1,28 @@
 <div class="bg-light spacer up">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="wrap-feature4-box float-left mb-4">
-        <%if @user.profile_pic.attached?%>
-        <span><%= image_tag @user.profile_pic, alt: 'profile_pic', class:"img_sizing mr-5" %></span>
-        <%else%>
-        <div class="no_img_sizing bg-light-info mr-5 text-center ">
-          <i class="fa fa-user fa-5x"></i>
-        </div>
-        <%end%>
+    <div class="board">
+      <div class="board-avatar">
+        <% if @user.profile_pic.attached? %>
+          <%= image_tag @user.profile_pic, class: "img_sizing-show-user" %>
+        <% else %>
+          <%= cl_image_tag("avatar.png", :class => "img_sizing-show-user") %>
+        <% end %>
       </div>
 
-      <div class="wrap-feature4-box float-right">
-        <h2 class="title"><%=@user.nickname.upcase%></h2>
+      <div class="board-text">
+        <h2 class="title"><%= @user.nickname %></h2>
         <% if @user.description == nil %>
         <h6 class="subtitle">Pour le moment vous n'avez pas de description liée à votre profil. Vous pouvez en ajouter une en modifiant votre profil.</h6>
         <% else %>
         <h6 class="subtitle"><%=@user.description%></h6>
         <% end %>
-        <% if current_user.id == @user.id %>
-        <div class="block-search text-right mt-auto">
-          <div class="btn-group">
+      </div>
+      <% if current_user.id == @user.id %>
+          <div class="board-btn">
             <%= link_to "Editez votre profil", edit_user_path(current_user.slug), class:"btn btn-danger" %>
-          </div>
-          <div class="btn-group">
             <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-danger" %>
           </div>
-        </div>
         <% end %>
-      </div>
     </div>
   </div>
 </div>
@@ -75,41 +69,45 @@
 <% end %>
 
 <% if current_user.id != @user.id %>
-<div class="container mb-5 mt-3">
-  <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="pills-ressources-tab" data-toggle="pill" href="#pills-ressouces" role="tab" aria-controls="pills-ressources" aria-selected="true">Ressources Créées</a>
-    </li>
-  </ul>
-  <div class="tab-pane fade show activ mt-5" id="pills-ressources" role="tabpanel" aria-labelledby="pills-ressources-tab">
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Catégorie</th>
-            <th>Titre</th>
-            <th>Lien</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% Subject.all.each do |subject| %>
-          <% if subject.user_slug == params[:id] %>
-          <tr>
-            <td><span class="label label-rounded label-info"><%= subject.category %></span> </td>
-            <td>
-              <%= if subject.title.length > 50 
-                          subject.title[0..50] + '[..]'
-                        else 
-                        subject.title
-                        end %>
-            </td>
-            <td><%= link_to "Lien", subject_path(subject.slug) %></td>         
-          </tr>
-          <% end %>
-          <% end %>
-        </tbody>
-      </table>
+  <% if Subject.find_by(user_id: @user.id) == nil %>
+    <span class="card-text mb-4">  <%= @user.nickname %> n'a pas encore de ressources créées </span>
+  <% else %>
+    <div class="container mb-5 mt-3">
+      <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-ressources-tab" data-toggle="pill" href="#pills-ressouces" role="tab" aria-controls="pills-ressources" aria-selected="true">Ressources Créées</a>
+        </li>
+      </ul>
+      <div class="tab-pane fade show activ mt-5" id="pills-ressources" role="tabpanel" aria-labelledby="pills-ressources-tab">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Catégorie</th>
+                <th>Titre</th>
+                <th>Lien</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% Subject.all.each do |subject| %>
+              <% if subject.user_slug == params[:id] %>
+              <tr>
+                <td><span class="label label-rounded label-info"><%= subject.category %></span> </td>
+                <td>
+                  <%= if subject.title.length > 50 
+                              subject.title[0..50] + '[..]'
+                            else 
+                            subject.title
+                            end %>
+                </td>
+                <td><%= link_to "Lien", subject_path(subject.slug) %></td>         
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
 <% end %>
