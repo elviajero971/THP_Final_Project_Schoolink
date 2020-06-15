@@ -44,11 +44,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_130723) do
     t.index ["subject_id"], name: "index_categories_on_subject_id"
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -88,14 +83,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_130723) do
     t.index ["subject_id", "user_id"], name: "index_join_validate_subjects_on_subject_id_and_user_id", unique: true
     t.index ["subject_id"], name: "index_join_validate_subjects_on_subject_id"
     t.index ["user_id"], name: "index_join_validate_subjects_on_user_id"
-  end
-
-  create_table "sub_categories", force: :cascade do |t|
-    t.string "name"
-    t.bigint "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subject_id"], name: "index_sub_categories_on_subject_id"
   end
 
   create_table "subjects", force: :cascade do |t|

@@ -68,7 +68,7 @@ Category.create(name: "Sport")
 Category.create(name: "Langues")
 Category.create(name: "Spiritualité")
 Category.create(name: "Art")
-Category.create(name: "Modes de vies alternatifs")
+Category.create(name: "Écologie")
 Category.create(name: "Psychologie")
 Category.create(name: "Philosophie")
 
@@ -93,7 +93,7 @@ Subject.create(title: "Démarrer un potager en permaculture", content: "Ayant h�
   1. Pour la théorie, je recommande tout bonnement la *bible de la permaculture* ”*[Introduction à la Permaculture](https://www.permatheque.fr/PDF/Bill%20Mollison%20-%20Permaculture%201.pdf)*” de **Bill Mollison**.
   2. Bien que controversé, je recommande tout de même [le livre](https://livre.fnac.com/a12599380/Philippe-Duchaufour-Introduction-a-la-science-du-sol?oref=00000000-0000-0000-0000-000000000000&Origin=SEA_GOOGLE_PLA_BOOKS&esl-k=sem-google|ng|c294196405911|m|kpla374773846736|p|t|dc|a58200328279|g1553156614&gclsrc=aw.ds&&gclid=CjwKCAjw5vz2BRAtEiwAbcVIL4TiSmvyNwFu-u0U48sgRPG_OHrJj4CyQKgIdrCfRoBK5pDHsFOGpxoCTTsQAvD_BwE) de **Claude et Lydia Bougignon**.
   3. Pour ce qui est de la pratique, je recommande vivement les vidéos de la chaîne Youtube **[Permaculture Agroécologie](https://www.youtube.com/user/permacultureetc/videos)** qui ont fait guise d’une véritable initiation pour moi. Je recommande notamment [cette vidéo](https://www.youtube.com/watch?v=KI2bwOFnyCU), pour débuter à cultiver sur des buttes. 
-  4. Enfin, en complément je recommande [cette vidéo](https://www.youtube.com/watch?v=lyLQYVJDerE&frags=pl%2Cwn) qui couvre à peu près tous les points et éléments à connaître pour *débuter son jardin de permaculture*.", user_id: User.find_by(nickname:"JessL").id, difficulty: "Intermédiaire",category_id: Category.find_by(name:"Modes de vies alternatifs").id)
+  4. Enfin, en complément je recommande [cette vidéo](https://www.youtube.com/watch?v=lyLQYVJDerE&frags=pl%2Cwn) qui couvre à peu près tous les points et éléments à connaître pour *débuter son jardin de permaculture*.", user_id: User.find_by(nickname:"JessL").id, difficulty: "Intermédiaire",category_id: Category.find_by(name:"Écologie").id)
 Subject.create(title: "Ukulélé en 5 étapes", content: "N’ayant aucune base en instrument à corde, j’ai voulu apprendre le ukulélé tout simplement parce que je me suis rappelé qu’une amie hawaienne m’en avait rapporté un en souvenir. J’ai donc parcouru le net à la recherche de tutoriels et cours gratuits qui existaient. Après environ 5 mois d’apprentissage où je pratiquais plus ou moins 30 minutes par jour, je suis arrivé à un niveau que je jugeais satisfaisant.
 
   Matériel recommandé: `un ukulélé` et `un tuner`. 
