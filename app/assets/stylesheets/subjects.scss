@@ -63,8 +63,12 @@ button.btn-link-modal:focus {
 }
 
 .media img {
-  width: 60px;
-  height: 60px
+  width: 45px;
+  height: 45px
+}
+
+.media .media {
+  border: 0px;
 }
 
 @media screen and (max-width: 800px) {

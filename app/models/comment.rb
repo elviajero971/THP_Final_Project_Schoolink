@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
-  belongs_to :subject
+  belongs_to :commentable, polymorphic: true
+  has_many :comments, as: :commentable
   belongs_to :user
-  has_many :comment_likes, dependent: :destroy
-  has_many :comment_dislikes, dependent: :destroy
-  has_many :answers, dependent: :destroy
+  
+  validates :content, presence: true
 end

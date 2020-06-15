@@ -8,12 +8,6 @@
 JoinFavSubject.destroy_all
 JoinReadSubject.destroy_all
 JoinValidateSubject.destroy_all
-CommentLike.destroy_all
-CommentDislike.destroy_all
-AnswerLike.destroy_all
-AnswerDislike.destroy_all
-Comment.destroy_all
-Answer.destroy_all
 User.destroy_all
 Subject.destroy_all
 Category.destroy_all
@@ -198,18 +192,12 @@ Subject.create(title: "La musculation - de débutant à plus trop trop débutant
   - Et pour finir ta première année en beauté, un bon petit programme **1/muscle/jour**. À ce stade là, tu seras assez grand pour te faire **ton propre programme** !
     ", user_id: User.find_by(nickname:"AlexF").id, difficulty: "Débutant",category_id: Category.find_by(name:"Sport").id)
   
-Subject.all.each do |subject|
-  Comment.create(user_id: User.first.id, subject_id: subject.id, content: "#{subject.id}")
-end
+# Subject.all.each do |subject|
+#   Comment.create(user_id: User.first.id, subject_id: subject.id, content: "#{subject.id}")
+# end
 
-Comment.all.each do |comment|
-  Answer.create(user_id: User.first.id, comment_id: comment.id, content: "#{comment.id}")
-  CommentLike.create(user_id: User.first.id, comment_id: comment.id)
-  CommentDislike.create(user_id: User.last.id, comment_id: comment.id)
-end
-
-Answer.all.each do |answer|
-  AnswerLike.create(user_id: User.last.id, answer_id: answer.id)
-  AnswerDislike.create(user_id: User.first.id, answer_id: answer.id)
-end
+# Comment.all.each do |comment|
+#   CommentLike.create(user_id: User.first.id, comment_id: comment.id)
+#   CommentDislike.create(user_id: User.last.id, comment_id: comment.id)
+# end
 

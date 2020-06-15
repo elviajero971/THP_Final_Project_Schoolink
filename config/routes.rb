@@ -9,10 +9,13 @@ Rails.application.routes.draw do
   
   
   resources :subjects, path: 'ressource' do
-    resources :comments do
-      resources :answers
-    end
+    resources :comments
   end
+  
+  resources :comments do
+    resources :comments
+  end
+
   resources :users, only: [:show, :update, :edit], path: 'profil' do
     resources :profile_pics, only: [:create]
   end

@@ -17,11 +17,6 @@ class User < ApplicationRecord
 
   has_many :subjects, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :answers, dependent: :destroy
-  has_many :comment_likes, dependent: :destroy
-  has_many :comment_dislikes, dependent: :destroy
-  has_many :answer_likes, dependent: :destroy
-  has_many :answer_dislikes, dependent: :destroy
 
   has_one_attached :profile_pic
 
