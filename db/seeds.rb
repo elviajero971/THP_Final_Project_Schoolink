@@ -151,7 +151,7 @@ Subject.create(title: "Introduction à la Psychologie sociale du langage et de l
 3. Cet [article](https://www.researchgate.net/publication/265966313_Bourhis_RY_Montreuil_A_2004_Les_assises_socio-psychologiques_du_racisme_et_de_la_discrimination_Dans_J_Renaud_A_Germain_X_Leloup_Eds_Racisme_et_discrimination_Permanence_et_resurgence_d%27un_phenomene_i) (en français) sur le *racisme et la discrimination* permet *d’établir le lien entre la psychologie de la communication et les discriminations, notamment au travers de la catégorisation* :
 
 4. Enfin, [cet article de **Licata**](https://psychologiescientifique.org/wp-content/uploads/2018/02/Licata-2007-La-théorie-de-l’identité-sociale-et-la-théorie-de-.pdf) aborde la question de `l’autocatégorisation et de l’identité sociale`.
-  ", user_id: rand(User.first.id..User.last.id), difficulty: "Débutant",category_id: Category.find_by(name:"Psychologie").id)
+  ", user_id: User.find_by(nickname:"JessL").id, difficulty: "Débutant",category_id: Category.find_by(name:"Psychologie").id)
 Subject.create(title: "Introduction à l’écoféminisme", content: "L’`écoféminisme` est un **courant politique et philosophique** qui a tardé à arriver en France mais grâce à la résurgence d’une `conscience écologique mêlée aux luttes féministes` en 2019-2020, j’en entends de plus en plus parler dans mon entourage français. Tout comme un `accroissement des théories de convergences des luttes`. 
 
 ### Mais qu’est-ce que l’écoféminisme, vous me demanderez ?
