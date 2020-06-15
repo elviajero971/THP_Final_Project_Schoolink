@@ -19,7 +19,9 @@
               </div>
               
               <hr>
-              <%= markdown(@subject.content) %>
+              <div class="froala-view">
+                <%= simple_format(@subject.content) %>
+              </div>
               <blockquote>Ecrit par <%= link_to @subject.user_nickname, user_path(@subject.user_slug) %></blockquote>
             </div>
             <div class="card-footer">
@@ -85,3 +87,4 @@
       </div>
     </div>
   </div>
+
