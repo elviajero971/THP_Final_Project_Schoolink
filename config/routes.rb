@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'subjects#index'
   
+  get '/charte-whiteboard', to: 'static#guideline'
   get '/contact', to: 'static#contact'
   get '/a-propos', to: 'static#about'
   
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'admin/items#index'
     resources :dashboard, only: [:index], path: 'dashboard'
-    resources :subjects, path: 'ressource'
+    resources :subjects, only: [:edit, :update, :destroy], path: 'ressource'
   end
 
 end
