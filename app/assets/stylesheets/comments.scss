@@ -18,20 +18,12 @@
   }
 }
 
-.container-plus-minus {
-  margin-left: auto;
-}
-
-.container-trash-response {
-  text-align: right;
-}
-
-@media screen and (max-width: 450px) { 
-  .container-plus-minus {
-    margin: 10px 0;
+@media screen and (max-width: 500px) { 
+  .mobile-block {
+    display: block !important;
   }
-  .container-trash-response {
-    text-align: left;
-    margin: 10px 0;
+  .mobile-block-img {
+    display: block !important;
+    margin-bottom: 10px !important;
   }
 }
