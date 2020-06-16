@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  def create
+ def create
     @subject = Subject.find_by(slug: params[:id])
     @comment = @commentable.comments.new(content: params[:comment][:content], commentable_type: params[:commentable_type], commentable_id: params[:commentable_id], user_id: current_user.id)
     if @comment.save
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       redirect_to subject_path(Subject.find_by(slug: params[:subject_id]))
-      flash[:alert] = "#{params[:content]}"
+      flash[:alert] = "Votre commentaire doit comprendre entre 1 et 350 caractères."
     end
   end
 

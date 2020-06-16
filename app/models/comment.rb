@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   has_many :comment_likes, dependent: :destroy
   has_many :comment_dislikes, dependent: :destroy
   
-  validates :content, presence: true
+  validates :content, presence: true, length: {maximum: 350}
 
   def likes?
     self.comment_likes.length
