@@ -3,11 +3,11 @@
     <div class="row justify-content-center">
       <div class="col-md-7 text-center">
 
-        <h1 class="title font-bold">Changez votre Photo de Profil</h1>
+        <h1 class="title font-bold mb-5">Photo de Profil</h1>
           <%= form_tag user_profile_pics_path(@user), multipart: true do %>
-            <%= file_field_tag :profile_pic %>
-             <div class="text-center mt-4">
-              <%= submit_tag "Mettre à jour votre photo", class: "btn btn-danger-gradiant m-r-10 actions mb-3" %>
+            <%= file_field_tag :profile_pic, class: "btn btn-danger m-r-10 actions mb-3" %>   
+             <div class="text-center mt-5">
+              <%= submit_tag "Mettre à jour", class: "btn btn-danger-gradiant m-r-10 actions mb-3" %>
              </div> 
           <% end %>  
       </div>
@@ -20,12 +20,12 @@
     <div class="row justify-content-center">
       <div class="col-md-7 text-center">
 
-        <h1 class="title font-bold">Ajoutez une Description</h1>
+        <h1 class="title font-bold">Description</h1>
 
         <%= form_with(model: @user, local: true, method: :put) do |form| %>
 
           <div class="form-group mt-4 mb-4 col-sm">
-            <%= form.label :Description %>
+            <%= form.label :Description %> max. 350 caractères
             <%= form.text_area :description, class:"form-control", placeholder:"Description" %>
           </div>
 
@@ -44,7 +44,7 @@
     <div class="row justify-content-center">
       <div class="col-md-7 text-center">
 
-        <h1 class="title font-bold">Changez votre Pseudonyme</h1>
+        <h1 class="title font-bold">Pseudonyme</h1>
 
         <%= form_with(model: @user, local: true, method: :put) do |form| %>
 

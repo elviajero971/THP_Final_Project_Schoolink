@@ -1,9 +1,8 @@
-
 <%= form_tag url_for(action: 'create'), method: "post" do %>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <div class="form-group mb-3 mt-3">
-    <%= label_tag 'Titre' %>
+    <%= label_tag 'Titre (max. 40 caractères)' %>
     <%= text_field_tag 'title', @subject.title, class:"form-control" %>
   </div>
 
@@ -13,18 +12,15 @@
 
 <div class="row">
   <div class="field create-btn-resource">
-      <%= select_tag(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), :class => "btn btn-danger-gradiant pr-4 pt-3 pb-2create-btn", include_blank: "Catégorie") %>
+      <%= select_tag(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), :class => "btn btn-danger-gradiant create-btn", include_blank: "Catégorie") %>
     </div>
-
   
     <div class="field create-btn-resource">
-      <%= select_tag(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé']), :class => "btn btn-secondary pl-5 pt-3 pb-2 create-btn", include_blank: "Difficulté") %>
+      <%= select_tag(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé']), :class => "btn btn-secondary create-btn", include_blank: "Difficulté") %>
     </div>
 
-
-
     <div class="actions ml-auto create-btn-resource">
-      <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow p-2 pl-5 pr-5 pt-3 pb-2 create-btn', id: 'validForm') do %>
+      <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow create-btn', id: 'validForm') do %>
         <span class="white-text pl-5 pr-5">Créer </span>
       <% end %>
     </div>
@@ -33,7 +29,7 @@
 
 <script>
     var editor = new FroalaEditor('#editor', {
-    toolbarButtons: ['paragraphFormat', '|', 'bold', 'italic', 'underline', '|', 'alignLeft', 'alignCenter', 'formatOLSimple', '|', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', '|', 'undo', 'redo', 'codeView'],
+    toolbarButtons: ['paragraphFormat', '|', 'bold', 'italic', 'underline','|', 'textColor', 'backgroundColor', 'emoticons', '|', 'alignLeft', 'alignCenter', 'formatOLSimple', '|', 'insertLink', 'insertImage', 'insertVideo', '|', 'undo', 'redo', 'codeView'],
     paragraphFormatSelection: true
       })
 </script>
