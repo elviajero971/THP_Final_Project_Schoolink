@@ -10,7 +10,7 @@
       <% favorites.reverse.take(6).each do |subject| %>
       <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
         <div class="card shadow bg-light">
-          <div class="row">
+          <div class="row card-row-subject">
             <div class="col-md-8">
               <div class="card-body d-flex no-block">
                 <div class="w-100">
@@ -18,7 +18,7 @@
                   <small>
                     <p><%= @users.find_by(id:subject.user_id).nickname %></p>
                   </small>
-                  <div class="row">
+                  <div class="row row-intro-subject">
                     <h6 class="text-muted mb-0 ml-3"><%= subject.difficulty %></h6>
                     <h6 class="text-muted mb-0 ml-4"><%= subject.category %></h6>
                     <h6 class="text-muted mb-0 ml-auto mr-3"><%= subject.how_many_fav? %> like(s)</h6>
