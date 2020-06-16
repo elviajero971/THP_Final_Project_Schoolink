@@ -3,20 +3,20 @@
     <div class="row justify-content-center">
       <div class="col-md-7 text-center">
         <h2 class="title">Recherche</h2>
-        <h6 class="subtitle">Affinez votre recherche à l’aide de ces deux elements de recherche</h6>
+        <h6 class="subtitle">Affinez votre recherche en sélectionnant une catégorie et en cherchant une partie du titre des ressources</h6>
       </div>
     </div>
 
-    <div class="block-search mt-5">
-      <div class="text-center">
-        <div class="btn-group">
+    <div class="block-search mt-2">
+      <div class="form-inline justify-content-center text-center">
+        <div class="form-group mb-2">
           <%= form_tag subjects_path, method: 'GET', :class => "" do %>
             <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-danger-gradiant dropdown-toggle pl-5 pr-5 mr-2") %>
-            <%= text_field_tag 'query', "", class: '' %>
+            <%= text_field_tag 'query', "", class: 'form-control', placeholder: 'Recherche..' %>
             <%= button_tag 'Rechercher', :class => 'btn btn-secondary mr-2'%>
           <% end %>
         </div>
-        <div class="btn-group">
+        <div class="form-group mb-2">
           <%= form_tag subjects_path, method: 'GET' do %>
             <%= button_tag 'Effacer', :class => 'btn btn-outline-danger'%>
           <% end %>
