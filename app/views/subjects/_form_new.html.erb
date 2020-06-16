@@ -2,7 +2,7 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <div class="form-group mb-3 mt-3">
-    <%= label_tag 'Titre' %>
+    <%= label_tag 'Titre (max. 40 caractères)' %>
     <%= text_field_tag 'title', @subject.title, class:"form-control" %>
   </div>
 
