@@ -18,8 +18,8 @@ class UsersController < ApplicationController
       flash[:success] = "Votre profil a bien été modifié !"
         redirect_to user_path(@user.slug)
     else
-      flash.now[:error] = "Erreur de saisie, veuillez renouveler votre demande"
-      render :new
+      flash.now[:alert] = "Erreur : merci de renouveller votre demande"
+      render :edit
     end  
   end
 end

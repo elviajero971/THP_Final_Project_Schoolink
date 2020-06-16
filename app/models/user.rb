@@ -8,6 +8,7 @@ class User < ApplicationRecord
                        length: {within: 6..40},
                        allow_blank: true,
                        on: :update
+  validates :description, length: {maximum: 350}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
