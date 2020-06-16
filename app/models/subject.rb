@@ -6,7 +6,7 @@ class Subject < ApplicationRecord
   has_many :join_validate_subjects, dependent: :destroy
   has_many :comments, as: :commentable
 
-  validates :title, presence: true,  length: {maximum: 45}
+  validates :title, presence: true,  length: {maximum: 50}
   validates :content, presence: true, length: {within: 1000..10000}
   validates :difficulty, presence: true
   validates :category_id, presence: true
