@@ -12,6 +12,7 @@
         <div class="btn-group">
           <%= form_tag subjects_path, method: 'GET', :class => "" do %>
             <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-danger-gradiant dropdown-toggle pl-5 pr-5 mr-2") %>
+            <%= text_field_tag 'query', "", class: '' %>
             <%= button_tag 'Rechercher', :class => 'btn btn-secondary mr-2'%>
           <% end %>
         </div>
