@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-md-12">
     <% if comment.user.profile_pic.attached? %>
-    <div class="media"> <%= image_tag comment.user.profile_pic, alt: 'profile_pic', class:"mr-3 rounded-circle" %>
+    <div class="media mobile-block"> <%= image_tag comment.user.profile_pic, alt: 'profile_pic', class:"mr-3 rounded-circle mobile-block-img" %>
       <% else %>
-      <div class="media"> <%= image_tag "https://res.cloudinary.com/dkeq1ghol/image/upload/v1592215464/avatar.png", alt: 'profile_pic', class:"mr-3 rounded-circle" %>
+      <div class="mobile-block"> <%= image_tag "https://res.cloudinary.com/dkeq1ghol/image/upload/v1592215464/avatar.png", alt: 'profile_pic', class:"mr-3 rounded-circle mobile-block-img" %>
         <% end %>
         <div class="media-body">
           <div class="row">
             <div class="col-8 d-flex">
               <h5><%= comment.user.nickname%></h5>
-              <span class="ml-3 mr-1"><%= comment.likes? %></span>
-              <%= link_to fa_icon("plus", style: 'color: Green').html_safe, comment_likes_path(comment_id: comment.id), method: :create, class: 'mr-2' %>
+              <%= link_to fa_icon("plus", style: 'color: Green').html_safe, comment_likes_path(comment_id: comment.id), method: :create, class: 'ml-3 mr-1' %>
+              <span class="mr-1"><%= comment.likes? %></span>
               <%= link_to fa_icon("minus", style: 'color: Red').html_safe, comment_dislikes_path(comment_id: comment.id), method: :create, class: 'mr-1' %>
               <span class="mr-3"><%= comment.dislikes? %></span>
-              <span>- <%= time_ago_in_words(comment.created_at) %></span>
+              <span class="mobile-block">- <%= time_ago_in_words(comment.created_at) %></span>
             </div>
             <div class="col-4">
               <div class="pull-right reply">
