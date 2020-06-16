@@ -298,7 +298,7 @@ Feature 20
 .wrap-feature-20 .linking {
   width: 100%;
   display: block;
-  padding-top: 50px;
+  padding: 58px 0;
   height: 100%;
 }
 
@@ -447,7 +447,9 @@ Responsive
   .topbar {
     background: #263238;
   }
+}
 
+@media (max-width: 766px) { 
   .wrap-feature-20 .linking {
     padding: 10px 0;
   }

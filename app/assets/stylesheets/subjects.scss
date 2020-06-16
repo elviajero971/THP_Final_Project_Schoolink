@@ -71,6 +71,12 @@ button.btn-link-modal:focus {
   border: 0px;
 }
 
+.wrap-feature-20 .card,
+.card-row-subject,
+.card-row-subject .card-body {
+  min-height: 140px;
+}
+
 @media screen and (max-width: 800px) {
   .create-btn-resource {
     width: 100%;
@@ -124,4 +130,12 @@ button.btn-link-modal:focus {
     padding-left: 15px !important;
     padding-right: 15px;
   }
+}
+
+
+@media screen and (max-width: 770px) {
+  .row-intro-subject-like {
+    margin-right: 15px;
+  }
+
 }
