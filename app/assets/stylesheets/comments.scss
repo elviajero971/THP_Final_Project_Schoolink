@@ -1,3 +1,21 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.add-comment {
+  width: 60%;
+}
+
+@media screen and (max-width: 1030px) { 
+  .add-comment {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 770px) { 
+  .add-comment .btn {
+    width: 100%;
+  }
+}
+
+
