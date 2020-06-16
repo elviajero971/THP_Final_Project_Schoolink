@@ -92,9 +92,3 @@ Subject.all.each do |subject|
       commentable_id: rand(Subject.first.id..Subject.last.id)
       )
 end
-
-# Comment.all.each do |comment|
-#   CommentLike.create(user_id: User.first.id, comment_id: comment.id)
-#   CommentDislike.create(user_id: User.last.id, comment_id: comment.id)
-# end
-
