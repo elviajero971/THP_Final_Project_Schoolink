@@ -12,6 +12,8 @@
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <% if user_signed_in? %>
           <li class="nav-item mr-3"><%= link_to "Créer une ressource", new_subject_path, :class => "nav-link pt-4 pb-4" %></li>
+          <li class="nav-item mr-3">
+            <%= link_to fa_icon('bell').html_safe, user_modifications_path(current_user.slug), :class => "nav-link pt-4 pb-4" %>
             <li class="nav-item dropdown">
               <a class="dropdown-toggle nav-link" href="#" id="h1-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <% if current_user.profile_pic.attached? %>

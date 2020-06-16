@@ -1,0 +1,2 @@
+class ModificationsController < ApplicationController
+end
