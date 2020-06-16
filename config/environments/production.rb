@@ -95,4 +95,5 @@ Rails.application.configure do
 
   # Shut down mailer
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :mailjet
 end
