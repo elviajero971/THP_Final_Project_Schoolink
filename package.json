@@ -1,5 +1,7 @@
 {
   "name": "THP_Final_Project_Schoolink",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "froala-editor": "^3.1.1-2"
+  }
 }

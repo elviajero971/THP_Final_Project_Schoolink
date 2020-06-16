@@ -16,6 +16,7 @@ class User < ApplicationRecord
   after_create :welcome_send
 
   has_many :subjects, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_one_attached :profile_pic
 
