@@ -7,7 +7,7 @@
   </div>
 
   <div class="form-group mb-3 mt-3">
-    <%= text_area_tag 'content', @subject.content, class:"form-control", rows:"30", id:"editor" %>
+    <%= text_area_tag 'content', @subject.content, class:"form-control", rows:"30" %>
   </div>
 
 <div class="row">
@@ -26,11 +26,3 @@
     </div>
   </div>
 <% end %>
-
-<script>
-    var editor = new FroalaEditor('#editor', {
-    toolbarButtons: ['paragraphFormat', '|', 'bold', 'italic', 'underline','|', 'textColor', 'backgroundColor', 'emoticons', '|', 'alignLeft', 'alignCenter', 'formatOLSimple', '|', 'insertLink', 'insertVideo', '|', 'undo', 'redo', 'codeView'],
-    paragraphFormatSelection: true
-    
-      })
-</script>
