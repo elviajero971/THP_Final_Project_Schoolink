@@ -1,17 +1,30 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body>
-    <h1>Salut <%= @user.nickname %> et bienvenue chez WhiteBoard !</h1>
-    <p>
-    Tu t'es inscrit sur <strong>WhiteBoard</strong> en utilisant l'e-mail suivant : <%= @user.email %>.
-    </p>
-    <p>
-    Pour accéder à ton espace client, connecte-toi via : <a href=<%= @url %>><%= @url %></a>.
-    </p>
-    <p> À très vite sur WhiteBoard ! </p>
-  </body>
+  <div class="spacer-show feature4">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="w-100">
+          <div class="card card-shadow">
+            <div class="card-body">
+              <header style="width:800px;">
+                <%= image_tag("https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", style: 'border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;', width: '800', height: 'auto') %>
+              </header>
+
+              <body>
+                <h1>Bonjour et bienvenue dans la communauté WhiteBoard, <%= @user.nickname %> !</h1>
+                  <p>WhiteBoard est un site de partage d’expériences d’apprentissage. Les membres de notre communauté décrivent leur méthodes d’apprentissage et relaient leurs livres, vidéos, podcasts, articles ou autre, très souvent disponibles en accès libre sur internet. Notre concept découle du Self-Learning, méthode qui consiste à apprendre soi-même avec la quantité de ressources disponibles à notre portée. Du Self-Learning nous voulons créer du Common-Learning. 🤓</p>
+                  <p>Pour accéder à ton espace client, connecte-toi via : <%= link_to %> 👌</p>
+                  <p> À très vite sur WhiteBoard !👇 👇 👇 </p>
+                  <%= link_to nil, "http://whiteboard-thp.herokuapp.com" %>
+              </body>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>

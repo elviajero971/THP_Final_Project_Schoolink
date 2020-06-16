@@ -54,6 +54,7 @@ User.create(
   password: "123456",
   is_admin: false
 )
+# User5
 User.create(
   nickname: "JulienA",
   description: "C'est moi le boss, une question ? Viendez!",
