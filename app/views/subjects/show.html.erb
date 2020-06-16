@@ -76,5 +76,17 @@
     </div>
   </div>
 
-
-  <h1>Les commentaires ici</h1>
+  <div class="container mb-5 mt-5">
+    <div class="card card-shadow comment">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="text-center mb-5"> Commentaires </h3>
+              <%= render @subject.comments %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-2" id="form-comment">
+        <%= render "comments/form" %>
+      </div>
+    </div>
+  </div>
+</div>

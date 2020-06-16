@@ -4,6 +4,7 @@ class Subject < ApplicationRecord
   has_many :join_fav_subjects, dependent: :destroy
   has_many :join_read_subjects, dependent: :destroy
   has_many :join_validate_subjects, dependent: :destroy
+  has_many :comments, as: :commentable
 
   validates :title, presence: true
   validates :content, presence: true
