@@ -7,7 +7,7 @@ class Subject < ApplicationRecord
   has_many :comments, as: :commentable
 
   validates :title, presence: true
-  validates :content, presence: true
+  validates :content, presence: true, length: {within: 1000..10000}
   validates :difficulty, presence: true
   validates :category_id, presence: true
 
