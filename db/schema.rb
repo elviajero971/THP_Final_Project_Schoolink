@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_093037) do
+ActiveRecord::Schema.define(version: 2020_06_16_165156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,17 @@ ActiveRecord::Schema.define(version: 2020_06_15_093037) do
     t.index ["subject_id", "user_id"], name: "index_join_validate_subjects_on_subject_id_and_user_id", unique: true
     t.index ["subject_id"], name: "index_join_validate_subjects_on_subject_id"
     t.index ["user_id"], name: "index_join_validate_subjects_on_user_id"
+  end
+
+  create_table "modifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "subject_id"
+    t.text "content"
+    t.boolean "done", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_modifications_on_subject_id"
+    t.index ["user_id"], name: "index_modifications_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
