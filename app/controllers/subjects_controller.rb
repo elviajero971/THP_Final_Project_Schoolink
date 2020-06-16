@@ -2,35 +2,19 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
 
   def index
+    @subjects = Subject.all
     @users = User.all
     @categories = Category.all
-    @q = "%#{params[:query]}%"
+    @query = "%#{params[:query]}%"
 
-    #si il y a une catégorie de sélectionnée et une barre de recherche pleine
-    if params[:category] && params[:category][:name] && params[:query]
-      @subjects = []
-      Subject.all.each do |subject|
-        if subject.category == params[:category][:name]
-          @subjects << subject
-        end
-      end
-      @subjects = Subject.where("title LIKE ?", @q)
-
-    #si il y a une catégorie de sélectionnée et une barre de recherche vide
-    elsif params[:category] && params[:category][:name] && params[:query] == nil
-      @subjects = []
-      Subject.all.each do |subject|
-        if subject.category == params[:category][:name]
-          @subjects << subject
-        end
-      end
-
-    #si il n'y a pas de catégorie de sélectionnée et une barre de recherche pleine
-    elsif params[:query]
-      @subjects = []
-      @subjects = Subject.where("title LIKE ?", @q)
-    else
-      @subjects = Subject.all
+    if params[:category] && params[:category][:name].empty? == false
+      @cat = "#{Category.find_by(name: params[:category][:name]).id}"
+    end
+    
+    if params[:category] && params[:category][:name].empty? == true && params[:query]
+      @subjects = Subject.where("title LIKE ?", @query)
+    elsif params[:category] && params[:category][:name] && params[:query]
+      @subjects = Subject.where("category_id = ? AND title LIKE ?", @cat, @query)
     end
   end
 
