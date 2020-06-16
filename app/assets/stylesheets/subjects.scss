@@ -101,8 +101,11 @@ button.btn-link-modal:focus {
   .btn-show-subject {
     width: 100%;
   }
-}
 
+  .card-body iframe {
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 580px) {
 
@@ -114,5 +117,11 @@ button.btn-link-modal:focus {
   .btn-state-subject,
   .btn-state-subject-read {
     width: 100%;
+  }
+
+  .btn-how-create-subject {
+    width: 90%;
+    padding-left: 15px !important;
+    padding-right: 15px;
   }
 }
