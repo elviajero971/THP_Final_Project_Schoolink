@@ -8,14 +8,18 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header1" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        
       <div class="collapse navbar-collapse" id="header1">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <% if user_signed_in? %>
           <li class="nav-item mr-3"><%= link_to "Créer une ressource", new_subject_path, :class => "nav-link" %></li>
             <li class="nav-item dropdown">
-              <a class="dropdown-toggle btn btn-outline-danger" href="#" id="h1-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <%= current_user.nickname %> <i class="fa fa-angle-down m-l-5"></i>
+              <a class="dropdown-toggle nav-link" href="#" id="h1-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <% if current_user.profile_pic.attached? %>
+                    <%= image_tag current_user.profile_pic, class: "img_sizing-show-subject" %>
+                <% else %>
+                    <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject") %>
+                <% end %>
+                <%= current_user.nickname %> <i class="fa fa-angle-down m-l-5"></i>   
               </a>
               <ul class="b-none dropdown-menu animated fadeInUp">
               <% if current_user.is_admin %>
