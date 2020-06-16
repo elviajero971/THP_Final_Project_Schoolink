@@ -13,13 +13,13 @@
               <div class="author row ml-2">
                 <div class="mr-3">
                   <% if @user.profile_pic.attached? %>
-                    <%= link_to(user_path(@user.id)) do %>
-                      <%= image_tag @user.profile_pic, class: "img_sizing-show-subject" %>
-                    <% end %>
+                  <%= link_to(user_path(@user.id)) do %>
+                  <%= image_tag @user.profile_pic, class: "img_sizing-show-subject" %>
+                  <% end %>
                   <% else %>
-                    <%= link_to(user_path(@user.id)) do %>
-                      <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject") %>
-                    <% end %>
+                  <%= link_to(user_path(@user.id)) do %>
+                  <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject") %>
+                  <% end %>
                   <% end %>
                 </div>
                 <h5 class="pt-3 pb-3">
@@ -44,7 +44,7 @@
             <div class="froala-view">
               <%= @subject.content.html_safe %>
             </div>
-            
+
             <hr>
             <div class="d-sm-flex">
               <div class="mt-2" id="container-read">
@@ -61,6 +61,13 @@
                 <%= render 'join_validate_subject/validate_true' %>
                 <% end %>
               </div>
+              <% if @subject.user != current_user %>
+              <div class="d-sm-flex">
+                <div class="mt-2" id="container-read">
+                  <%= link_to "Proposer une modification", new_subject_modification_path(@subject.slug),class:"btn btn-outline-warning btn-state-subject"%>
+                </div>
+              </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -72,7 +79,7 @@
       <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger mr-2 mb-2" %>
       <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary mr-2 mb-2" %>
       <% end %>
-        <%= link_to "Retour à l'accueil", subjects_path, class:"btn btn-outline-secondary mb-2" %>
+      <%= link_to "Retour à l'accueil", subjects_path, class:"btn btn-outline-secondary mb-2" %>
     </div>
   </div>
 

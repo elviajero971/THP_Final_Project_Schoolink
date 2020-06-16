@@ -18,6 +18,7 @@ class User < ApplicationRecord
 
   has_many :subjects, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :modifications
 
   has_one_attached :profile_pic
 
