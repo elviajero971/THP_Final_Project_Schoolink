@@ -7,7 +7,7 @@
           <%= form_tag user_profile_pics_path(@user), multipart: true do %>
             <%= file_field_tag :profile_pic, class: "btn btn-danger m-r-10 actions mb-3" %>   
              <div class="text-center mt-5">
-              <%= submit_tag "Mettre à jour", class: "btn btn-danger-gradiant m-r-10 actions mb-3" %>
+              <%= submit_tag "Mettre à jour ou supprimer votre photo de profil", class: "btn btn-danger-gradiant m-r-10 actions mb-3" %>
              </div> 
           <% end %>  
       </div>
