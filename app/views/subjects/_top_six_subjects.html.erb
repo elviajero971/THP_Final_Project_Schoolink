@@ -1,0 +1,38 @@
+<div class="feature20 up mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h2 class="title">Les ressources les mieux notées</h2>
+      </div>
+    </div>
+    <div class="row wrap-feature-20">
+      <% favorites = Subject.all.sort_by{ |likes| likes.how_many_fav?} %>
+      <% favorites.reverse.take(6).each do |subject| %>
+      <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
+        <div class="card shadow bg-light">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card-body d-flex no-block">
+                <div class="w-100">
+                  <h5 class="font-medium mb-0"><%= subject.title %></h5>
+                  <small>
+                    <p><%= @users.find_by(id:subject.user_id).nickname %></p>
+                  </small>
+                  <div class="row">
+                    <h6 class="text-muted mb-0 ml-3"><%= subject.difficulty %></h6>
+                    <h6 class="text-muted mb-0 ml-4"><%= subject.category %></h6>
+                    <h6 class="text-muted mb-0 ml-auto mr-3"><%= subject.how_many_fav? %> like(s)</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 text-center">
+              <a href=<%= subject_path(subject.slug) %> class="text-white linking bg-danger-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
