@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show, :update, :edit], path: 'profil' do
     resources :profile_pics, only: [:create]
-    resources :modifications, path: 'notifications'
+    get '/notifications/', to: 'modifications#index'
+
   end
   resources :join_fav_subject, only: [:update, :destroy]
   resources :join_read_subject, only: [:update, :destroy]

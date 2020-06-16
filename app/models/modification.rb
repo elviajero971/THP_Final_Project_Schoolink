@@ -4,5 +4,13 @@ class Modification < ApplicationRecord
 
   validates :user_id, presence: true
   validates :subject_id, presence: true
-  validates :content_type, presence: true
+  validates :content, presence: true
+
+  def done?
+    if self.done == true
+      return "Terminé"
+    else 
+      return "En attente"
+    end
+  end
 end

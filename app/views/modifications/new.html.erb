@@ -1,16 +1,15 @@
-<div class="feature4 mb-5">
+<div class="feature4 my-5">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-7 text-center">
         <h2 class="title">Proposition de modification</h2>
-        <%= params.inspect %>
 
         <div class="feature4 justify-content-center text-center">
           <button type="button" class="btn btn-outline-danger button-up mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Pourquoi proposer une modification ? </button>
         </div>
         <div class="feature4 mb-5">
           <div class="container">
-            <%= render 'form_new', subject: @subject %>
+            <%= render 'form_new' %>
           </div>
         </div>
 

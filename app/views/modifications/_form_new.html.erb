@@ -1,4 +1,4 @@
-<%= form_tag url_for(action: 'create'), method: "post" do %>
+<%= form_tag subject_modifications_path, method: "post" do %>
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
 <div class="form-group mb-3 mt-3">
@@ -7,7 +7,7 @@
 </div>
 
 <div class="actions ml-auto create-btn-resource">
-  <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow create-btn', id: 'validForm') do %>
+  <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow create-btn') do %>
   <span class="white-text pl-5 pr-5">Envoyer </span>
   <% end %>
 </div>
