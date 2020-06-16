@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       redirect_to subject_path(Subject.find_by(slug: params[:subject_id]))
-      flash[:alert] = "#{params[:content]}"
+      flash[:alert] = "Votre commentaire n'a pas pu être ajouté"
     end
   end
 

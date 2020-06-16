@@ -31,6 +31,34 @@ class User < ApplicationRecord
     slug.blank? || nickname_changed?
   end
 
+  def how_many_favorites?
+    f = 0
+    JoinFavSubject.all.each do |s|
+      if s.user_id = self.id
+        f += 1
+      end
+    end
+    return f 
+  end
+  def how_many_inprogress?
+    i = 0
+    JoinReadSubject.all.each do |s|
+      if s.user_id = self.id
+        i += 1
+      end
+    end
+    return i 
+  end
+  def how_many_validate?
+    v = 0
+    JoinValidateSubject.all.each do |s|
+      if s.user_id = self.id
+        v += 1
+      end
+    end
+    return v 
+  end
+
 private
 
   def downcase_email

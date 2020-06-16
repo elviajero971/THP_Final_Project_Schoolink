@@ -1,5 +1,5 @@
 <div class="container mb-5 mt-3">
-  <% if JoinReadSubject.find_by(user_id: @user.id) == nil %>
+  <% if JoinFavSubject.find_by(user_id: @user.id) == nil %>
     <span class="card-text mb-4"> Vous n'avez pas encore de ressources favorites </span>
   <% else %>
   <div class="table-responsive">
@@ -9,15 +9,15 @@
           <th>Catégorie</th>
           <th>Difficulté</th>
           <th>Titre</th>
-          <th>Enregistrée le </th>
+          <th>Likée le </th>
           <th>Lien</th>
         </tr>
       </thead>
       <tbody>
         
-        <% favorites = JoinReadSubject.all.sort_by{ |read| read.updated_at} %>
-        <% favorites.reverse.each do |readsubject| %>
-        <% subject = Subject.find_by(id: readsubject.subject_id) %>
+        <% favorites = JoinFavSubject.all.sort_by{ |likes| likes.updated_at} %>
+        <% favorites.reverse.each do |likesubject| %>
+        <% subject = Subject.find_by(id: likesubject.subject_id) %>
         <tr>
           <td><span class="label label-rounded label-danger"><%= subject.category %></span> </td>
           <td><span class="label label-rounded label-info"><%= subject.difficulty %></span> </td>
@@ -28,7 +28,7 @@
                 subject.title
               end %>
           </td>
-          <td><%= readsubject.updated_at.strftime("%d.%m à %H:%M") %></td>
+          <td><%= likesubject.updated_at.strftime("%d.%m à %H:%M") %></td>
           <td><%= link_to "Lien", subject_path(subject.slug) %></td>
         </tr>
         <% end %>
