@@ -23,7 +23,7 @@
 //= require plugins/file.min.js
 //= require plugins/font_size.min.js
 //= require plugins/font_family.min.js
-//= require plugins/image.min.js
+//= require image.min.js
 //= require plugins/image_manager.min.js
 //= require plugins/inline_style.min.js
 //= require plugins/line_breaker.min.js
