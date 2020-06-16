@@ -1,4 +1,7 @@
 {
   "name": "THP_Final_Project_Schoolink",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "medium-editor": "^5.23.3"
+  }
 }
