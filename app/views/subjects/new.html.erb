@@ -11,6 +11,7 @@
 
 <div class="feature4 justify-content-center text-center">
   <button type="button" class="btn btn-outline-danger button-up mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Comment bien rédiger ma ressource ?</button>
+  <button type="button" class="btn btn-outline-danger button-up mr-2" data-toggle="modal" data-target=".bd-modal-lg">Comment mettre en forme mon texte ?</button>
 </div>
 <div class="mb-5">
   <div class="container">
@@ -21,6 +22,11 @@
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <%= render 'modal_guide'%>
+  </div>
+</div>
+<div class="modal fade bd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <%= render 'modal_how_to'%>
   </div>
 </div>
 

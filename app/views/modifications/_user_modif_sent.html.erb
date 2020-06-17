@@ -1,5 +1,5 @@
 <div class="container mb-5 mt-3">
-  <% if Subject.find_by(user_id: @user.id) == nil %>
+  <% if Modification.find_by(user_id: @user.id) == nil %>
   <span class="card-text mb-4"> Vous n'avez pas pas envoyé de proposition de modifications </span>
   <% else %>
   <div class="table-responsive">
