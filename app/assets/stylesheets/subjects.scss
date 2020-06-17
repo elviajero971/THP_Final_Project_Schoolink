@@ -80,6 +80,16 @@ button.btn-link-modal:focus {
   min-height: 140px;
 }
 
+.btn-send-edit-subject {
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  .btn-send-edit-subject {
+    margin-left: 0;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .create-btn-resource {
     width: 100%;
@@ -117,17 +127,6 @@ button.btn-link-modal:focus {
 }
 
 @media screen and (max-width: 580px) {
-
-  .btn-state-subject {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .btn-state-subject,
-  .btn-state-subject-read {
-    width: 100%;
-  }
-
   .btn-how-create-subject {
     width: 90%;
     padding-left: 15px !important;
@@ -135,10 +134,28 @@ button.btn-link-modal:focus {
   }
 }
 
+.row-btn-show-subject {
+  width: 100%;
+  margin-left: 5px !important;
+}
+
 
 @media screen and (max-width: 770px) {
   .row-intro-subject-like {
     margin-right: 15px;
+  }
+  .row-btn-show-subject {
+    margin-left: 0 !important;
+  }
+  .row-btn-show-subject div {
+    width: 100%;
+  }
+
+  .btn-state-subject,
+  .btn-state-subject-read,
+  .btn-send-edit-subject {
+    width: 100%;
+    margin-left: 0;
   }
 
 }
