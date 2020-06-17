@@ -1,7 +1,21 @@
-<p>Hello <%= @email %>!</p>
+<div style="background-color:#f8f8f8; margin: 5px; text-align: center;">
+  <div style="margin: 0 auto; max-width: 600px; font-family: Montserrat, sans-serif;">
+    <span style="width:100px; color:#8d97ad;" align="center">
+     <%= cl_image_tag("logo_wb_color.png") %>
+     <h1 class="title font-bold">WhiteBoard</h1>
+    </span>
+    <div style="color:#3e4555">
+      <div class="card-body">
+        <h1 class="title font-bold"> Bonjour <%= @email %> !</h1>
+          <% if @resource.try(:unconfirmed_email?) %>
+            <p>Nous vous contactons pour vous informer que votre email est en train d'être changé à <%= @resource.unconfirmed_email %>.</p>
+          <% else %>
+            <p>Nous vous contactons pour vous informer que votre email a été changé à <%= @resource.email %>.</p>
+          <% end %> 
+          <p>À très vite sur WhiteBoard ! </p>
+          <p><%= link_to nil, "http://whiteboard-thp.herokuapp.com" %></p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
-<% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
-<% end %>
