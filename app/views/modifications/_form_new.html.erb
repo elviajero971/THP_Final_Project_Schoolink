@@ -1,14 +1,14 @@
 <%= form_tag subject_modifications_path, method: "post" do %>
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-<div class="form-group mb-3 mt-3">
-  <%= label_tag 'Votre message' %>
-  <%= text_area_tag 'content', @modification.content, class:"form-control", rows:"15" %>
-</div>
+  <div class="form-group mb-3 mt-3">
+    <%= label_tag 'Votre message' %>
+    <%= text_area_tag 'content', @modification.content, class:"form-control", rows:"15" %>
+  </div>
 
-<div class="actions ml-auto create-btn-resource">
-  <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow create-btn') do %>
-  <span class="white-text pl-5 pr-5">Envoyer </span>
-  <% end %>
-</div>
+  <div class="actions ml-auto create-btn-resource">
+    <%= button_tag(type: 'submit', :class => 'btn btn-primary-gradiant btn-arrow create-btn') do %>
+    <span class="white-text pl-5 pr-5">Envoyer </span>
+    <% end %>
+  </div>
 <% end %>

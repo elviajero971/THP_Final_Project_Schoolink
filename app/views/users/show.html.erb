@@ -19,8 +19,8 @@
       </div>
       <% if current_user.id == @user.id %>
           <div class="board-btn">
-            <%= link_to "Editez votre profil", edit_user_path(current_user.slug), class:"btn btn-danger" %>
-            <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-danger" %>
+            <%= link_to "Editez votre profil", edit_user_path(current_user.slug), class:"btn btn-primary" %>
+            <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-primary" %>
           </div>
         <% end %>
     </div>
@@ -35,16 +35,16 @@
       <a class="nav-link disabled" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="true">Ressources</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="true">Créées <span class="label label-rounded label-light-danger"><%= @user.subjects.length %></span></a>
+      <a class="nav-link active" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="true">Créées <span class="label label-rounded label-light-primary"><%= @user.subjects.length %></span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-favorites-tab" data-toggle="pill" href="#pills-favorites" role="tab" aria-controls="pills-favorites" aria-selected="false">Likées <span class="label label-rounded label-light-danger"><%= @user.how_many_favorites? %></span></a>
+      <a class="nav-link" id="pills-favorites-tab" data-toggle="pill" href="#pills-favorites" role="tab" aria-controls="pills-favorites" aria-selected="false">Likées <span class="label label-rounded label-light-primary"><%= @user.how_many_favorites? %></span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-inprogress-tab" data-toggle="pill" href="#pills-inprogress" role="tab" aria-controls="pills-inprogress" aria-selected="false">Enregistrées <span class="label label-rounded label-light-danger"><%= @user.how_many_inprogress? %></span></a>
+      <a class="nav-link" id="pills-inprogress-tab" data-toggle="pill" href="#pills-inprogress" role="tab" aria-controls="pills-inprogress" aria-selected="false">Enregistrées <span class="label label-rounded label-light-primary"><%= @user.how_many_inprogress? %></span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-finished-tab" data-toggle="pill" href="#pills-finished" role="tab" aria-controls="pills-finished" aria-selected="false">Terminées <span class="label label-rounded label-light-danger"><%= @user.how_many_validate? %></span></a>
+      <a class="nav-link" id="pills-finished-tab" data-toggle="pill" href="#pills-finished" role="tab" aria-controls="pills-finished" aria-selected="false">Terminées <span class="label label-rounded label-light-primary"><%= @user.how_many_validate? %></span></a>
     </li>
   </ul>
   <div class="tab-content mt-5" id="pills-tabContent">

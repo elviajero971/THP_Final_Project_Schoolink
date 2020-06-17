@@ -8,10 +8,8 @@
 }
 
 .footer h6:hover {
-  color: #ff4d7e;
+  color: var(--success);
 }
-
-
 
 @media screen and (max-width: 1000px) {
   .footer-elements {

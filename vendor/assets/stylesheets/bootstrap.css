@@ -1,3 +1,14 @@
+/******************* 
+Global Styles 
+*******************/
+
+:root {
+  --primary: #273A73;
+  --secondary: #F2CAA7;
+  --success: #73A2BF;
+}
+
+
 /*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -3423,13 +3434,13 @@ tbody.collapse.show {
 
 .nav-pills .nav-link {
   border-radius: 0.25rem;
-  color: #ff4d7e;
+  color: var(--primary);
 }
 
 .nav-pills .nav-link.active,
 .show > .nav-pills .nav-link {
   color: #fff;
-  background-color: #ff4d7e;
+  background-color: var(--primary);
 }
 
 .nav-fill .nav-item {

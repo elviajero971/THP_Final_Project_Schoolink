@@ -63,7 +63,7 @@
               </div>
               <% if @subject.user != current_user %>
                 <div class="mt-2">
-                  <%= link_to "Proposer une modification", new_subject_modification_path(@subject.slug),class:"btn btn-outline-warning btn-send-edit-subject" %>
+                  <%= link_to "Proposer une modification", new_subject_modification_path(@subject.slug),class:"btn btn-outline-success btn-send-edit-subject" %>
                 </div>
               </div>
               <% end %>
