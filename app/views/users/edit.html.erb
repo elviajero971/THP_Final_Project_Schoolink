@@ -9,8 +9,8 @@
             <%= file_field_tag :profile_pic, class: "mb-3 choose-picture" %>  
           </div> 
           <div class="text-center">
-            <%= submit_tag "Mettre à jour", class: "btn btn-danger-gradiant actions mb-3" %>
-            <%= submit_tag "Supprimer", class: "btn btn-danger-gradiant actions mb-3" %>
+            <%= submit_tag "Mettre à jour", class: "btn btn-primary actions mb-3" %>
+            <%= submit_tag "Supprimer", class: "btn btn-primary actions mb-3" %>
           </div> 
         <% end %>  
 
@@ -21,7 +21,7 @@
           <%= form.text_area :description, class:"form-control", placeholder:"Description" %>
         </div>
         <div class="text-center mt-4">
-        <%= form.submit 'Mettre à jour', :class => 'btn btn-danger-gradiant' %>
+        <%= form.submit 'Mettre à jour', :class => 'btn btn-primary' %>
         </div>
       <% end %>
 
@@ -35,7 +35,7 @@
           </div>
 
           <div class="text-center mt-4">
-          <%= form.submit 'Mettre à jour', :class => 'btn btn-danger-gradiant' %>
+          <%= form.submit 'Mettre à jour', :class => 'btn btn-primary' %>
           </div>
         <% end %>
 
