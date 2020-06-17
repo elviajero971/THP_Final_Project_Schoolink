@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id="comment-section">
   <div class="col-md-12 mb-2 mt-2">
     <% if comment.user.profile_pic.attached? %>
     <div class="media mobile-block"> <%= image_tag comment.user.profile_pic, alt: 'profile_pic', class:"rounded-circle mobile-block-img img-comment" %>
@@ -17,7 +17,7 @@
             </div>
             <div class="col-4">
               <div class="pull-right reply">
-                <% if current_user.id == comment.user_id %>
+                <% if current_user.id == comment.user_id || current_user.is_admin == true %>
                 <%= link_to fa_icon("trash", style: 'color: Tomato').html_safe, comment_path(comment.id), method: :delete, data: { confirm: 'Êtes-vous certain(e) de vouloir supprimer votre commentaire ?' }, class: 'mr-3' %>
                 <% end %>
                 <% if comment.commentable_type == "Subject" %>

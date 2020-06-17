@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   
   devise_for :users, path: 'gestion', path_names: { sign_in: 'se-connecter', sign_out: 'deconnexion', password: 'secret', confirmation: 'verification', unlock: 'deblocage', registration: 'compte', sign_up: 'inscription' }
   
-  
   resources :subjects, path: 'ressource' do
     resources :comments
     resources :modifications, path: 'notifications'

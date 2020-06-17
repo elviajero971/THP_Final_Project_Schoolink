@@ -25,6 +25,21 @@ class Subject < ApplicationRecord
     return fav
   end
 
+  def how_many_comments?
+    comment = 0
+    Comment.all.each do |com|
+      if com.commentable_type == "Subject" && com.commentable_id == self.id 
+        comment += 1
+        Comment.all.each do |comcom|
+          if comcom.commentable_type == "Comment" && comcom.commentable_id == com.id
+            comment += 1
+          end
+        end
+      end
+    end
+    return comment
+  end
+
   def favorites
     favorites = []
     JoinFavSubject.all.each do |fav|

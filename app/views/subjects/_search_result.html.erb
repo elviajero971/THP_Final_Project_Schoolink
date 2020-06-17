@@ -1,52 +1,63 @@
 <div class="feature20 up">
   <div class="container">
     <% if @subjects.empty?%>
-      <div class="row justify-content-center mt-5 mb-5">
-        <div class="col-md-9">
-          <h3 class="title text-center">Aucune ressource ne correspond à votre recherche... </h3>
-          <h5 class="title">Suggestions :<h5>
-          <ul class="justify-content-left ml-3">
-            <li>Vérifiez l’orthographe de votre de recherche.</li>
-            <li>Essayez d'autres mots.</li>
-            <li>Utilisez des mots clés plus généraux.</li>
-          </ul>
-        </div>
+    <div class="row justify-content-center mt-5 mb-5">
+      <div class="col-md-9">
+        <h3 class="title text-center">Aucune ressource ne correspond à votre recherche... </h3>
+        <h5 class="title">Suggestions :<h5>
+            <ul class="justify-content-left ml-3">
+              <li>Vérifiez l’orthographe de votre de recherche.</li>
+              <li>Essayez d'autres mots.</li>
+              <li>Utilisez des mots clés plus généraux.</li>
+            </ul>
       </div>
+    </div>
     <% else %>
-      <div class="row">
-        <div class="mt-5">
-          <h2 class="title text-center">Voici le résultat de votre recherche</h2>
-        </div>
+    <div class="row">
+      <div class="mt-5">
+        <h2 class="title text-center">Voici le résultat de votre recherche</h2>
       </div>
-      <div class="row wrap-feature-20">
-        <% favorites = @subjects.sort_by{ |likes| likes.how_many_fav?} %>
-          <% favorites.reverse.each do |subject| %>
-          <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
-            <div class="card shadow bg-light">
-              <div class="row card-row-subject">
-                <div class="col-md-8">
-                  <div class="card-body d-flex no-block">
-                    <div class="w-100">
-                      <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                      <small>
-                        <p><%= @users.find_by(id:subject.user_id).nickname %></p>
-                      </small>
-                      <div class="row">
-                        <h6 class="text-muted mb-0 ml-3"><%= subject.difficulty %></h6>
-                        <h6 class="text-muted mb-0 ml-4"><%= subject.category %></h6>
-                        <h6 class="text-muted mb-0 ml-auto row-intro-subject-like"><%= subject.how_many_fav? %> like(s)</h6>
-                      </div>
-                    </div>
+    </div>
+    <div class="row wrap-feature-20">
+      <% favorites = @subjects.sort_by{ |likes| likes.how_many_fav?} %>
+      <% favorites.reverse.each do |subject| %>
+      <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
+        <div class="card shadow bg-light">
+          <div class="row card-row-subject">
+            <div class="col-md-8">
+              <div class="card-body d-flex no-block">
+                <div class="w-100">
+                  <h5 class="font-medium mb-0 height-card"><%= subject.title %></h5>
+                  <small>
+                    <p><%= @users.find_by(id:subject.user_id).nickname %></p>
+                  </small>
+                  <div class="row">
+                    <h6 class="text-muted mb-0 ml-3"><strong><%= subject.category %></strong></h6>
+                    <% if subject.how_many_fav? > 0 %>
+                    <h6 class="text-muted mb-0 ml-auto row-intro-subject-like"><%= subject.how_many_fav? %> <i class="fa fa-heart" aria-hidden="true"></i></h6>
+                    <% else %>
+                    <h6 class="text-muted mb-0 ml-auto row-intro-subject-like"><%= subject.how_many_fav? %> <i class="fa fa-heart-o" aria-hidden="true"></i></h6>
+                    <% end %>
                   </div>
-                </div>
-                <div class="col-md-4 text-center">
-                  <a href=<%= subject_path(subject.slug) %> class="text-white linking bg-danger-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
+                  <div class="row">
+                    <h6 class="text-muted mb-0 ml-3"><%= subject.difficulty %></h6>
+                    <% if subject.how_many_comments? > 0 %>
+                    <h6 class="text-muted mb-0 ml-auto row-intro-subject-like"><%= subject.how_many_comments? %> <i class="fa fa-comment" aria-hidden="true"></i></h6>
+                    <% else %>
+                    <h6 class="text-muted mb-0 ml-auto row-intro-subject-like"><%= subject.how_many_comments? %> <i class="fa fa-comment-o" aria-hidden="true"></i></h6>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="col-md-4 text-center">
+              <a href=<%= subject_path(subject.slug) %> class="text-white linking bg-danger-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
+            </div>
           </div>
-        <% end %>
+        </div>
       </div>
+      <% end %>
+    </div>
     <% end %>
   </div>
 </div>

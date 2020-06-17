@@ -7,11 +7,18 @@ class CommentsController < ApplicationController
   end
 
  def create
-    @subject = Subject.find_by(slug: params[:id])
+    if params[:subject_id]
+      @subject = Subject.find_by(slug: params[:subject_id])
+    else 
+      comment = Comment.find(params[:comment][:comment_id])
+      if comment.commentable_type == "Subject"
+        @subject = Subject.find_by(id: comment.commentable_id)
+      end
+    end
+
     @comment = @commentable.comments.new(content: params[:comment][:content], commentable_type: params[:commentable_type], commentable_id: params[:commentable_id], user_id: current_user.id)
     if @comment.save
-      flash[:success] = "Votre commentaire a bien été ajouté !"
-      redirect_back(fallback_location: root_path)
+      redirect_to subject_path(@subject.slug, anchor: 'comment-section')
     else
       redirect_to subject_path(Subject.find_by(slug: params[:subject_id]))
       flash[:alert] = "Votre commentaire doit comprendre entre 1 et 350 caractères."
@@ -20,9 +27,17 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+
+    if @comment.commentable_type == "Subject"
+      @subject = Subject.find(@comment.commentable_id)
+    elsif @comment.commentable_type == "Comment"
+      @commentFather = Comment.find(@comment.commentable_id)
+      @subject = Subject.find(@commentFather.commentable_id)
+    end
+
     @comment.destroy if @comment
     flash[:success] = "Votre commentaire a bien été supprimé !"
-    redirect_back(fallback_location: root_path)
+    redirect_to subject_path(@subject.slug, anchor: 'comment-section')
   end
 
   private

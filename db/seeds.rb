@@ -6,12 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+
 JoinFavSubject.destroy_all
 JoinReadSubject.destroy_all
 JoinValidateSubject.destroy_all
 User.destroy_all
 Subject.destroy_all
 Category.destroy_all
+Modification.destroy_all
 
 
 # User1
@@ -89,6 +91,12 @@ Subject.all.each do |subject|
       content: Faker::Hipster.sentence(word_count: 3),
       user_id: rand(User.first.id..User.last.id),
       commentable_type: "Subject",
-      commentable_id: rand(Subject.first.id..Subject.last.id)
+      commentable_id: subject.id
       )
+  Comment.create(
+    content: Faker::Hipster.sentence(word_count: 3),
+    user_id: rand(User.first.id..User.last.id),
+    commentable_type: "Subject",
+    commentable_id: subject.id
+    )
 end
