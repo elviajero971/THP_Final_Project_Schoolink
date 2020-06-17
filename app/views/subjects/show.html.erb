@@ -46,7 +46,7 @@
             </div>
 
             <hr>
-            <div class="d-sm-flex">
+            <div class="row row-btn-show-subject">
               <div class="mt-2" id="container-read">
                 <% if JoinReadSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
                 <%= render 'join_read_subject/read_false' %>
@@ -62,9 +62,8 @@
                 <% end %>
               </div>
               <% if @subject.user != current_user %>
-              <div class="d-sm-flex">
-                <div class="mt-2" id="container-read">
-                  <%= link_to "Proposer une modification", new_subject_modification_path(@subject.slug),class:"btn btn-outline-warning btn-state-subject"%>
+                <div class="mt-2">
+                  <%= link_to "Proposer une modification", new_subject_modification_path(@subject.slug),class:"btn btn-outline-warning btn-send-edit-subject" %>
                 </div>
               </div>
               <% end %>

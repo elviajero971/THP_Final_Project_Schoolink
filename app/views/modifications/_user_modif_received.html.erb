@@ -1,5 +1,5 @@
 <div class="container mb-5 mt-3">
-  <% if Modification.find_by(user_id: @user.id) == nil %>
+  <% if @user.how_many_modif_received? == 0 %>
   <span class="card-text mb-4"> Vous n'avez pas reçu de notification </span>
   <% else %>
   <div class="table-responsive">
