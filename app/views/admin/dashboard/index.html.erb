@@ -5,19 +5,14 @@
       <div class="col-md-12 justify-content-center">
         <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+            <a class="nav-link active" id="pills-ressources-tab" data-toggle="pill" href="#pills-ressources" role="tab" aria-controls="pills-ressources" aria-selected="false">Ressources <span class="label label-rounded label-light-danger"><%= Subject.all.length %></span></a>
           </li>
           <li class="nav-item" role="presentation">
-            <a class="nav-link" id="pills-ressources-tab" data-toggle="pill" href="#pills-ressources" role="tab" aria-controls="pills-ressources" aria-selected="false">Ressources</a>
-          </li>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Utilisateurs</a>
+            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Utilisateurs <span class="label label-rounded label-light-danger"><%= User.all.length %></span></a>
           </li>
         </ul>
         <div class="tab-content mt-5" id="pills-tabContent">
-          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-          </div>
-          <div class="tab-pane fade" id="pills-ressources" role="tabpanel" aria-labelledby="pills-ressources-tab">
+          <div class="tab-pane fade show active" id="pills-ressources" role="tabpanel" aria-labelledby="pills-ressources-tab">
             <div class="table-responsive">
               <table class="table">
                 <thead>
@@ -25,12 +20,14 @@
                     <th># ID</th>
                     <th>Créateur</th>
                     <th>Titre</th>
+                    <th>Likes</th>
                     <th>Actions</th>
                     <th>Etat</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% Subject.all.each do |subject| %>
+                <% favorites = Subject.all.sort_by{ |likes| likes.how_many_fav?} %>
+                <% favorites.reverse.each do |subject| %>
                   <tr>
                     <td><span class="label label-rounded label-info"><%= subject.id %></span> </td>
                     <td>@<%= subject.user.nickname %></td>
@@ -41,7 +38,8 @@
                         subject.title
                         end %>
                     </td>
-                    <td><%= link_to fa_icon('wrench').html_safe, admin_dashboard_index_path, class: 'mr-3' %> <%= link_to fa_icon("trash", style: 'color: Tomato').html_safe, admin_dashboard_index_path %></td>
+                    <td><%= subject.how_many_fav? %> </td>
+                    <td><%= link_to fa_icon('wrench').html_safe, edit_admin_subject_path(subject.slug), class: 'mr-3' %> <%= link_to fa_icon("trash", style: 'color: Tomato').html_safe, admin_subject_path(subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'} %></td>
                     <td><span class="label label-rounded label-success">En ligne</span> </td>
                   </tr>
                   <% end %>
@@ -56,8 +54,8 @@
                   <tr>
                     <th># ID</th>
                     <th>Nickname</th>
-                    <th>N° Ressources</th>
-                    <th>Actions</th>
+                    <th>Nombre de Ressources Créées</th>
+                    <th>Lien</th>
                     <th>Admin</th>
                   </tr>
                 </thead>
@@ -67,7 +65,7 @@
                     <td><span class="label label-rounded label-info"><%= users.id %></span> </td>
                     <td><%= users.nickname %></td>
                     <td><%= users.subjects.length %></td>
-                    <td><%= link_to fa_icon('wrench').html_safe, admin_dashboard_index_path, class: 'mr-3' %> <%= link_to fa_icon("trash", style: 'color: Tomato').html_safe, admin_dashboard_index_path %></td>
+                    <td><%= link_to "Profil", user_path(users.slug), class: 'mr-3' %></td>
                     <% if users.is_admin %>
                       <td><span class="label label-rounded label-danger">Admin</span> </td>
                     <% else %>

@@ -1,21 +1,33 @@
-<div class="header1 po-relative bg-dark">
+<div class="header1 po-relative bg-light">
   <div class="container">
-    
-    <nav class="navbar navbar-expand-lg h2-nav">
+    <nav class="navbar navbar-expand-lg h1-nav  navbar-light">
       <%= link_to root_path, method: "GET", class: "logo-nav" do %>
       <% end %>
       <%= link_to "WhiteBoard", root_path, :class => "logo-text-nav" %>
+      
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header1" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="ti-menu"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
-        
       <div class="collapse navbar-collapse" id="header1">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "Créer une ressource", new_subject_path, :class => "nav-link" %></li>
+          <li class="nav-item mr-3"><%= link_to "Créer une ressource", new_subject_path, :class => "nav-link pt-4 pb-4" %></li>
+          <li class="nav-item mr-3">
+          <% if current_user.how_many_notification? > 0 %>
+            <%= link_to user_notifications_path(current_user.slug), :class => "nav-link pt-4 pb-4 text-danger" do %>
+              <%= fa_icon('bell').html_safe + " #{current_user.how_many_notification?}" %>
+            <% end %>
+          <% else %>
+            <%= link_to fa_icon('bell').html_safe, user_notifications_path(current_user.slug), :class => "nav-link pt-4 pb-4" %>
+          <% end %>
             <li class="nav-item dropdown">
-              <a class="dropdown-toggle btn btn-outline-info" href="#" id="h1-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <%= current_user.nickname %> <i class="fa fa-angle-down m-l-5"></i>
+              <a class="dropdown-toggle nav-link" href="#" id="h1-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <% if current_user.profile_pic.attached? %>
+                    <%= image_tag current_user.profile_pic, class: "img_sizing-show-subject mr-2" %>
+                <% else %>
+                    <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject mr-2") %>
+                <% end %>
+                <%= current_user.nickname %> <i class="fa fa-angle-down m-l-5"></i>   
               </a>
               <ul class="b-none dropdown-menu animated fadeInUp">
               <% if current_user.is_admin %>

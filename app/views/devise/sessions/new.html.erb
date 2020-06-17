@@ -17,12 +17,12 @@
           </div>
           <div class="form-group mb-3 mt-3">
             <div class="checkbox checkbox-success">
-              <%= f.check_box :remember_me %>
-              <%= f.label :Se_souvenir_de_moi %>
+                <input id="checkbox1" type="checkbox">
+                <label for="checkbox1">Se souvenir de moi</label>
             </div>
           </div>
           <div class="form-group mb-3">
-            <%= f.submit "Se connecter", class: "btn btn-success waves-effect waves-light m-r-10 mb-3" %><br>
+            <%= f.submit "Se connecter", class: "btn btn-danger-gradiant m-r-10 mb-3" %><br>
             <%= render "devise/shared/links" %>
           </div>
           <% end %>

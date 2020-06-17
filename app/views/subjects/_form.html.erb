@@ -6,13 +6,13 @@
 
   <div class="field form-group shadow-textarea pl-5 pr-5">
     <%= form.label :Contenu %>
-    <%= form.text_area :content, type: "txt", class: "form-control z-depth-1", placeholder: "Écris ton contenu...", rows: "20" %>
+    <%= form.text_area :content, type: "txt", class: "form-control z-depth-1", placeholder: "Écris ton contenu...", rows: "20", id: "editable"%>
   </div>
 
   <div class="row justify-center">
     <div class="ml-1 mb-3">
         <div class="field ml-2 pl-5">
-          <%= form.select(:difficulty, ['Débutant', 'Intermédiaire', 'Avancé'], {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
+          <%= form.select(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'], Subject.friendly.find(params[:id]).difficulty), {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
         </div>
       </div>
 
@@ -27,15 +27,15 @@
 
         <div class="actions col-md-3 mb-3">
           <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5', id: 'validForm') do %>
-            <span class="white-text pl-5 pr-5">MODIFIER</span>
+            <span class="white-text pl-5 pr-5">Modifier</span>
           <% end %>
           </div>
         </div>
 
-<div class="text-center mb-5 mt-5">
-  <%= link_to 'Back', subject_path(@subject.id), class:"btn btn-secondary" %>
-</div>
-  </div>
+            <div class="text-center mb-5 mt-5">
+              <%= link_to 'Back', subject_path(@subject.id), class:"btn btn-secondary" %>
+            </div>
+              </div>
           <% end %>
           </div>
         </div>
@@ -44,3 +44,5 @@
     </div>
   </div>
 
+
+<script>var editor = new MediumEditor('#editable');</script>

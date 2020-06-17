@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_160847) do
+ActiveRecord::Schema.define(version: 2020_06_16_165156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,35 @@ ActiveRecord::Schema.define(version: 2020_06_11_160847) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_categories_on_subject_id"
+  end
+
+  create_table "comment_dislikes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_dislikes_on_comment_id"
+    t.index ["user_id"], name: "index_comment_dislikes_on_user_id"
+  end
+
+  create_table "comment_likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_likes_on_comment_id"
+    t.index ["user_id"], name: "index_comment_likes_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -85,6 +114,17 @@ ActiveRecord::Schema.define(version: 2020_06_11_160847) do
     t.index ["user_id"], name: "index_join_validate_subjects_on_user_id"
   end
 
+  create_table "modifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "subject_id"
+    t.text "content"
+    t.boolean "done", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_modifications_on_subject_id"
+    t.index ["user_id"], name: "index_modifications_on_user_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -107,7 +147,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_160847) do
     t.datetime "remember_created_at"
     t.string "nickname"
     t.text "description"
-    t.integer "age"
     t.boolean "is_admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -118,6 +157,10 @@ ActiveRecord::Schema.define(version: 2020_06_11_160847) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comment_dislikes", "comments"
+  add_foreign_key "comment_dislikes", "users"
+  add_foreign_key "comment_likes", "comments"
+  add_foreign_key "comment_likes", "users"
   add_foreign_key "join_fav_subjects", "subjects"
   add_foreign_key "join_fav_subjects", "users"
   add_foreign_key "join_read_subjects", "subjects"
