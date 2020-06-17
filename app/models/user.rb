@@ -36,17 +36,17 @@ class User < ApplicationRecord
   def how_many_favorites?
     f = 0
     JoinFavSubject.all.each do |s|
-      if s.user_id = self.id
+      if s.user_id == self.id
         f += 1
       end
     end
-    return f 
+    return f
   end
 
   def how_many_inprogress?
     i = 0
     JoinReadSubject.all.each do |s|
-      if s.user_id = self.id
+      if s.user_id == self.id
         i += 1
       end
     end
@@ -56,7 +56,7 @@ class User < ApplicationRecord
   def how_many_validate?
     v = 0
     JoinValidateSubject.all.each do |s|
-      if s.user_id = self.id
+      if s.user_id == self.id
         v += 1
       end
     end
