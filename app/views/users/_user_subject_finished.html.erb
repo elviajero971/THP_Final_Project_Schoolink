@@ -1,6 +1,6 @@
 <div class="container mb-5 mt-3">
   <% if JoinValidateSubject.find_by(user_id: @user.id) == nil %>
-    <span class="card-text mb-4"> Vous n'avez pas encore de ressources favorites </span>
+    <span class="card-text mb-4"> Vous n'avez pas encore de ressources terminées </span>
   <% else %>
   <div class="table-responsive">
     <table class="table">
