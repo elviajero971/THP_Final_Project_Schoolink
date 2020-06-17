@@ -45,9 +45,9 @@
           </div>
         <% end %>
       </div>
-      <div class="row col-md-7 mt-2 text-center">
-        <h4 class="mr-4 text-center">Vous n'êtes pas satisfait ?</h4>
-        <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "En êtes vous sûr ?" }, method: :delete, class: "btn btn-danger waves-effect justify-center waves-light m-r-10 actions" %>
+      <div class="col-md-7 mt-2">
+        <h4>Vous n'êtes pas satisfait ?</h4>
+        <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "En êtes vous sûr ?" }, method: :delete, class: "btn btn-secondary waves-effect justify-center waves-light actions d-block" %>
       </div>
     </div>
   </div>        

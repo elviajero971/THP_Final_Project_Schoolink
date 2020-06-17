@@ -1,50 +1,31 @@
 <div class="spacer">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-7 text-center">
+      <div class="text-center">
 
-        <h1 class="title font-bold mb-5">Photo de Profil</h1>
-          <%= form_tag user_profile_pics_path(@user), multipart: true do %>
-            <%= file_field_tag :profile_pic, class: "btn btn-danger m-r-10 actions mb-3" %>   
-             <div class="text-center mt-5">
-              <%= submit_tag "Mettre à jour ou supprimer votre photo de profil", class: "btn btn-danger-gradiant m-r-10 actions mb-3" %>
-             </div> 
-          <% end %>  
-      </div>
-    </div>
-  </div>
-</div>      
+        <h2 class="title font-bold mb-4">Photo de Profil</h2>
+        <%= form_tag user_profile_pics_path(@user), multipart: true do %>
+          <div class="text-center">
+            <%= file_field_tag :profile_pic, class: "mb-3 choose-picture" %>  
+          </div> 
+          <div class="text-center">
+            <%= submit_tag "Mettre à jour", class: "btn btn-danger-gradiant actions mb-3" %>
+            <%= submit_tag "Supprimer", class: "btn btn-danger-gradiant actions mb-3" %>
+          </div> 
+        <% end %>  
 
-<div class="spacer">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-7 text-center">
-
-        <h1 class="title font-bold">Description</h1>
-
+        <h2 class="title font-bold mt-5">Description</h2>
         <%= form_with(model: @user, local: true, method: :put) do |form| %>
+        <div class="form-group mt-4 mb-4 col-sm">
+          <%= form.label :Description %> max. 350 caractères
+          <%= form.text_area :description, class:"form-control", placeholder:"Description" %>
+        </div>
+        <div class="text-center mt-4">
+        <%= form.submit 'Mettre à jour', :class => 'btn btn-danger-gradiant' %>
+        </div>
+      <% end %>
 
-          <div class="form-group mt-4 mb-4 col-sm">
-            <%= form.label :Description %> max. 350 caractères
-            <%= form.text_area :description, class:"form-control", placeholder:"Description" %>
-          </div>
-
-          <div class="text-center mt-4">
-          <%= form.submit 'Mettre à jour', :class => 'btn btn-danger-gradiant' %>
-          </div>
-        <% end %>
-  
-      </div>
-    </div>
-  </div>
-</div>      
-
-<div class="spacer">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-7 text-center">
-
-        <h1 class="title font-bold">Pseudonyme</h1>
+       <h2 class="title font-bold mt-5">Pseudonyme</h2>
 
         <%= form_with(model: @user, local: true, method: :put) do |form| %>
 
@@ -57,8 +38,8 @@
           <%= form.submit 'Mettre à jour', :class => 'btn btn-danger-gradiant' %>
           </div>
         <% end %>
-  
+
       </div>
     </div>
   </div>
-</div> 
+</div>      

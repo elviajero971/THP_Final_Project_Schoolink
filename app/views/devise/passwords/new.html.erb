@@ -4,7 +4,6 @@
             <div class="col-md-7 text-center">
               <h1 class="title font-bold">Mot de passe oublié ?</h1>
 
-
               <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
                 <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -14,7 +13,7 @@
                 </div>
 
                 <div class="actions">
-                  <%= f.submit "Envoyez-moi des instructions pour réinitialiser mon mot de passe", class: "btn btn-success waves-effect waves-light m-r-10 actions mb-3" %>
+                  <%= f.submit "Envoyez-moi les instructions par email", class: "btn btn-danger waves-effect waves-light actions mb-3 pl-2 pr-2" %>
                 </div>
               <% end %>
 
@@ -23,4 +22,6 @@
         </div>
      </div>
 </div>     
+
+<div class="footer-margin"></div>
 
