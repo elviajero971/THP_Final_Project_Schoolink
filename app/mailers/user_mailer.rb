@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
 
     @url  = 'https://whiteboard-thp.herokuapp.com/'
 
-    mail(to: @user.email, subject: 'Réinitianilisez votre mot de passe')
+    mail(to: @user.email, subject: 'Ré-initianilisez votre mot de passe')
   end  
 
 end
