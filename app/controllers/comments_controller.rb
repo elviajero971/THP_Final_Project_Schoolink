@@ -1,21 +1,38 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_commentable, except: :destroy
 
-  def create
-    @subject = Subject.friendly.find(params[:id])
-    @comment = @subject.comments.create(params[:comment].permit(:body).merge(user_id: current_user.id))
+  def new
+    @comment = Comment.new
+  end
 
-    redirect_to subject_path(@subject)
+ def create
+    @subject = Subject.find_by(slug: params[:id])
+    @comment = @commentable.comments.new(content: params[:comment][:content], commentable_type: params[:commentable_type], commentable_id: params[:commentable_id], user_id: current_user.id)
+    if @comment.save
+      flash[:success] = "Votre commentaire a bien été ajouté !"
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_to subject_path(Subject.find_by(slug: params[:subject_id]))
+      flash[:alert] = "Votre commentaire doit comprendre entre 1 et 350 caractères."
+    end
   end
 
   def destroy
-    @subject = Subject.friendly.find(params[:id])
-    @comment = @subject.comments.find(params[:id])
-    @comment.destroy
-    redirect_to subject_path(@subject)
+    @comment = Comment.find(params[:id])
+    @comment.destroy if @comment
+    flash[:success] = "Votre commentaire a bien été supprimé !"
+    redirect_back(fallback_location: root_path)
   end
 
-  def edit
-    @comment = Comment.find(params[:id])
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
+
+  def find_commentable
+    @commentable = Subject.find_by(slug: params[:subject_id]) if params[:subject_id]
+    @commentable = Comment.find_by(id: params[:comment][:comment_id]) if params[:comment][:comment_id]
   end
 end

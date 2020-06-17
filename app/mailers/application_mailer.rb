@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'whiteboard.thp@gmail.com'
+  default from: 'whiteboard.thp@yopmail.com'
   layout 'mailer'
 end

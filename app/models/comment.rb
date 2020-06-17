@@ -1,7 +1,17 @@
 class Comment < ApplicationRecord
-  belongs_to :subject
+  belongs_to :commentable, polymorphic: true
+  has_many :comments, as: :commentable, dependent: :destroy
   belongs_to :user
   has_many :comment_likes, dependent: :destroy
   has_many :comment_dislikes, dependent: :destroy
-  has_many :answers, dependent: :destroy
+  
+  validates :content, presence: true, length: {maximum: 350}
+
+  def likes?
+    self.comment_likes.length
+  end
+
+  def dislikes?
+    self.comment_dislikes.length
+  end
 end

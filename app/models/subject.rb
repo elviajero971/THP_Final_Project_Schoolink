@@ -1,12 +1,14 @@
 class Subject < ApplicationRecord
+  before_save :sanitize_content
   belongs_to :user
   has_many :join_fav_subjects, dependent: :destroy
   has_many :join_read_subjects, dependent: :destroy
   has_many :join_validate_subjects, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments, as: :commentable
+  has_many :modification
 
-  validates :title, presence: true
-  validates :content, presence: true
+  validates :title, presence: true,  length: {maximum: 50}
+  validates :content, presence: true, length: {within: 10..10000}
   validates :difficulty, presence: true
   validates :category_id, presence: true
 
@@ -21,18 +23,6 @@ class Subject < ApplicationRecord
       end
     end
     return fav
-  end
-
-  def how_many_comments?
-    comments = 0
-    Comment.all.each do |c|
-      answer = c.answers.length
-      if c.subject_id == self.id
-        comments += answer
-        comments += 1
-      end
-    end
-    return comments
   end
 
   def favorites
@@ -60,6 +50,10 @@ class Subject < ApplicationRecord
 
   def user_slug
     user_nickname = User.find_by(id: self.user_id).slug
+  end
+
+  def sanitize_content
+    Sanitize.fragment(content, Sanitize::Config::RELAXED)
   end
 
 end

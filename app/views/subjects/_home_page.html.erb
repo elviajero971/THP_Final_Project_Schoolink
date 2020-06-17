@@ -1,70 +1,33 @@
-<div class="feature4 mb-5">
+
+<div class="feature4 mb-5 mt-2">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-7 text-center">
         <h2 class="title">Recherche</h2>
-        <h6 class="subtitle">Affinez votre recherche à l’aide de ces deux elements de recherche</h6>
-      </div>
-    </div>
-
-    <div class="block-search mt-5">
-      <div class="text-center">
-        <div class="btn-group">
-          <%= form_tag subjects_path, method: 'GET', :class => "" do %>
-            <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-danger-gradiant dropdown-toggle pl-5 pr-5 mr-2") %>
-            <%= button_tag 'Rechercher', :class => 'btn btn-secondary mr-2'%>
-          <% end %>
-        </div>
-        <div class="btn-group">
-          <%= form_tag subjects_path, method: 'GET' do %>
-            <%= button_tag 'Effacer', :class => 'btn btn-outline-danger'%>
-          <% end %>
-        </div>
+        <h6 class="subtitle">Affinez votre recherche en sélectionnant une catégorie et en cherchant une partie du titre des ressources</h6>
       </div>
     </div>
   </div>
 </div>
-
-<div class="feature20 up mb-5">
-
+<div class="feature4">
   <div class="container">
-    <div class="row">
-      <div class="col-md-7">
-        <h2 class="title">Les ressources trouvées</h2>
+   <div class="mt-2">
+      <div class="mb-5 block-search">
+          <%= form_tag subjects_path, method: 'GET', :class => "" do %>
+            <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-danger-gradiant dropdown-toggle mr-3") %>
+            <%= text_field_tag 'query', "", class: 'form-control form-control-3', placeholder: 'Recherche..' %>
+            <%= button_tag 'Rechercher', :class => 'btn btn-secondary'%>
+          <% end %>
+          <%= form_tag subjects_path, method: 'GET' do %>
+            <%= button_tag 'Effacer', :class => 'btn btn-outline-danger btn-erase'%>
+          <% end %>
       </div>
-    </div>
-
-
-    <div class="row wrap-feature-20">
-      <% @subjects.each do |subject| %>
-      <div class="col-lg-6" data-aos="flip-left" data-aos-duration="1200">
-        <div class="card shadow bg-light">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="card-body d-flex no-block">
-                <div class="w-100">
-                  <h5 class="font-medium mb-0"><%= subject.title %></h5>
-                  <small>
-                    <p><%= @users.find_by(id:subject.user_id).nickname %></p>
-                  </small>
-                  <div class="row">
-                    <h6 class="text-muted mb-0 ml-3"><%= subject.difficulty %></h6>
-                    <h6 class="text-muted mb-0 ml-auto mr-3"><%= subject.how_many_fav? %></h6><i class="fa fa-heart" aria-hidden="true"></i></h6>
-                  </div>
-                  <div class="row">
-                    <h6 class="text-muted mb-0 ml-3"><%= subject.category %></h6>
-                    <h6 class="text-muted mb-0 ml-auto mr-3"><%= subject.how_many_comments? %></h6><i class="fa fa-comment-o" aria-hidden="true"></i></h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 text-center">
-              <a href=<%= subject_path(subject.slug) %> class="text-white linking bg-danger-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>
+<% if params[:category] && params[:category][:name] || params[:query] %>
+  <%= render 'search_result', subject: @subjects %>
+  <%= render 'top_six_subjects' %>
+<% else %>
+  <%= render 'top_six_subjects' %>
+<% end %>

@@ -2,14 +2,74 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.img_sizing {
-  height: 300px;
-  width: 300px;
+
+.img_sizing-show-subject {
+  height: 50px;
+  width: 50px;
   border-radius: 100%;
 }
 
-.no_img_sizing {
-  height: 300px;
-  width: 300px;
+.img_sizing-show-user {
+  height: 250px;
+  width: 250px;
   border-radius: 100%;
+}
+
+.profil-show-subject-elements { 
+  margin-right: 25px !important;
+}
+
+.wrap-feature-20-board {
+  margin-top: 0 !important;
+}
+
+.board {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.board-avatar {
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.board-text {
+  height: 205px;
+}
+
+.board-btn .btn {
+  margin-right: 15px;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .profil-show-subject {
+    text-align: center;
+  }
+  .profil-show-subject-elements {
+    margin-bottom: 5px;
+  }
+  .board-btn .btn {
+    width: 100%;
+  }
+}
+
+
+
+@media screen and (max-width: 1200px) {
+  .board-btn .btn {
+    margin-bottom: 15px;
+  }
+
+  .board-avatar {
+    float: none;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .board-text {
+    height: auto;
+    margin-bottom: 30px;
+  }
 }

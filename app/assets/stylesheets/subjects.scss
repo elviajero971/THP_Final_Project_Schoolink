@@ -42,21 +42,71 @@ button.btn-link-modal:focus {
   margin-left: 20px;
 }
 
-.title-subject {
-  display: inline-block;
-}
-
-.intro-subject {
-  float: right;
-}
-
 .btn-state-subject {
   margin-left: 15px;
 }
 
-.img-comment {
-  width: 70px;
-  height: 70px;
+.card-comment {
+  position: relative;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #d2d2dc;
+  border-radius: 11px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+  box-shadow: 0px 0px 5px 0px rgb(161, 163, 164)
+}
+
+.mobile-block img {
+  width: 45px;
+  height: 45px
+}
+
+.mobile-block .mobile-block {
+  border: 0px;
+  border-left: 1px solid rgb(185, 185, 185);
+  margin-left: 5px;
+  padding-left: 15px;
+}
+
+.modal-how-to img {
+  width: 300px;
+  height: auto;
+}
+
+.wrap-feature-20 .card,
+.card-row-subject,
+.card-row-subject .card-body {
+  min-height: 140px;
+}
+
+.btn-send-edit-subject {
+  margin-left: 15px;
+}
+
+.form-control2 {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #495057;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+@media screen and (max-width: 1000px) {
+  .btn-send-edit-subject {
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -81,33 +131,51 @@ button.btn-link-modal:focus {
     float: none !important;
   }
 
-  .intro-subject {
-    float: none;
-    margin-top: 25px;
-  }
-
-  .title-subject {
-    text-align: center;
-    width: 100%;
-  }
-
-  .btn-state-subject {
-    display: inline-block;
-    width: 290px;
-    margin-bottom: 15px;
+  .intro-subject-show {
+    margin-left: 10px !important;
   }
  
-}
 
-.fav-contain {
-  display: inline-block;
-}
-
-@media screen and (max-width: 400px) {
-
-  .fav-contain {
-    text-align: center;
+  .btn-show-subject {
     width: 100%;
-    margin-bottom: 20px;
   }
+
+  .card-body iframe {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 580px) {
+  .btn-how-create-subject {
+    width: 90%;
+    padding-left: 15px !important;
+    padding-right: 15px;
+  }
+}
+
+.row-btn-show-subject {
+  width: 100%;
+  margin-left: 5px !important;
+}
+
+
+@media screen and (max-width: 770px) {
+  .row-intro-subject-like {
+    margin-right: 15px;
+  }
+  .row-btn-show-subject {
+    margin-left: 0 !important;
+  }
+  .row-btn-show-subject div {
+    width: 100%;
+  }
+
+  .btn-state-subject,
+  .btn-state-subject-read,
+  .btn-send-edit-subject {
+    width: 100%;
+    margin-left: 0;
+  }
+
 }

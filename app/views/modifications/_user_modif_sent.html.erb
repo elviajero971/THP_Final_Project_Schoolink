@@ -1,0 +1,37 @@
+<div class="container mb-5 mt-3">
+  <% if Modification.find_by(user_id: @user.id) == nil %>
+  <span class="card-text mb-4"> Vous n'avez pas pas envoyé de proposition de modifications </span>
+  <% else %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 15%">Auteur</th>
+          <th style="width: 45%">Contenu du message de modification</th>
+          <th style="width: 15%">Envoyé le</th>
+          <th style="width: 15%">Etat</th>
+          <th style="width: 10%">Lien</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% modif = Modification.all.sort_by{ |modif| modif.updated_at}%>
+        <% modif.reverse.each do |modification| %>
+        <% if modification.user.id == @user.id %>
+        <tr>
+          <td><%= link_to modification.subject.user.nickname, user_path(modification.subject.user.slug) %></span> </td>
+          <td><%= modification.content %></td>
+          <td><%= modification.updated_at.strftime("%d.%m à %H:%M") %></td>
+          <% if modification.done == true %>
+          <td><span class="label label-rounded label-success mr-1"><%= modification.done? %> </span></td>
+          <% else %>
+          <td><span class="label label-rounded label-info"><%= modification.done? %></td>
+          <% end %>
+          <td><%= link_to "Ressource", subject_path(modification.subject.slug) %></td>
+        </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% end %>
+</div>

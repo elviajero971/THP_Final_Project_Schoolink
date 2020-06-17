@@ -1,12 +1,15 @@
 # THP Final Project Schoolink
 The Hacking Project Final Project
 
-## Lexique: 
-Catégories/Mots-clés = Tags
+## Connexion au site : 
 
-Cours/Compétences = Skills
+Lien du site en développement : https://whiteboard-development.herokuapp.com/
 
-Liens à l’intérieur des cours = Links
+Identifiants du compte **administrateur** pour la connexion : 
+```diff 
+mail : whiteboard.thp@yopmail.com
+password : 123456
+```
 
 # 1. Présentation
 

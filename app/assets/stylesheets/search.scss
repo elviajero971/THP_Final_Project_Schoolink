@@ -2,11 +2,42 @@
   margin-right: 10px;
 }
 
-@media screen and (max-width: 800px) { 
+.form-control-3 {
+  width: 300px !important;
+  display: inline-block !important;
+  margin-right: 15px;
+}
+
+.btn-erase {
+  margin-left: 13px;
+}
+.block-search {
+  text-align: center;
+}
+.block-search form {
+  display: inline-block;
+}
+
+@media screen and (max-width: 1000px) { 
     .btn-category {
     width: 100%;
     display: inline-block !important;
     margin-bottom: 20px;
   }
+  .block-search .btn {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .block-search form {
+    display: block;
+  }
 
+  .form-control-3 {
+    width: 100% !important;
+    display: block !important;
+    margin-right: 0;
+  }
+  .btn-erase {
+    margin-left: 0;
+  }
 }
