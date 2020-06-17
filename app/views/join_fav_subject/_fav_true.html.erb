@@ -1,3 +1,12 @@
-<%= link_to join_fav_subject_path(params[:id]), remote: true, method: 'put' do %>
+<div class="fav-contain">
+  <%= link_to join_fav_subject_path(params[:id]), remote: true, method: 'put' do %>
   <i class="fa fa-heart-o fa-2x mr-4 mt-1 icon-bookmark-true text-danger" aria-hidden="true"></i>
+  <% end %>
+</div>
+<% if @subject.how_many_fav? > 1 %>
+<h5 class="p-2 mr-5"><%= @subject.how_many_fav? %> likes</h5>
+<% else %>
+<h5 class="p-2 mr-5"><%= @subject.how_many_fav? %> like</h5>
 <% end %>
+<h5 class="p-2 mr-2"><strong><%= @subject.category %></strong></h5>
+<h5 class="border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
