@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .img_sizing-show-subject {
   height: 50px;
   width: 50px;
@@ -46,7 +45,6 @@
   width: 224px;
 }
 
-
 @media screen and (max-width: 1000px) {
   .profil-show-subject {
     text-align: center;
@@ -58,8 +56,6 @@
     width: 100%;
   }
 }
-
-
 
 @media screen and (max-width: 1200px) {
   .board-btn .btn {
