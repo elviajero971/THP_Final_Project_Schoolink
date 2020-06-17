@@ -72,5 +72,5 @@ gem 'font-awesome-rails'
 gem 'font_awesome5_rails'
 gem 'data-confirm-modal'
 gem 'friendly_id', '~> 5.2.4'
-gem 'sanitize'
+gem "sanitize", ">= 5.2.1"
 gem 'mailjet'
