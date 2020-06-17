@@ -74,6 +74,11 @@ button.btn-link-modal:focus {
   padding-left: 15px;
 }
 
+.modal-how-to img {
+  width: 300px;
+  height: auto;
+}
+
 .wrap-feature-20 .card,
 .card-row-subject,
 .card-row-subject .card-body {
@@ -82,6 +87,20 @@ button.btn-link-modal:focus {
 
 .btn-send-edit-subject {
   margin-left: 15px;
+}
+
+.form-control2 {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #495057;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 @media screen and (max-width: 1000px) {
@@ -125,6 +144,7 @@ button.btn-link-modal:focus {
     width: 100%;
   }
 }
+
 
 @media screen and (max-width: 580px) {
   .btn-how-create-subject {

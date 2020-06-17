@@ -15,7 +15,7 @@
       <div class="mb-5 block-search">
           <%= form_tag subjects_path, method: 'GET', :class => "" do %>
             <%= collection_select(:category, :name, Category.all, :name, :name, {include_blank: "Catégorie"}, :class => "btn btn-danger-gradiant dropdown-toggle mr-3") %>
-            <%= text_field_tag 'query', "", class: 'form-control', placeholder: 'Recherche..' %>
+            <%= text_field_tag 'query', "", class: 'form-control form-control-3', placeholder: 'Recherche..' %>
             <%= button_tag 'Rechercher', :class => 'btn btn-secondary'%>
           <% end %>
           <%= form_tag subjects_path, method: 'GET' do %>
