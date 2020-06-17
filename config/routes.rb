@@ -10,14 +10,17 @@ Rails.application.routes.draw do
   
   resources :subjects, path: 'ressource' do
     resources :comments
+    resources :modifications, path: 'notifications'
   end
   
   resources :comments do
     resources :comments
   end
-
+  
   resources :users, only: [:show, :update, :edit], path: 'profil' do
     resources :profile_pics, only: [:create]
+    get '/notifications/', to: 'modifications#index'
+
   end
   resources :join_fav_subject, only: [:update, :destroy]
   resources :join_read_subject, only: [:update, :destroy]
