@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="field create-btn-resource">
-      <%= select_tag(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), :class => "btn btn-danger-gradiant create-btn", include_blank: "Catégorie") %>
+      <%= select_tag(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), :class => "btn btn-danger-gradiant create-btn bg-dark", include_blank: "Catégorie") %>
     </div>
   
     <div class="field create-btn-resource">

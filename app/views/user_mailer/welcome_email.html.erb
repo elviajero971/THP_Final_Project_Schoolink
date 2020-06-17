@@ -4,27 +4,25 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
 
-  <body>
-    <div class="spacer-show feature4">
-      <div class="container">
-        <div class="row mt-5">
-          <div class="w-100">
-            <div class="card card-shadow">
-              <div class="card-body">
-                <span style="width:800px;">
-                  <%= image_tag("https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", style: 'border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;', width: '800', height: 'auto') %>
-                </span>
-                <h1 class="title font-bold">Bonjour et bienvenue dans la communauté WhiteBoard, <%= @user.nickname %> !</h1>
-                  <p>WhiteBoard est un site de partage d’expériences d’apprentissage. Les membres de notre communauté décrivent leur méthodes d’apprentissage et relaient leurs livres, vidéos, podcasts, articles ou autre, très souvent disponibles en accès libre sur internet. Notre concept découle du Self-Learning, méthode qui consiste à apprendre soi-même avec la quantité de ressources disponibles à notre portée. Du Self-Learning nous voulons créer du Common-Learning. 🤓</p>
-                  <p>Pour accéder à ton espace client, connecte-toi via : <%= link_to nil, "http://whiteboard-thp.herokuapp.com/gestion/se-connecter" %>👌</p>
-                  <p> À très vite sur WhiteBoard !👇 👇 👇 </p>
-                  <%= link_to nil, "http://whiteboard-thp.herokuapp.com" %>
-
-              </div>
-            </div>
-          </div>
+<body>
+  <div style="background-color:#f8f8f8; margin: 5px; text-align: center;">
+    <div style="margin: 0 auto; max-width: 600px; font-family: Montserrat, sans-serif;">
+      <span style="width:100px; color:#8d97ad;" align="center">
+       <%= cl_image_tag("logo_wb_color.png") %>
+       <h1 class="title font-bold">WhiteBoard</h1>
+      </span>
+      <div style="color:#3e4555">
+        <div class="card-body">
+          <h1 class="title font-bold">Bonjour et bienvenue dans la communauté WhiteBoard, <%= @user.nickname %> !</h1>
+            <p>WhiteBoard est un site de partage d’expériences d’apprentissage. Les membres de notre communauté décrivent leur méthodes d’apprentissage et relaient leurs livres, vidéos, podcasts, articles ou autre, très souvent disponibles en accès libre sur internet.</p>
+            <p>Notre concept découle du Self-Learning, méthode qui consiste à apprendre soi-même avec la quantité de ressources disponibles à notre portée. Du Self-Learning nous voulons créer du Common-Learning. 🤓</p>
+            <p>Pour accéder à votre espace client, connecte-toi via : </p>
+            <p><%= link_to nil, "http://whiteboard-thp.herokuapp.com/gestion/se-connecter" %>👌</p>
+            <p>À très vite sur WhiteBoard !👇 👇 👇 </p>
+            <p><%= link_to nil, "http://whiteboard-thp.herokuapp.com" %></p>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
