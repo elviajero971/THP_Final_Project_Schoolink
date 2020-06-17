@@ -6,6 +6,10 @@
   width: 60%;
 }
 
+.mobile-block-img {
+  float: left;
+}
+
 @media screen and (max-width: 1030px) { 
   .add-comment {
     width: 100%;
@@ -16,6 +20,9 @@
   .add-comment .btn {
     width: 100%;
   }
+  .mobile-block-img {
+    float: none;
+  }
 }
 
 @media screen and (max-width: 500px) { 
@@ -25,5 +32,6 @@
   .mobile-block-img {
     display: block !important;
     margin-bottom: 10px !important;
+    float: none;
   }
 }
