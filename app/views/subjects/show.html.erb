@@ -27,17 +27,12 @@
                 </h5>
               </div>
 
-              <div class="intro-subject-show row mr-2">
-                <div class="fav-contain" id="fav-container">
+              <div class="intro-subject-show row mr-2" id="fav-container">
                   <% if JoinFavSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
                     <%= render 'join_fav_subject/fav_false' %>
                   <% else %>
                     <%= render 'join_fav_subject/fav_true' %>
                   <% end %>
-                </div>
-                <h5 class="p-2 mr-2"><%= @subject.how_many_fav? %> like(s)</h5>
-                <h5 class="p-2 mr-2"><strong><%= @subject.category %></strong></h5>
-                <h5 class="border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
               </div>
             </div>
 
@@ -87,7 +82,7 @@
     <div class="card card-shadow comment p-3">
       <div class="row">
         <div class="col-12">
-          <h3 class="text-center mb-5"> Commentaires </h3>
+          <h3 class="text-center mb-5" id="comment-section"> Commentaires </h3>
           <%= render @subject.comments %>
         </div>
       </div>
