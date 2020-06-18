@@ -33,7 +33,7 @@
          <%= form_with(model: @user, local: true, method: :put) do |form| %>
 
           <div class="form-group mt-4 mb-4 col-sm">
-            <%= form.label :Pseudonyme %>
+            <%= form.label :Pseudonyme %> max. 30 caractères
             <%= form.text_area :nickname, class:"form-control", placeholder:"Entrez votre nouveau pseudo", rows: "1" %>
           </div>
 
