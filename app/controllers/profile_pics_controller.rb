@@ -8,7 +8,7 @@ class ProfilePicsController < ApplicationController
         @user.profile_pic.attach(params[:profile_pic])
         flash[:success] = "Vous avez changé votre photo de profil !"
       end
-      flash[:success] = "Vous avez supprimer votre photo de profil !"
+      flash[:success] = "Vous avez supprimé votre photo de profil !"
       redirect_to(user_path(@user))
     else
       @user.profile_pic.attach(params[:profile_pic])

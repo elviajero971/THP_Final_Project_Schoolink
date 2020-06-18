@@ -7,11 +7,11 @@ class Comment < ApplicationRecord
   
   validates :content, presence: true, length: {maximum: 350}
 
-  def likes?
+  def how_many_likes?
     self.comment_likes.length
   end
 
-  def dislikes?
+  def how_many_dislikes?
     self.comment_dislikes.length
   end
 end

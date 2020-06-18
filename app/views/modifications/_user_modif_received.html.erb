@@ -22,9 +22,9 @@
             <td><%= modification.content %></td>
             <td><%= modification.updated_at.strftime("%d.%m à %H:%M") %></td>
           <% if modification.done == true %>
-            <td><span class="label label-rounded label-success mr-1"><%= modification.done? %> </span> <%= link_to fa_icon("times-circle", style: "color: #2cdd9b").html_safe, subject_modification_path(modification.subject.slug, modification.id), method: :put, data: {confirm: "La modification n'est pas finie ?"} %></td>
+            <td><span class="label label-rounded label-success mr-1"><%= modification.done? %> </span> <%= link_to fa_icon("times-circle", style: "color: #73A2BF").html_safe, subject_modification_path(modification.subject.slug, modification.id), method: :put, data: {confirm: "La modification n'est pas finie ?"} %></td>
           <% else %>
-            <td><span class="label label-rounded label-info mr-1"><%= modification.done? %> </span> <%= link_to fa_icon("check-circle").html_safe, subject_modification_path(modification.subject.slug, modification.id), method: :put, data: {confirm: 'La modification est-elle terminée ?'} %></td>
+            <td><span class="label label-rounded label-danger mr-1"><%= modification.done? %> </span> <%= link_to fa_icon("check-circle", style: "color: #A6453C").html_safe, subject_modification_path(modification.subject.slug, modification.id), method: :put, data: {confirm: 'La modification est-elle terminée ?'} %></td>
           <% end %>
             <td><%= link_to "Ressource", subject_path(modification.subject.slug) %></td>
           </tr>

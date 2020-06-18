@@ -14,10 +14,10 @@
       <a class="nav-link disabled" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="true">Demande de modifications</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="true">reçues <span class="label label-rounded label-light-primary"><%= @user.how_many_modif_received? %></span></a>
+      <a class="nav-link active" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="true">reçues <span class="label label-rounded label-success"><%= @user.how_many_modif_received? %></span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-favorites-tab" data-toggle="pill" href="#pills-favorites" role="tab" aria-controls="pills-favorites" aria-selected="false">envoyées <span class="label label-rounded label-light-primary"><%= @user.how_many_modif_sent? %></span></a>
+      <a class="nav-link" id="pills-favorites-tab" data-toggle="pill" href="#pills-favorites" role="tab" aria-controls="pills-favorites" aria-selected="false">envoyées <span class="label label-rounded label-success"><%= @user.how_many_modif_sent? %></span></a>
     </li>
   </ul>
   <div class="tab-content mt-5" id="pills-tabContent">

@@ -10,9 +10,9 @@
         <div class="col-8 d-flex">
           <h5><%= comment.user.nickname%></h5>
           <%= link_to fa_icon("plus", style: 'color: Green').html_safe, comment_likes_path(comment_id: comment.id), method: :create, class: 'ml-3 mr-1' %>
-          <span class="mr-1"><%= comment.likes? %></span>
+          <span class="mr-1"><%= comment.how_many_likes? %></span>
           <%= link_to fa_icon("minus", style: 'color: Red').html_safe, comment_dislikes_path(comment_id: comment.id), method: :create, class: 'mr-1' %>
-          <span class="mr-3"><%= comment.dislikes? %></span>
+          <span class="mr-3"><%= comment.how_many_dislikes? %></span>
           <span>- <%= time_ago_in_words(comment.created_at) %></span>
         </div>
         <div class="col-4">
@@ -22,6 +22,7 @@
             <% end %>
             <% if comment.commentable_type == "Subject" %>
             <a data-toggle="collapse" href="<%= "#Collapse#{comment.id}" %>" role="button" aria-expanded="false" aria-controls="Collapse2"><span><i class="fa fa-reply"></i> répondre</span></a>
+            <%= link_to fa_icon("reply") + " répondre", anchor: "#Collapse#{comment.id}", role: 'button', data_toggle: "collapse" ,aria_controls: "Collapse2", aria_expanded: "false"%>
             <% end %>
           </div>
         </div>

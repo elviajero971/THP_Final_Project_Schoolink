@@ -24,7 +24,7 @@
           <% if modification.done == true %>
           <td><span class="label label-rounded label-success mr-1"><%= modification.done? %> </span></td>
           <% else %>
-          <td><span class="label label-rounded label-info"><%= modification.done? %></td>
+          <td><span class="label label-rounded label-danger"><%= modification.done? %></td>
           <% end %>
           <td><%= link_to "Ressource", subject_path(modification.subject.slug) %></td>
         </tr>

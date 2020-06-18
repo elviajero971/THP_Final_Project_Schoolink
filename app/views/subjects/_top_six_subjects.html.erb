@@ -38,7 +38,9 @@
               </div>
             </div>
             <div class="col-md-4 text-center">
-              <a href=<%= subject_path(subject.slug) %> class="text-white linking bg-success-gradiant"> Voir plus <i class="ti-arrow-right"></i></a>
+              <%= link_to subject_path(subject.slug), class: "text-white linking bg-success-gradiant" do %>
+                <span>Voir plus<i class="fa fa-arrow-right"></i></span>
+              <% end %>
             </div>
           </div>
         </div>

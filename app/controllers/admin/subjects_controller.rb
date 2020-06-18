@@ -22,7 +22,7 @@ class Admin::SubjectsController < ApplicationController
     @subject = Subject.friendly.find(params[:id])
     if @subject.destroy
       redirect_to admin_dashboard_index_path
-      flash[:success] = "Cette ressource a bien été supprimé !"
+      flash[:success] = "Cette ressource a bien été supprimée !"
     else
       flash.now[:alert] = "Attention votre ressource n'a pas pu être supprimée. Veuillez réessayer."
       render :new
