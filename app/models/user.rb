@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :nickname, uniqueness: true, presence: true
+  validates :nickname, uniqueness: true, presence: true, length: {maximum: 30}
   validates :password, presence: true,
                        confirmation: true,
                        length: {within: 6..40},
