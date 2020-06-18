@@ -4,8 +4,17 @@ Global Styles
 
 :root {
   --primary: #273A73;
-  --secondary: #F2CAA7;
+
+  --secondary: #595959;
+  --secondary-dark: #262626;
+
   --success: #73A2BF;
+
+  --danger: #A6453C;
+
+  --info: #17a2b8;
+
+  --warning: #fec500;
 }
 
 
