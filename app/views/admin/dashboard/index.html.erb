@@ -5,10 +5,10 @@
       <div class="col-md-12 justify-content-center">
         <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="pills-ressources-tab" data-toggle="pill" href="#pills-ressources" role="tab" aria-controls="pills-ressources" aria-selected="false">Ressources <span class="label label-rounded label-light-primary"><%= Subject.all.length %></span></a>
+            <a class="nav-link active" id="pills-ressources-tab" data-toggle="pill" href="#pills-ressources" role="tab" aria-controls="pills-ressources" aria-selected="false">Ressources <span class="label label-rounded label-success"><%= Subject.all.length %></span></a>
           </li>
           <li class="nav-item" role="presentation">
-            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Utilisateurs <span class="label label-rounded label-light-primary"><%= User.all.length %></span></a>
+            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Utilisateurs <span class="label label-rounded label-success"><%= User.all.length %></span></a>
           </li>
         </ul>
         <div class="tab-content mt-5" id="pills-tabContent">
@@ -29,8 +29,8 @@
                 <% favorites = Subject.all.sort_by{ |likes| likes.how_many_fav?} %>
                 <% favorites.reverse.each do |subject| %>
                   <tr>
-                    <td><span class="label label-rounded label-info"><%= subject.id %></span> </td>
-                    <td>@<%= subject.user.nickname %></td>
+                    <td><span class="label label-rounded label-success"><%= subject.id %></span> </td>
+                    <td><%= subject.user.nickname %></td>
                     <td>
                       <%= if subject.title.length > 50 
                           subject.title[0..50] + '[..]'
@@ -62,7 +62,7 @@
                 <tbody>
                   <% User.all.each do |users| %>
                   <tr>
-                    <td><span class="label label-rounded label-info"><%= users.id %></span> </td>
+                    <td><span class="label label-rounded label-success"><%= users.id %></span> </td>
                     <td><%= users.nickname %></td>
                     <td><%= users.subjects.length %></td>
                     <td><%= link_to "Profil", user_path(users.slug), class: 'mr-3' %></td>
