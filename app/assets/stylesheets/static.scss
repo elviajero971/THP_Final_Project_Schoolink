@@ -37,6 +37,10 @@ margin: 15px;
   } 
 }
 
+.stats .card {
+  background-color: rgba(228, 228, 228, 0.568) !important;
+}
+
 @media screen and (max-width: 350px) {
   .stats .row { 
     display: block;
