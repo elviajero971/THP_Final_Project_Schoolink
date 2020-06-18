@@ -95,20 +95,3 @@ Subject.create(title: "Réussir ses gâteaux crus vegan", content: "<p>Il y’a 
 
 Subject.create(title: "L’Art Afro-Américain et la Ségrégation", content: "<p>Il y a quelques années, je suis tombée sur ce très bon documentaire Arte: \"<a href=\"https://www.youtube.com/watch?v=c2JS5fQLtGM\">Noire est la Couleur</a>\". En caractérisant le « Black Art » et son rôle dans l'émancipation du peuple afro-américain, ce documentaire m’a introduite à la matière.</p><p>Dans cette ressource je survole les principaux points abordés dans ce documentaire en y intégrant des liens qui m’ont également servi à en apprendre plus. Une deuxième partie de cette ressource sera à suivre… </p><p><b>Qu’est-ce que le Black Art ?</b>  </p><p>La présence d'œuvres réalisées par des artistes noirs dans des musées aux USA est très récente. Ils ont dû attendre près d'un siècle pour que leurs œuvres soient accessibles à un public plus large. Les œuvres d'artistes noirs étaient réservées au musée de Harlem ou aux collèges et universités noirs. Le “Black Art” est donc né dans un climat politique associé à l’émancipation des Afro-Américains. </p><p>En plus du documentaire cité plus haut, <a href=\"https://www.widewalls.ch/magazine/art-world-black-lives-matter-movement\">cet article</a> survole bien les principaux enjeux et caractéristiques de ce mouvement artistique mais aussi politique.</p><p>Approfondir cette définition </p><p>Comme Richard Powell, historien de l'art à l'université Duke, l'a déclaré: Les artistes noirs avaient une obligation spéciale de lutter contre une avalanche d'images négatives du peuple afro-américain. Je recommande <a href=\"https://www.amazon.com/Black-Art-Cultural-History-Second/dp/0500203628\">son livre</a> sur la matière. </p><p>Exemples d’artistes activistes qui travaillent sur ses questions </p><p>L’histoire autour de l’oeuvre The Banjo Lesson de Henry Ossawa Tanner , exposée au salon 1894 à Paris est également intéressante dans le sujet. Je recommande <a href=\"https://smarthistory.org/tanner-banjo/\">cet article</a>.<br></p><p>La grande Billie Holiday a reprise <a href=\"https://www.youtube.com/watch?v=Web007rzSOI\">ce triste  poème</a> écrit et publié en 1937 par Abel Meeropol, qui est en réalité un réquisitoire artistique contre le racisme aux États-Unis et plus particulièrement contre les lynchages que subissent les Afro-Américains, qui atteignent alors un pic dans le sud des États-Unis.</p><p>Je recommande également la vidéo <a href=\"https://www.youtube.com/watch?v=vRB6H06UpJ4&amp;frags=pl%2Cwn\">Tate Modern</a> qui est un entretien avec l’artiste Sonia Boyce qui, dans son art, déconstruit des images de corps de femmes noires.</p>", user_id: User.find_by(nickname:"JessL").id, difficulty: "Intermédiaire",category_id: Category.find_by(name:"Sciences sociales").id)
 
-
-
-
-Subject.all.each do |subject|
-  Comment.create(
-      content: Faker::Hipster.sentence(word_count: 3),
-      user_id: rand(User.first.id..User.last.id),
-      commentable_type: "Subject",
-      commentable_id: subject.id
-      )
-  Comment.create(
-    content: Faker::Hipster.sentence(word_count: 3),
-    user_id: rand(User.first.id..User.last.id),
-    commentable_type: "Subject",
-    commentable_id: subject.id
-    )
-end
