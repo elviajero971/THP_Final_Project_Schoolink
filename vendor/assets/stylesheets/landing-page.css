@@ -298,7 +298,7 @@ Feature 4
 .wrap-feature4-box .icon-round {
   font-size: 45px;
   width: 80px;
-  color: #ff4d7e;
+  color: #273A73;
   line-height: 80px;
   text-align: center;
   display: inline-block;
@@ -372,7 +372,7 @@ team 2
   min-height: 200px;
 }
 .team2 .pro-pic .card-img-overlay {
-  background: rgba(243, 26, 116, 0.87);
+  background: rgb(115, 162, 190, 0.80);
   display: none;
 }
 .team2 .pro-pic .card-img-overlay ul {

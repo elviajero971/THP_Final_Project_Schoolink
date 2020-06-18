@@ -1,4 +1,0 @@
-<%= link_to fa_icon("plus", style: 'color: Green').html_safe, comment_likes_path(comment_id: @comment.id), method: :create, class: 'ml-3 mr-1' %>
-<span class="mr-1"><%= comment.how_many_likes? %></span>
-<%= link_to fa_icon("minus", style: 'color: Red').html_safe, comment_dislikes_path(comment_id: @comment.id), method: :create, class: 'mr-1' %>
-<span class="mr-3"><%= comment.how_many_dislikes? %></span>

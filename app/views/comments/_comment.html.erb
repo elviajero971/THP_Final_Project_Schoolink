@@ -21,8 +21,7 @@
             <%= link_to fa_icon("trash", style: 'color: Tomato').html_safe, comment_path(comment.id), method: :delete, data: { confirm: 'Êtes-vous certain(e) de vouloir supprimer votre commentaire ?' }, class: 'mr-3' %>
             <% end %>
             <% if comment.commentable_type == "Subject" %>
-            <a data-toggle="collapse" href="<%= "#Collapse#{comment.id}" %>" role="button" aria-expanded="false" aria-controls="Collapse2"><span><i class="fa fa-reply"></i> répondre</span></a>
-            <%= link_to fa_icon("reply") + " répondre", anchor: "#Collapse#{comment.id}", role: 'button', data_toggle: "collapse" ,aria_controls: "Collapse2", aria_expanded: "false"%>
+            <%= link_to fa_icon("reply") + " répondre", "#Collapse#{comment.id}", role: 'button', data: {toggle: "collapse", target: "#Collapse#{comment.id}" }, remote: true %>
             <% end %>
           </div>
         </div>
