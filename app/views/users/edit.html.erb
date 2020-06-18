@@ -1,7 +1,7 @@
 <div class="spacer">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="text-center">
+      <div class="text-center edit-user">
 
         <h2 class="title font-bold mb-4">Photo de Profil</h2>
         <%= form_tag user_profile_pics_path(@user), multipart: true do %>
@@ -12,13 +12,14 @@
             <%= submit_tag "Mettre à jour", class: "btn btn-primary actions mb-3" %>
             <%= submit_tag "Supprimer", class: "btn btn-primary actions mb-3" %>
           </div> 
-        <% end %>  
+        <% end %> 
 
         <h2 class="title font-bold mt-5">Description</h2>
+       
         <%= form_with(model: @user, local: true, method: :put) do |form| %>
         <div class="form-group mt-4 mb-4 col-sm">
           <%= form.label :Description %> max. 350 caractères
-          <%= form.text_area :description, class:"form-control", placeholder:"Description" %>
+          <%= form.text_area :description, class:"form-control", placeholder:"Description", rows: "5" %>
         </div>
         <div class="text-center mt-4">
         <%= form.submit 'Mettre à jour', :class => 'btn btn-primary' %>
@@ -27,18 +28,22 @@
 
        <h2 class="title font-bold mt-5">Pseudonyme</h2>
 
-      <%= form_with(model: @user, local: true, method: :put) do |form| %>
 
-        <div class="form-group mt-4 mb-4 col-sm">
-          <%= form.label :Pseudonyme %>
-          <%= form.text_area :nickname, class:"form-control", placeholder:"Entrez votre nouveau pseudo" %>
-        </div>
+       <div class="form-control-edit">
+         <%= form_with(model: @user, local: true, method: :put) do |form| %>
 
-        <div class="text-center mt-4">
-        <%= form.submit 'Mettre à jour', :class => 'btn btn-primary' %>
-        </div>
-      <% end %>
+          <div class="form-group mt-4 mb-4 col-sm">
+            <%= form.label :Pseudonyme %> max. 30 caractères
+            <%= form.text_area :nickname, class:"form-control", placeholder:"Entrez votre nouveau pseudo", rows: "1" %>
+          </div>
 
+          <div class="text-center mt-4">
+          <%= form.submit 'Mettre à jour', :class => 'btn btn-primary' %>
+          </div>
+        <% end %>
+
+      </div>
+     
       </div>
     </div>
   </div>
