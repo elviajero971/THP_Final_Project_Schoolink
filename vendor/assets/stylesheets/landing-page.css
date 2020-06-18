@@ -372,7 +372,7 @@ team 2
   min-height: 200px;
 }
 .team2 .pro-pic .card-img-overlay {
-  background: rgb(115, 162, 190, 0.80);
+  background: rgba(115, 162, 190, 0.80);
   display: none;
 }
 .team2 .pro-pic .card-img-overlay ul {
