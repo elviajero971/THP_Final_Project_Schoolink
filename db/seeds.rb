@@ -10,6 +10,9 @@ require 'faker'
 JoinFavSubject.destroy_all
 JoinReadSubject.destroy_all
 JoinValidateSubject.destroy_all
+CommentLike.destroy_all
+CommentDislike.destroy_all
+Comment.destroy_all
 User.destroy_all
 Subject.destroy_all
 Category.destroy_all
