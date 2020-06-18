@@ -27,9 +27,23 @@ margin: 15px;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 610px) {
   .pro-pic img {
     width: 100%;
+  }
+  .stats .row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  } 
+}
+
+@media screen and (max-width: 350px) {
+  .stats .row { 
+    display: block;
+  }
+  .stats .row .card-text { 
+    text-align: left !important;
+    margin-bottom: 10px;
   }
 }
 
@@ -74,3 +88,4 @@ margin: 15px;
 .story-landing {
   background-color: #E4E4E4;
 }
+

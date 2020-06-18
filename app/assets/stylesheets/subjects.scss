@@ -107,6 +107,10 @@ button.btn-link-modal:focus {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
+.resource-show a {
+  color: var(--info);
+}
+
 @media screen and (max-width: 1000px) {
   .btn-send-edit-subject {
     margin-left: 0;
