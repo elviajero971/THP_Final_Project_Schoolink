@@ -13,17 +13,17 @@
               <div class="author row ml-2">
                 <div class="mr-3">
                   <% if @user.profile_pic.attached? %>
-                    <%= link_to(user_path(@user.id)) do %>
+                    <%= link_to(user_path(@user.slug)) do %>
                       <%= image_tag @user.profile_pic, class: "img_sizing-show-subject" %>
                     <% end %>
                   <% else %>
-                    <%= link_to(user_path(@user.id)) do %>
+                    <%= link_to(user_path(@user.slug)) do %>
                     <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject") %>
                     <% end %>
                   <% end %>
                 </div>
                 <h5 class="pt-3 pb-3">
-                  <%= link_to @user.nickname, user_path(@user.id), class:"" %>
+                  <%= link_to @user.nickname, user_path(@user.slug), class:"" %>
                 </h5>
               </div>
 
