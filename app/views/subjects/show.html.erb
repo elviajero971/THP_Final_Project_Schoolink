@@ -13,13 +13,13 @@
               <div class="author row ml-2">
                 <div class="mr-3">
                   <% if @user.profile_pic.attached? %>
-                  <%= link_to(user_path(@user.id)) do %>
-                  <%= image_tag @user.profile_pic, class: "img_sizing-show-subject" %>
-                  <% end %>
+                    <%= link_to(user_path(@user.id)) do %>
+                      <%= image_tag @user.profile_pic, class: "img_sizing-show-subject" %>
+                    <% end %>
                   <% else %>
-                  <%= link_to(user_path(@user.id)) do %>
-                  <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject") %>
-                  <% end %>
+                    <%= link_to(user_path(@user.id)) do %>
+                    <%= cl_image_tag("avatar.png", :class => "img_sizing-show-subject") %>
+                    <% end %>
                   <% end %>
                 </div>
                 <h5 class="pt-3 pb-3">
@@ -27,17 +27,12 @@
                 </h5>
               </div>
 
-              <div class="intro-subject-show row mr-2">
-                <div class="fav-contain" id="fav-container">
+              <div class="intro-subject-show row mr-2" id="fav-container">
                   <% if JoinFavSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
-                  <%= render 'join_fav_subject/fav_false' %>
+                    <%= render 'join_fav_subject/fav_false' %>
                   <% else %>
-                  <%= render 'join_fav_subject/fav_true' %>
+                    <%= render 'join_fav_subject/fav_true' %>
                   <% end %>
-                </div>
-                <h5 class="p-2 mr-2"><%= @subject.how_many_fav? %> like(s)</h5>
-                <h5 class="p-2 mr-2"><strong><%= @subject.category %></strong></h5>
-                <h5 class="border border-dark p-2"><strong><%= @subject.difficulty %></strong></h5>
               </div>
             </div>
 
@@ -46,24 +41,25 @@
             </div>
 
             <hr>
+
             <div class="row row-btn-show-subject">
               <div class="mt-2" id="container-read">
                 <% if JoinReadSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
-                <%= render 'join_read_subject/read_false' %>
+                  <%= render 'join_read_subject/read_false' %>
                 <% else %>
-                <%= render 'join_read_subject/read_true' %>
+                  <%= render 'join_read_subject/read_true' %>
                 <% end %>
               </div>
               <div class="mt-2" id="container-validate">
                 <% if JoinValidateSubject.find_by(subject_id: @subject.id, user_id: current_user.id) %>
-                <%= render 'join_validate_subject/validate_false' %>
+                  <%= render 'join_validate_subject/validate_false' %>
                 <% else %>
-                <%= render 'join_validate_subject/validate_true' %>
+                  <%= render 'join_validate_subject/validate_true' %>
                 <% end %>
               </div>
               <% if @subject.user != current_user %>
                 <div class="mt-2">
-                  <%= link_to "Proposer une modification", new_subject_modification_path(@subject.slug),class:"btn btn-outline-warning btn-send-edit-subject" %>
+                  <%= link_to "Proposer une modification", new_subject_modification_path(@subject.slug),class:"btn btn-outline-success btn-send-edit-subject" %>
                 </div>
               </div>
               <% end %>
@@ -75,8 +71,8 @@
 
     <div class="text-center mb-4">
       <% if current_user.id == @subject.user_id %>
-      <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger mr-2 mb-2" %>
-      <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary mr-2 mb-2" %>
+        <%= link_to 'Supprimer', subject_path(@subject.id), method: :delete, data: {confirm: 'Es-tu sûr de vouloir supprimer cette ressource ?'}, class:"btn btn-outline-danger mr-2 mb-2" %>
+        <%= link_to 'Modifier', edit_subject_path(@subject), class:"btn btn-outline-secondary mr-2 mb-2" %>
       <% end %>
       <%= link_to "Retour à l'accueil", subjects_path, class:"btn btn-outline-secondary mb-2" %>
     </div>
@@ -86,7 +82,7 @@
     <div class="card card-shadow comment p-3">
       <div class="row">
         <div class="col-12">
-          <h3 class="text-center mb-5"> Commentaires </h3>
+          <h3 class="text-center mb-5" id="comment-section"> Commentaires </h3>
           <%= render @subject.comments %>
         </div>
       </div>

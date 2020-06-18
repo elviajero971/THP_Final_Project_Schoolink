@@ -1,51 +1,57 @@
 <div class="row">
   <div class="col-md-12 mb-2 mt-2">
     <% if comment.user.profile_pic.attached? %>
-    <div class="media mobile-block"> <%= image_tag comment.user.profile_pic, alt: 'profile_pic', class:"rounded-circle mobile-block-img img-comment" %>
-      <% else %>
+      <div class="media mobile-block"> <%= image_tag comment.user.profile_pic, alt: 'profile_pic', class:"rounded-circle mobile-block-img img-comment" %>
+    <% else %>
       <div class="mobile-block"> <%= image_tag "https://res.cloudinary.com/dkeq1ghol/image/upload/v1592215464/avatar.png", alt: 'profile_pic', class:"rounded-circle mobile-block-img img-comment`" %>
-        <% end %>
-        <div class="media-body">
-          <div class="row">
-            <div class="col-8 d-flex">
-              <h5><%= comment.user.nickname%></h5>
-              <%= link_to fa_icon("plus", style: 'color: Green').html_safe, comment_likes_path(comment_id: comment.id), method: :create, class: 'ml-3 mr-1' %>
-              <span class="mr-1"><%= comment.likes? %></span>
-              <%= link_to fa_icon("minus", style: 'color: Red').html_safe, comment_dislikes_path(comment_id: comment.id), method: :create, class: 'mr-1' %>
-              <span class="mr-3"><%= comment.dislikes? %></span>
-              <span>- <%= time_ago_in_words(comment.created_at) %></span>
-            </div>
-            <div class="col-4">
-              <div class="pull-right reply">
-                <% if current_user.id == comment.user_id %>
-                <%= link_to fa_icon("trash", style: 'color: Tomato').html_safe, comment_path(comment.id), method: :delete, data: { confirm: 'Êtes-vous certain(e) de vouloir supprimer votre commentaire ?' }, class: 'mr-3' %>
-                <% end %>
-                <% if comment.commentable_type == "Subject" %>
-                <a data-toggle="collapse" href="<%= "#Collapse#{comment.id}" %>" role="button" aria-expanded="false" aria-controls="Collapse2"><span><i class="fa fa-reply"></i> répondre</span></a>
-                <% end %>
-              </div>
-            </div>
-          </div> <span class="ml-2"><%= comment.content %></span>
+    <% end %>
+    <div class="media-body">
+      <div class="row">
+        <div class="col-8 d-flex">
+          <h5><%= comment.user.nickname%></h5>
+          <%= link_to fa_icon("plus", style: 'color: Green').html_safe, comment_likes_path(comment_id: comment.id), method: :create, class: 'ml-3 mr-1' %>
+          <span class="mr-1"><%= comment.likes? %></span>
+          <%= link_to fa_icon("minus", style: 'color: Red').html_safe, comment_dislikes_path(comment_id: comment.id), method: :create, class: 'mr-1' %>
+          <span class="mr-3"><%= comment.dislikes? %></span>
+          <span>- <%= time_ago_in_words(comment.created_at) %></span>
+        </div>
+        <div class="col-4">
+          <div class="pull-right reply">
+            <% if current_user.id == comment.user_id %>
+            <%= link_to fa_icon("trash", style: 'color: Tomato').html_safe, comment_path(comment.id), method: :delete, data: { confirm: 'Êtes-vous certain(e) de vouloir supprimer votre commentaire ?' }, class: 'mr-3' %>
+            <% end %>
+            <% if comment.commentable_type == "Subject" %>
+            <a data-toggle="collapse" href="<%= "#Collapse#{comment.id}" %>" role="button" aria-expanded="false" aria-controls="Collapse2"><span><i class="fa fa-reply"></i> répondre</span></a>
+            <% end %>
+          </div>
+        </div>
+      </div> 
 
-          <%= render comment.comments %>
+      <span class="ml-2"><%= comment.content %></span>
 
-          <div class="collapse" id="<%= "Collapse#{comment.id}" %>">
-            <div class="card card-body">
+      <%= render comment.comments %>
 
-              <div class="col-8">
-                <%= form_for [@commentable, Comment.new] do |f| %>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.hidden_field :commentable_type, :value => "Comment" %>
-                <%= f.hidden_field :comment_id, :value => comment.id %>
-                <%= f.hidden_field :commentable_id, :value => comment.id %>
-                <%= f.text_area :content,  class:"form-control", placeholder: "Votre commentaire.." %><br />
-                <%= f.submit "Ajoutez votre commentaire", :class => 'btn btn-success btn-block w-50 float-right' %>
-                <% end %>
-              </div>
+      <div class="collapse" id="<%= "Collapse#{comment.id}" %>">
+        <div class="card card-body">
 
-            </div>
+          <div class="col-8">
+            <%= form_for [@commentable, Comment.new] do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :commentable_type, :value => "Comment" %>
+            <%= f.hidden_field :comment_id, :value => comment.id %>
+            <%= f.hidden_field :commentable_id, :value => comment.id %>
+            <%= f.text_area :content,  class:"form-control", placeholder: "Votre commentaire.." %><br />
+            <%= f.submit "Ajoutez votre commentaire", :class => 'btn btn-primary btn-block w-50 float-right' %>
+            <% end %>
+          </div>
+
           </div>
         </div>
       </div>
     </div>
+<<<<<<< HEAD
   </div>
+</div>
+=======
+  </div>
+>>>>>>> development

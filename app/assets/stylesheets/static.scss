@@ -27,7 +27,6 @@ margin: 15px;
   margin: 0 auto;
 }
 
-
 @media screen and (max-width: 400px) {
   .pro-pic img {
     width: 100%;
@@ -43,4 +42,35 @@ margin: 15px;
     width: 90%;
     margin: 0 auto;
   }
+}
+
+.bulle-card {
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+
+  margin: -50px auto 20px auto;
+  text-align: center;
+}
+
+.icon-card-bulle {
+  position: relative;
+  bottom: -18px;
+}
+
+.container-large {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.container-large .card {
+  min-height: 310px;
+}
+
+.container-large h2 {
+  margin-bottom: 100px;
+}
+
+.story-landing {
+  background-color: #E4E4E4;
 }

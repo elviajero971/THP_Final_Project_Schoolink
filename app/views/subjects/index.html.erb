@@ -1,10 +1,9 @@
-
-
 <% if user_signed_in? %>
   <%= render 'home_page', subject: @subjects %>
+  <div class="footer-margin"></div>
 <% else %>
   <%= render 'static/landingpage' %>
 <% end %>
 
 
-<div class="footer-margin"></div>
+

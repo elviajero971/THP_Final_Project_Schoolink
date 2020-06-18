@@ -1,26 +1,26 @@
 <div class="spacer">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-7 text-center">
-              <h1 class="title font-bold">Mot de passe oublié ?</h1>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7 text-center">
+        <h1 class="title font-bold">Mot de passe oublié ?</h1>
 
-              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-                <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-                <div class="field mb-3">
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-                </div>
+          <div class="field mb-3">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
 
-                <div class="actions">
-                  <%= f.submit "Envoyez-moi les instructions par email", class: "btn btn-danger waves-effect waves-light actions mb-3 pl-2 pr-2" %>
-                </div>
-              <% end %>
+          <div class="actions">
+            <%= f.submit "Envoyez-moi les instructions par email", class: "btn btn-primary waves-effect waves-light actions mb-3 pl-2 pr-2" %>
+          </div>
+        <% end %>
 
-              <%= render "devise/shared/links" %>
-            </div>
-        </div>
-     </div>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
 </div>     
 
 <div class="footer-margin"></div>

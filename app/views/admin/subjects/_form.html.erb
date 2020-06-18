@@ -11,38 +11,30 @@
 
   <div class="row justify-center">
     <div class="ml-1 mb-3">
-        <div class="field ml-2 pl-5">
-          <%= form.select(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'], Subject.friendly.find(params[:id]).difficulty), {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
-        </div>
+      <div class="field ml-2 pl-5">
+        <%= form.select(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé'], Subject.friendly.find(params[:id]).difficulty), {include_blank: "Difficulté"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
       </div>
+    </div>
 
-      <div class="ml-5 mb-3">
-        <div class="field ml-0">
-          <%= form.select(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}, Subject.friendly.find(params[:id]).category_id), {include_blank: "Catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
-        </div>
+    <div class="ml-5 mb-3">
+      <div class="field ml-0">
+        <%= form.select(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}, Subject.friendly.find(params[:id]).category_id), {include_blank: "Catégorie"}, :class => 'btn btn-primary dropdown-toggle pl-5 pr-5') %>
       </div>
+    </div>
 
     <div class="col-md-3 mr-5 mb-3 pr-5">
     </div>
 
-        <div class="actions col-md-3 mb-3">
-          <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5', id: 'validForm') do %>
-            <span class="white-text pl-5 pr-5">Modifier</span>
-          <% end %>
-          </div>
-        </div>
-
-            <div class="text-center mb-5 mt-5">
-              <%= link_to 'Back', subject_path(@subject.id), class:"btn btn-secondary" %>
-            </div>
-              </div>
-          <% end %>
-          </div>
-        </div>
-        </div>
-      </div>
+    <div class="actions col-md-3 mb-3">
+      <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5', id: 'validForm') do %>
+        <span class="white-text pl-5 pr-5">Modifier</span>
+      <% end %>
     </div>
   </div>
 
+  <div class="text-center mb-5 mt-5">
+    <%= link_to 'Back', subject_path(@subject.id), class:"btn btn-secondary" %>
+  </div>
+<% end %>
 
 <script>var editor = new MediumEditor('#editable');</script>

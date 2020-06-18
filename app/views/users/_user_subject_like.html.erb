@@ -2,40 +2,40 @@
   <% if JoinFavSubject.find_by(user_id: @user.id) == nil %>
     <span class="card-text mb-4"> Vous n'avez pas encore de ressources likées </span>
   <% else %>
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Catégorie</th>
-          <th>Difficulté</th>
-          <th>Titre</th>
-          <th>Likée le </th>
-          <th>Lien</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <% favorites = JoinFavSubject.all.sort_by{ |likes| likes.updated_at} %>
-        <% favorites.reverse.each do |likesubject| %>
-        <% if likesubject.user_id == current_user.id %>
-        <% subject = Subject.find_by(id: likesubject.subject_id) %>
-        <tr>
-          <td><span class="label label-rounded label-danger"><%= subject.category %></span> </td>
-          <td><span class="label label-rounded label-info"><%= subject.difficulty %></span> </td>
-          <td>
-          <%= if subject.title.length > 50 
-                subject.title[0..50] + '[..]'
-              else 
-                subject.title
-              end %>
-          </td>
-          <td><%= likesubject.updated_at.strftime("%d.%m à %H:%M") %></td>
-          <td><%= link_to "Lien", subject_path(subject.slug) %></td>
-        </tr>
-        <% end %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Catégorie</th>
+            <th>Difficulté</th>
+            <th>Titre</th>
+            <th>Likée le </th>
+            <th>Lien</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <% favorites = JoinFavSubject.all.sort_by{ |likes| likes.updated_at} %>
+          <% favorites.reverse.each do |likesubject| %>
+          <% if likesubject.user_id == current_user.id %>
+          <% subject = Subject.find_by(id: likesubject.subject_id) %>
+          <tr>
+            <td><span class="label label-rounded label-primary"><%= subject.category %></span> </td>
+            <td><span class="label label-rounded label-info"><%= subject.difficulty %></span> </td>
+            <td>
+            <%= if subject.title.length > 50 
+              subject.title[0..50] + '[..]'
+            else 
+              subject.title
+            end %>
+            </td>
+            <td><%= likesubject.updated_at.strftime("%d.%m à %H:%M") %></td>
+            <td><%= link_to "Lien", subject_path(subject.slug) %></td>
+          </tr>
+          <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   <% end %>
 </div>

@@ -22,7 +22,7 @@
 }
 
 button.btn-link-modal {
-  color: #2cdd9b;
+  color: #273A73;
   text-decoration: none;
   transition: .3s;
 }
@@ -89,6 +89,10 @@ button.btn-link-modal:focus {
   margin-left: 15px;
 }
 
+.height-card {
+  height: 44px;
+}
+
 .form-control2 {
   width: 100%;
   padding: 0.5rem 0.75rem;
@@ -134,7 +138,6 @@ button.btn-link-modal:focus {
   .intro-subject-show {
     margin-left: 10px !important;
   }
- 
 
   .btn-show-subject {
     width: 100%;
@@ -144,7 +147,6 @@ button.btn-link-modal:focus {
     width: 100%;
   }
 }
-
 
 @media screen and (max-width: 580px) {
   .btn-how-create-subject {
@@ -159,14 +161,15 @@ button.btn-link-modal:focus {
   margin-left: 5px !important;
 }
 
-
 @media screen and (max-width: 770px) {
   .row-intro-subject-like {
     margin-right: 15px;
   }
+
   .row-btn-show-subject {
     margin-left: 0 !important;
   }
+  
   .row-btn-show-subject div {
     width: 100%;
   }
@@ -177,5 +180,4 @@ button.btn-link-modal:focus {
     width: 100%;
     margin-left: 0;
   }
-
 }
