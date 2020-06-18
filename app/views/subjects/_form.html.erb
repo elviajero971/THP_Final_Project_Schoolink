@@ -25,24 +25,23 @@
     <div class="col-md-3 mr-5 mb-3 pr-5">
     </div>
 
-        <div class="actions col-md-3 mb-3">
-          <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5', id: 'validForm') do %>
-            <span class="white-text pl-5 pr-5">Modifier</span>
-          <% end %>
-          </div>
-        </div>
-
-            <div class="text-center mb-5 mt-5">
-              <%= link_to 'Back', subject_path(@subject.id), class:"btn btn-secondary" %>
-            </div>
-              </div>
-          <% end %>
-          </div>
-        </div>
+      <div class="actions col-md-3 mb-3">
+        <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow pl-5 pr-5', id: 'validForm') do %>
+          <span class="white-text pl-5 pr-5">Modifier</span>
+        <% end %>
         </div>
       </div>
+
+      <div class="text-center mb-5 mt-5">
+        <%= link_to 'Back', subject_path(@subject.id), class:"btn btn-secondary" %>
+      </div>
+        </div>
+    <% end %>
+      </div>
+    </div>
     </div>
   </div>
-
+</div>
+</div>
 
 <script>var editor = new MediumEditor('#editable');</script>

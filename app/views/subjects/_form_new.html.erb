@@ -14,19 +14,19 @@
 
 <div class="row">
   <div class="field create-btn-resource">
-      <%= select_tag(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), :class => "btn btn-danger-gradiant create-btn bg-dark", include_blank: "Catégorie") %>
-    </div>
-  
-    <div class="field create-btn-resource">
-      <%= select_tag(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé']), :class => "btn btn-secondary create-btn", include_blank: "Difficulté") %>
-    </div>
-
-    <div class="actions ml-auto create-btn-resource">
-      <%= button_tag(type: 'submit', :class => 'btn btn-danger-gradiant btn-arrow create-btn', id: 'validForm') do %>
-        <span class="white-text pl-5 pr-5">Créer </span>
-      <% end %>
-    </div>
+    <%= select_tag(:category_id, options_for_select(@categories.map {|u|[u.name,u.id]}), :class => "btn btn-primary-gradiant create-btn bg-dark", include_blank: "Catégorie") %>
   </div>
+  
+  <div class="field create-btn-resource">
+    <%= select_tag(:difficulty, options_for_select(['Débutant', 'Intermédiaire', 'Avancé']), :class => "btn btn-secondary create-btn", include_blank: "Difficulté") %>
+  </div>
+
+  <div class="actions ml-auto create-btn-resource">
+    <%= button_tag(type: 'submit', :class => 'btn btn-primary btn-arrow create-btn', id: 'validForm') do %>
+      <span class="white-text pl-5 pr-5">Créer </span>
+    <% end %>
+  </div>
+</div>
 <% end %>
 
 <script>var editor = new MediumEditor('.editable');</script>

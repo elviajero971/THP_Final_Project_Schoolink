@@ -1,3 +1,23 @@
+/******************* 
+Global Styles 
+*******************/
+
+:root {
+  --primary: #273A73;
+
+  --secondary: #595959;
+  --secondary-dark: #262626;
+
+  --success: #73A2BF;
+
+  --danger: #A6453C;
+
+  --info: #17a2b8;
+
+  --warning: #fec500;
+}
+
+
 /*
 Template Name: Wrapkit
 Author: wrappixel
@@ -65,7 +85,7 @@ Header 1
   font-weight: 400;
 }
 .h1-nav .navbar-nav .nav-item .nav-link:hover {
-  color: #ff4d7e;
+  color: var(--success);
 }
 .h1-nav .navbar-nav .nav-item:last-child {
   margin-right: 0px;

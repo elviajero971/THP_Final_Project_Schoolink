@@ -12,14 +12,14 @@
 }
 
 .logo-text-nav {
-  color: #8d97ad;
+  color: var(--primary);
   margin-bottom: 0;
   margin-left: 20px;
   transition: 0.3s;
 }
 
 .logo-text-nav:hover {
-  color: #ff4d7e;
+  color: var(--success);
 }
 
 @media screen and (max-width: 1000px) {
