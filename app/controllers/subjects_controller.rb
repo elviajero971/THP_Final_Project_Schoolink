@@ -12,9 +12,9 @@ class SubjectsController < ApplicationController
     end
     
     if params[:category] && params[:category][:name].empty? == true && params[:query]
-      @subjects = Subject.where("title LIKE ?", @query)
+      @subjects = Subject.where("LOWER(title) LIKE ?", @query.downcase)
     elsif params[:category] && params[:category][:name] && params[:query]
-      @subjects = Subject.where("category_id = ? AND title LIKE ?", @cat, @query)
+      @subjects = Subject.where("category_id = ? AND LOWER(title) LIKE ?", @cat, @query.downcase)
     end
   end
 
