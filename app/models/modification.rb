@@ -12,6 +12,5 @@ class Modification < ApplicationRecord
     else 
       return "En attente"
     end
-  end
-  
+  end 
 end
