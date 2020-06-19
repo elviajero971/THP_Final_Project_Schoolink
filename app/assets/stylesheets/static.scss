@@ -2,17 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.charte h2{
+.charter h2{
 margin: 15px;
 }
 
-.charte p{
+.charter p{
   margin: 15px;
   color: black;
   font-size: 1,5em;
   }
 
-.charte li{
+.charter li{
   margin: 20px;
   color: black;
   font-size: 1,5em;
@@ -62,7 +62,7 @@ margin: 15px;
   }
 }
 
-.bulle-card {
+.round-card {
   height: 70px;
   width: 70px;
   border-radius: 100%;
@@ -71,7 +71,7 @@ margin: 15px;
   text-align: center;
 }
 
-.icon-card-bulle {
+.icon-round-bulle {
   position: relative;
   bottom: -18px;
 }
