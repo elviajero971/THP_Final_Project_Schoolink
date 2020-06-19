@@ -3,7 +3,7 @@
     <% if comment.user.profile_pic.attached? %>
       <div class="media mobile-block"> <%= image_tag comment.user.profile_pic, alt: 'profile_pic', class:"rounded-circle mobile-block-img img-comment" %>
     <% else %>
-      <div class="mobile-block"> <%= image_tag "https://res.cloudinary.com/dkeq1ghol/image/upload/v1592215464/avatar.png", alt: 'profile_pic', class:"rounded-circle mobile-block-img img-comment`" %>
+      <div class="media mobile-block"> <%= image_tag "https://res.cloudinary.com/dkeq1ghol/image/upload/v1592215464/avatar.png", alt: 'profile_pic', class:"rounded-circle mobile-block-img img-comment`" %>
     <% end %>
     <div class="media-body">
       <div class="row">
